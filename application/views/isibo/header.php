@@ -57,7 +57,7 @@
             
             <ul style="background:#F0F0F0;color:#000" class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo" >
-                    <a href="index.php"  >
+                    <a href=""  >
                         <img style="border-radius:50px"  src="<?=base_url()?>assets/assets/img/dadoh.png" class="navbar-logo" alt="logo">
                     </a>
                 </li>
