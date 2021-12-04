@@ -2,7 +2,18 @@
 
 
 class Family extends CI_Controller {
-	
+    public function __construct()
+    {
+        //call CodeIgniter's default Constructor
+        parent::__construct();
+
+        //load database libray manually
+        $this->load->database();
+
+        //load Model
+        $this->load->model('fm');
+    }
+
 	public function akagoroba(){
 		$this->load->view('header');
 		$this->load->view('sidebar');
@@ -161,9 +172,12 @@ class Family extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function umuryango(){
+        $results = $this->fm->getFamilyMembers(3);
+        $data['results'] = $results;
+
 		$this->load->view('header');
 		$this->load->view('sidebar');
-		$this->load->view('umuryango');
+		$this->load->view('umuryango', $data);
 		$this->load->view('footer');
 	}
 	public function umutekano(){
