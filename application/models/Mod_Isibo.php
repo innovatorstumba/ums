@@ -19,12 +19,12 @@ class Mod_Isibo extends CI_Model
 			'category' => $fname
 		);
 
-		$this->db->insert('leaders', $data);
+		$this->db->insert('ums_leaders', $data);
 	}
 
 	function selectCategory(){
 		$this->db->select('*');
-		$this->db->from('category');
+		$this->db->from('ums_category');
 		$query = $this->db->get();
 		$query->num_rows();
 		if ($query->num_rows()>0){
@@ -37,7 +37,7 @@ class Mod_Isibo extends CI_Model
 
 	function selectInsurance(){
 		$this->db->select('*');
-		$this->db->from('ubwishingizi');
+		$this->db->from('ums_ubwishingizi');
 		$query = $this->db->get();
 		$query->num_rows();
 		if ($query->num_rows()>0){
