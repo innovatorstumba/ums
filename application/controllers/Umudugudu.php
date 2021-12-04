@@ -3,6 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 class Umudugudu extends CI_Controller {
+	public function __construct()
+	{
+		//call CodeIgniter's default Constructor
+		parent::__construct();
+
+		//load database libray manually
+		$this->load->database();
+
+		//load Model
+		$this->load->model('Mod_Umudugudu');
+	}
 	public function index(){
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
@@ -23,9 +34,11 @@ class Umudugudu extends CI_Controller {
 		$this->load->view('umudugudu/footer');
 	}
 	public function abaturage(){
+		$result['abaturage'] = $this->Mod_Umudugudu->selectAbaturage();
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
-		$this->load->view('umudugudu/abaturage');
+		$this->load->view('umudugudu/abaturage', $result);
+	
 	}
 	public function citizen(){
 		$this->load->view('umudugudu/header');
@@ -116,6 +129,15 @@ class Umudugudu extends CI_Controller {
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
 		$this->load->view('umudugudu/kwandika_umuyobozi');
+		if ($this->input->post('submit')){
+			$firstname = $this->input->post('firstname');
+			$lastname = $this->input->post('lastname');
+			$nid = $this->input->post('nid');
+			$phone = $this->input->post('phone');
+			$this->Mod_Umudugudu->insertAdmin($firstname, $lastname, $nid, $phone);
+
+			redirect('umudugudu/abagize_komite');
+		}
 	}
 	public function kongeramo_isibo(){
 		$this->load->view('umudugudu/header');
@@ -280,10 +302,28 @@ class Umudugudu extends CI_Controller {
 		$this->load->view('umudugudu/hoteli');
 		$this->load->view('umudugudu/footer');
 	}
-	public function abagize_komite(){
+	public function edit_umuyobozi(){
+		$result['admin'] = $this->Mod_Umudugudu->selectAdmin();
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
-		$this->load->view('umudugudu/abagize_komite');
+		$this->load->view('umudugudu/edit_umuyobozi',$result);
+		$this->load->view('umudugudu/footer');
+		if ($this->input->post('update')){
+			$firstname = $this->input->post('firstname');
+			$lastname = $this->input->post('lastname');
+			$nid = $this->input->post('nid');
+			$phone = $this->input->post('phone');
+			
+			$this->Mod_Umudugudu->updateAdmin($firstname, $lastname, $nid, $phone);
+
+			redirect('umudugudu/abagize_komite');
+		}
+	}
+	public function abagize_komite(){
+		$result['admin'] = $this->Mod_Umudugudu->selectAdmin();
+		$this->load->view('umudugudu/header');
+		$this->load->view('umudugudu/sidebar');
+		$this->load->view('umudugudu/abagize_komite', $result);
 		$this->load->view('umudugudu/footer');
 	}
 	public function ongeramo_umuyobozi(){

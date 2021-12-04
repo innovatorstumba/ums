@@ -112,7 +112,7 @@ s
                 <input type="password" name="comfirmPassword" id="password2" onkeyup='check();' placeholder="EMEZA IJAMBO RY'IBANGA" required/>
                 <span id='message'></span><br>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
-                <input type="submit" name="submit" class="submit action-button" value="OHEREZA"/>
+                <input type="submit" name="submit"  value="OHEREZA"/>
             </fieldset>
         </form>
         <!-- link to designify.me code snippets -->

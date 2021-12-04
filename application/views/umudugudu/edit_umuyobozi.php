@@ -196,23 +196,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php
+                                foreach($admin as $row){
+                                ?>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
                                     <form method="post">
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">NIMERO Y'IRANGAMUNTU</label>
-                                            <input type="text" class="form-control" name="nid" id="exampleFormControlInput2" placeholder="UHAGARARIYE UMURYANGO">
+                                            <input type="text" class="form-control" name="nid" id="exampleFormControlInput2" value="<?=$row->nid?>">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
-                                            <input type="text" class="form-control" name="firstname" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
+                                            <input type="text" class="form-control" name="firstname" id="exampleFormControlInput2" value="<?=$row->firstname?>">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;"  for="exampleFormControlInput2">IZINA RYANYUMA</label>
-                                            <input type="text" name="lastname" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
+                                            <input type="text" name="lastname" class="form-control" id="exampleFormControlInput2" value="<?=$row->firstname?>">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;"  for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
-                                            <input type="text" name="phone" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
+                                            <input type="text" name="phone" class="form-control" id="exampleFormControlInput2" value="<?=$row->phone?>">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">ICYO ASHINZWE</label>
@@ -222,8 +225,8 @@
                                                         <option>ITERAMBERE
                                                             <option>ISIBO
                                             </select>
-                                            <input type="submit" name="submit" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
-                                        </div>
+                                            <input type="submit" name="update" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+                                       <?php } ?> </div>
                                     </form>
                                 </div>
                             </div>
