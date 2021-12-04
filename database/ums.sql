@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 03:55 PM
+-- Generation Time: Dec 04, 2021 at 06:29 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -162,6 +162,13 @@ CREATE TABLE `ums_category` (
   `category_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_category`
+--
+
+INSERT INTO `ums_category` (`cotegory_code`, `category_name`) VALUES
+(1, 'A');
+
 -- --------------------------------------------------------
 
 --
@@ -173,6 +180,14 @@ CREATE TABLE `ums_cell` (
   `sector_code` int(11) NOT NULL,
   `cell_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_cell`
+--
+
+INSERT INTO `ums_cell` (`cell_code`, `sector_code`, `cell_name`) VALUES
+(1, 1, 'Kabuye'),
+(2, 1, 'Nyacyonga');
 
 -- --------------------------------------------------------
 
@@ -290,6 +305,16 @@ CREATE TABLE `ums_district` (
   `province_code` int(11) NOT NULL,
   `district_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_district`
+--
+
+INSERT INTO `ums_district` (`district_code`, `province_code`, `district_name`) VALUES
+(1, 1, 'Gasabo'),
+(2, 1, 'Nyarugenge'),
+(3, 2, 'Rulindo'),
+(4, 2, 'Musanze');
 
 -- --------------------------------------------------------
 
@@ -443,6 +468,14 @@ CREATE TABLE `ums_isibo` (
   `isibo_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_isibo`
+--
+
+INSERT INTO `ums_isibo` (`isibo_code`, `village_code`, `isibo_name`) VALUES
+(1, 1, 'Ubumwe'),
+(2, 1, 'Itetero');
+
 -- --------------------------------------------------------
 
 --
@@ -479,6 +512,13 @@ CREATE TABLE `ums_leaders` (
   `category_code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_leaders`
+--
+
+INSERT INTO `ums_leaders` (`leader_id`, `firstname`, `lastname`, `phone`, `email`, `gender`, `dob`, `nid`, `profile`, `village_code`, `used_id`, `category_code`) VALUES
+(3, 'Kamana', 'Emmanuel', '0785656565', 'kamana@gmail.com', 'male', '1996-01-01', 115452565, '', 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -513,6 +553,13 @@ CREATE TABLE `ums_members` (
   `gender` varchar(10) NOT NULL,
   `leader_id` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_members`
+--
+
+INSERT INTO `ums_members` (`member_id`, `firstname`, `lastname`, `phone`, `nid`, `email`, `dob`, `gender`, `leader_id`) VALUES
+(1, 'Rukundo', 'Love', '0785654852', 1515151515, 'rukundo@gmail.com', '2011-12-01', 'male', 3);
 
 -- --------------------------------------------------------
 
@@ -557,6 +604,14 @@ CREATE TABLE `ums_province` (
   `province_name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_province`
+--
+
+INSERT INTO `ums_province` (`province_code`, `province_name`) VALUES
+(1, 'Kigali'),
+(2, 'Northern');
+
 -- --------------------------------------------------------
 
 --
@@ -567,6 +622,14 @@ CREATE TABLE `ums_roles` (
   `roles_id` int(11) NOT NULL,
   `roles_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_roles`
+--
+
+INSERT INTO `ums_roles` (`roles_id`, `roles_name`) VALUES
+(1, 'Admin'),
+(2, 'Family');
 
 -- --------------------------------------------------------
 
@@ -596,6 +659,14 @@ CREATE TABLE `ums_sector` (
   `district_code` int(11) NOT NULL,
   `sector_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_sector`
+--
+
+INSERT INTO `ums_sector` (`sector_code`, `district_code`, `sector_name`) VALUES
+(1, 1, 'Jabana'),
+(2, 1, 'Kinyinya');
 
 -- --------------------------------------------------------
 
@@ -663,6 +734,14 @@ CREATE TABLE `ums_users` (
   `roles_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_users`
+--
+
+INSERT INTO `ums_users` (`user_id`, `username`, `password`, `roles_id`) VALUES
+(1, 'user1', '123', 1),
+(2, 'user2', '123', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -674,6 +753,14 @@ CREATE TABLE `ums_village` (
   `cell_code` int(11) NOT NULL,
   `village_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_village`
+--
+
+INSERT INTO `ums_village` (`village_code`, `cell_code`, `village_name`) VALUES
+(1, 1, 'Amasangano'),
+(2, 1, 'Karuruma');
 
 --
 -- Indexes for dumped tables
@@ -1127,7 +1214,7 @@ ALTER TABLE `ums_isuku`
 -- AUTO_INCREMENT for table `ums_leaders`
 --
 ALTER TABLE `ums_leaders`
-  MODIFY `leader_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `leader_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ums_market`
@@ -1139,7 +1226,7 @@ ALTER TABLE `ums_market`
 -- AUTO_INCREMENT for table `ums_members`
 --
 ALTER TABLE `ums_members`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ums_parent_evening`
@@ -1157,7 +1244,7 @@ ALTER TABLE `ums_pharmacy`
 -- AUTO_INCREMENT for table `ums_roles`
 --
 ALTER TABLE `ums_roles`
-  MODIFY `roles_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `roles_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ums_saloon`
@@ -1187,7 +1274,7 @@ ALTER TABLE `ums_umutekano`
 -- AUTO_INCREMENT for table `ums_users`
 --
 ALTER TABLE `ums_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -1351,9 +1438,9 @@ ALTER TABLE `ums_isuku`
 -- Constraints for table `ums_leaders`
 --
 ALTER TABLE `ums_leaders`
-  ADD CONSTRAINT `ums_leaders_ibfk_1` FOREIGN KEY (`used_id`) REFERENCES `ums_roles` (`roles_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ums_leaders_ibfk_2` FOREIGN KEY (`village_code`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ums_leaders_ibfk_3` FOREIGN KEY (`category_code`) REFERENCES `ums_category` (`cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_leaders_ibfk_3` FOREIGN KEY (`category_code`) REFERENCES `ums_category` (`cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_leaders_ibfk_4` FOREIGN KEY (`used_id`) REFERENCES `ums_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_market`
