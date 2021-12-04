@@ -3,6 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 class Isibo extends CI_Controller {
+
+	public function __construct()
+	{
+		//call CodeIgniter's default Constructor
+		parent::__construct();
+
+		//load database libray manually
+		$this->load->database();
+
+		//load Model
+		$this->load->model('Mod_Isibo');
+	}
+
 	public function index(){
 		$this->load->view('isibo/header');
 		$this->load->view('isibo/sidebar');
@@ -65,9 +78,29 @@ class Isibo extends CI_Controller {
 		$this->load->view('isibo/footer');
 	}
 	public function ongeramo_umuryango(){
+		$result['data'] = $this->Mod_Isibo->selectCategory();
+		$result['insurance'] = $this->Mod_Isibo->selectInsurance();
 		$this->load->view('isibo/header');
 		$this->load->view('isibo/sidebar');
-		$this->load->view('isibo/ongeramo_umuryango');
+		$this->load->view('isibo/ongeramo_umuryango',$result);
+		if ($this->input->post('submit')){
+			$fname = $this->input->post('fname');
+			$lname = $this->input->post('lname');
+			$BOD = $this->input->post('birthday');
+			$id = $this->input->post('id');
+			$sex = $this->input->post('sex');
+			$ubudehe = $this->input->post('ubudehe');
+			$isano = $this->input->post('isano');
+			$insurance = $this->input->post('insurance');
+			$phone = $this->input->post('tel');
+			$houseNumber = $this->input->post('houseNumber');
+			$uname = $this->input->post('uname');
+			$password = $this->input->post('password');
+			$email = $this->input->post('email');
+			$this->Mod_Isibo->insert($fname, $lname, $BOD, $id,$sex,$ubudehe, $isano, $insurance, $phone, $houseNumber, $uname, $password, $email);
+
+			redirect('Pages/select');
+		}
 	}
 	public function imiryango(){
 		$this->load->view('isibo/header');

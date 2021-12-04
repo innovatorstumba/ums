@@ -145,8 +145,8 @@ body {
     list-style-type: none;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
-    font-size: 9px;
-    width: 33.33%;
+    font-size: 1px;
+    width: 25%;
     float: left;
     position: relative;
     letter-spacing: 1px;
@@ -169,7 +169,7 @@ body {
 /*progressbar connectors*/
 #progressbar li:after {
     content: '';
-    width: 100%;
+    width: 50%;
     height: 2px;
     background: rgb(202, 11, 11);
     position: absolute;
