@@ -302,8 +302,8 @@ class Umudugudu extends CI_Controller {
 		$this->load->view('umudugudu/hoteli');
 		$this->load->view('umudugudu/footer');
 	}
-	public function edit_umuyobozi(){
-		$result['admin'] = $this->Mod_Umudugudu->selectAdmin();
+	public function edit_umuyobozi($id){
+		$result['admin'] = $this->Mod_Umudugudu->viewAdmin($id);
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
 		$this->load->view('umudugudu/edit_umuyobozi',$result);
@@ -314,7 +314,7 @@ class Umudugudu extends CI_Controller {
 			$nid = $this->input->post('nid');
 			$phone = $this->input->post('phone');
 			
-			$this->Mod_Umudugudu->updateAdmin($firstname, $lastname, $nid, $phone);
+			$this->Mod_Umudugudu->updateAdmin($firstname, $lastname, $nid, $phone, $id);
 
 			redirect('umudugudu/abagize_komite');
 		}

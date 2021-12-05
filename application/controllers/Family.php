@@ -13,7 +13,7 @@ class Family extends CI_Controller {
         //load Model
         $this->load->model('fm');
     }
-
+	
 	public function akagoroba(){
 		$this->load->view('header');
 		$this->load->view('sidebar');

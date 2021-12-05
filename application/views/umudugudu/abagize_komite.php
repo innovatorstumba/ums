@@ -219,7 +219,7 @@
                                             <td><?=$row->firstname?></td>
                                             <td><?=$row->phone?></td>
                                             <td><?=$row->user_id?></td>
-                                            <td><a href="edit_umuyobozi">EDIT</a></td>
+                                            <td><a href="<?=base_url()?>umudugudu/edit_umuyobozi/<?=$row->admin_id?>">EDIT</a></td>
                                         </tr>
                                        		<?php
 									}
