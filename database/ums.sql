@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 06:29 PM
+-- Generation Time: Dec 05, 2021 at 10:07 AM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -498,26 +498,28 @@ CREATE TABLE `ums_isuku` (
 --
 
 CREATE TABLE `ums_leaders` (
-  `leader_id` int(11) NOT NULL,
-  `firstname` varchar(20) NOT NULL,
-  `lastname` varchar(20) NOT NULL,
-  `phone` varchar(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `dob` date NOT NULL,
-  `nid` int(16) NOT NULL,
-  `profile` varchar(100) NOT NULL,
-  `village_code` int(11) NOT NULL,
-  `used_id` int(11) NOT NULL,
-  `category_code` int(11) NOT NULL
+  `ldr_leader_id` int(11) NOT NULL,
+  `ldr_firstname` varchar(20) NOT NULL,
+  `ldr_lastname` varchar(20) NOT NULL,
+  `ldr_phone` varchar(20) NOT NULL,
+  `ldr_email` varchar(50) NOT NULL,
+  `ldr_gender` varchar(10) NOT NULL,
+  `ldr_dob` date NOT NULL,
+  `ldr_nid` int(16) NOT NULL,
+  `ldr_profile` varchar(100) DEFAULT NULL,
+  `ldr_village_code` int(11) NOT NULL,
+  `ldr_used_id` int(11) NOT NULL,
+  `ldr_category_code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ums_leaders`
 --
 
-INSERT INTO `ums_leaders` (`leader_id`, `firstname`, `lastname`, `phone`, `email`, `gender`, `dob`, `nid`, `profile`, `village_code`, `used_id`, `category_code`) VALUES
-(3, 'Kamana', 'Emmanuel', '0785656565', 'kamana@gmail.com', 'male', '1996-01-01', 115452565, '', 1, 1, 1);
+INSERT INTO `ums_leaders` (`ldr_leader_id`, `ldr_firstname`, `ldr_lastname`, `ldr_phone`, `ldr_email`, `ldr_gender`, `ldr_dob`, `ldr_nid`, `ldr_profile`, `ldr_village_code`, `ldr_used_id`, `ldr_category_code`) VALUES
+(3, 'Kamana', 'Emmanuel', '0785656565', 'kamana@gmail.com', 'male', '1996-01-01', 115452565, '', 1, 1, 1),
+(5, 'audace', 'sangano', '0783503691', 'audasang2018@gmail.com', 'male', '2021-12-01', 2345678, NULL, 2, 8, 1),
+(6, 'xxvcbv', 'esrdtyhj', '0783503691', 'habiyaremye97@gmail.com', 'female', '2021-12-16', 2345678, NULL, 2, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -543,22 +545,22 @@ CREATE TABLE `ums_market` (
 --
 
 CREATE TABLE `ums_members` (
-  `member_id` int(11) NOT NULL,
-  `firstname` varchar(30) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `phone` varchar(20) NOT NULL,
-  `nid` int(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `dob` date NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `leader_id` int(15) NOT NULL
+  `mbr_member_id` int(11) NOT NULL,
+  `mbr_firstname` varchar(30) NOT NULL,
+  `mbr_lastname` varchar(50) NOT NULL,
+  `mbr_phone` varchar(20) NOT NULL,
+  `mbr_nid` int(20) NOT NULL,
+  `mbr_email` varchar(50) NOT NULL,
+  `mbr_dob` date NOT NULL,
+  `mbr_gender` varchar(10) NOT NULL,
+  `mbr_leader_id` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ums_members`
 --
 
-INSERT INTO `ums_members` (`member_id`, `firstname`, `lastname`, `phone`, `nid`, `email`, `dob`, `gender`, `leader_id`) VALUES
+INSERT INTO `ums_members` (`mbr_member_id`, `mbr_firstname`, `mbr_lastname`, `mbr_phone`, `mbr_nid`, `mbr_email`, `mbr_dob`, `mbr_gender`, `mbr_leader_id`) VALUES
 (1, 'Rukundo', 'Love', '0785654852', 1515151515, 'rukundo@gmail.com', '2011-12-01', 'male', 3);
 
 -- --------------------------------------------------------
@@ -688,6 +690,27 @@ CREATE TABLE `ums_supermarket` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ums_ubwishingizi`
+--
+
+CREATE TABLE `ums_ubwishingizi` (
+  `ubw_id` int(11) NOT NULL,
+  `ubw_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_ubwishingizi`
+--
+
+INSERT INTO `ums_ubwishingizi` (`ubw_id`, `ubw_name`) VALUES
+(1, 'MMI'),
+(2, 'RAMA'),
+(3, 'MITUWELE'),
+(4, 'UAP');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ums_umugereka`
 --
 
@@ -740,7 +763,8 @@ CREATE TABLE `ums_users` (
 
 INSERT INTO `ums_users` (`user_id`, `username`, `password`, `roles_id`) VALUES
 (1, 'user1', '123', 1),
-(2, 'user2', '123', 2);
+(8, 'sano', '123', 2),
+(9, 'user3', 'qwerty', 2);
 
 -- --------------------------------------------------------
 
@@ -977,11 +1001,11 @@ ALTER TABLE `ums_isuku`
 -- Indexes for table `ums_leaders`
 --
 ALTER TABLE `ums_leaders`
-  ADD PRIMARY KEY (`leader_id`),
-  ADD KEY `village_id` (`village_code`),
-  ADD KEY `used_id` (`used_id`),
-  ADD KEY `village_code` (`village_code`),
-  ADD KEY `category_code` (`category_code`);
+  ADD PRIMARY KEY (`ldr_leader_id`),
+  ADD KEY `village_id` (`ldr_village_code`),
+  ADD KEY `used_id` (`ldr_used_id`),
+  ADD KEY `village_code` (`ldr_village_code`),
+  ADD KEY `category_code` (`ldr_category_code`);
 
 --
 -- Indexes for table `ums_market`
@@ -994,8 +1018,8 @@ ALTER TABLE `ums_market`
 -- Indexes for table `ums_members`
 --
 ALTER TABLE `ums_members`
-  ADD PRIMARY KEY (`member_id`),
-  ADD KEY `leader_id` (`leader_id`);
+  ADD PRIMARY KEY (`mbr_member_id`),
+  ADD KEY `leader_id` (`mbr_leader_id`);
 
 --
 -- Indexes for table `ums_parent_evening`
@@ -1042,6 +1066,12 @@ ALTER TABLE `ums_sector`
 ALTER TABLE `ums_supermarket`
   ADD PRIMARY KEY (`id`),
   ADD KEY `village_id` (`village_id`);
+
+--
+-- Indexes for table `ums_ubwishingizi`
+--
+ALTER TABLE `ums_ubwishingizi`
+  ADD PRIMARY KEY (`ubw_id`);
 
 --
 -- Indexes for table `ums_umugereka`
@@ -1214,7 +1244,7 @@ ALTER TABLE `ums_isuku`
 -- AUTO_INCREMENT for table `ums_leaders`
 --
 ALTER TABLE `ums_leaders`
-  MODIFY `leader_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ldr_leader_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `ums_market`
@@ -1226,7 +1256,7 @@ ALTER TABLE `ums_market`
 -- AUTO_INCREMENT for table `ums_members`
 --
 ALTER TABLE `ums_members`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mbr_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ums_parent_evening`
@@ -1259,6 +1289,12 @@ ALTER TABLE `ums_supermarket`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ums_ubwishingizi`
+--
+ALTER TABLE `ums_ubwishingizi`
+  MODIFY `ubw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `ums_umugereka`
 --
 ALTER TABLE `ums_umugereka`
@@ -1274,7 +1310,7 @@ ALTER TABLE `ums_umutekano`
 -- AUTO_INCREMENT for table `ums_users`
 --
 ALTER TABLE `ums_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -1284,7 +1320,7 @@ ALTER TABLE `ums_users`
 -- Constraints for table `ums_abatwite`
 --
 ALTER TABLE `ums_abatwite`
-  ADD CONSTRAINT `ums_abatwite_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `ums_members` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_abatwite_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `ums_members` (`mbr_member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_admin`
@@ -1339,8 +1375,8 @@ ALTER TABLE `ums_cell`
 -- Constraints for table `ums_chat`
 --
 ALTER TABLE `ums_chat`
-  ADD CONSTRAINT `ums_chat_ibfk_1` FOREIGN KEY (`leader_sender`) REFERENCES `ums_leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ums_chat_ibfk_2` FOREIGN KEY (`leader_reciever`) REFERENCES `ums_leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_chat_ibfk_1` FOREIGN KEY (`leader_sender`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_chat_ibfk_2` FOREIGN KEY (`leader_reciever`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ums_chat_ibfk_3` FOREIGN KEY (`admin_sender`) REFERENCES `ums_admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ums_chat_ibfk_4` FOREIGN KEY (`admin_reciever`) REFERENCES `ums_admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -1348,7 +1384,7 @@ ALTER TABLE `ums_chat`
 -- Constraints for table `ums_chat_group`
 --
 ALTER TABLE `ums_chat_group`
-  ADD CONSTRAINT `ums_chat_group_ibfk_1` FOREIGN KEY (`leader_participant`) REFERENCES `ums_leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_chat_group_ibfk_1` FOREIGN KEY (`leader_participant`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_church`
@@ -1366,7 +1402,7 @@ ALTER TABLE `ums_coin`
 -- Constraints for table `ums_coin_member`
 --
 ALTER TABLE `ums_coin_member`
-  ADD CONSTRAINT `ums_coin_member_ibfk_1` FOREIGN KEY (`coin_id`) REFERENCES `ums_members` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_coin_member_ibfk_1` FOREIGN KEY (`coin_id`) REFERENCES `ums_members` (`mbr_member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_comment`
@@ -1402,19 +1438,19 @@ ALTER TABLE `ums_house`
 -- Constraints for table `ums_ibarura`
 --
 ALTER TABLE `ums_ibarura`
-  ADD CONSTRAINT `ums_ibarura_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_ibarura_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_ibyemezo`
 --
 ALTER TABLE `ums_ibyemezo`
-  ADD CONSTRAINT `ums_ibyemezo_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `ums_members` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_ibyemezo_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `ums_members` (`mbr_member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_imihigo`
 --
 ALTER TABLE `ums_imihigo`
-  ADD CONSTRAINT `ums_imihigo_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_imihigo_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_inganda`
@@ -1432,15 +1468,15 @@ ALTER TABLE `ums_isibo`
 -- Constraints for table `ums_isuku`
 --
 ALTER TABLE `ums_isuku`
-  ADD CONSTRAINT `ums_isuku_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_isuku_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_leaders`
 --
 ALTER TABLE `ums_leaders`
-  ADD CONSTRAINT `ums_leaders_ibfk_2` FOREIGN KEY (`village_code`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ums_leaders_ibfk_3` FOREIGN KEY (`category_code`) REFERENCES `ums_category` (`cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ums_leaders_ibfk_4` FOREIGN KEY (`used_id`) REFERENCES `ums_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_leaders_ibfk_2` FOREIGN KEY (`ldr_village_code`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_leaders_ibfk_3` FOREIGN KEY (`ldr_category_code`) REFERENCES `ums_category` (`cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_leaders_ibfk_4` FOREIGN KEY (`ldr_used_id`) REFERENCES `ums_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_market`
@@ -1452,7 +1488,7 @@ ALTER TABLE `ums_market`
 -- Constraints for table `ums_members`
 --
 ALTER TABLE `ums_members`
-  ADD CONSTRAINT `ums_members_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_members_ibfk_1` FOREIGN KEY (`mbr_leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_pharmacy`
@@ -1490,7 +1526,7 @@ ALTER TABLE `ums_umugereka`
 -- Constraints for table `ums_umutekano`
 --
 ALTER TABLE `ums_umutekano`
-  ADD CONSTRAINT `ums_umutekano_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_umutekano_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_users`
