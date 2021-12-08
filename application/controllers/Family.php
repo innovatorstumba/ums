@@ -12,6 +12,10 @@ class Family extends CI_Controller {
 
         //load Model
         $this->load->model('fm');
+
+        //load session library
+        //session_start();
+        $this->load->library('session');
     }
 
 	public function akagoroba(){
@@ -172,13 +176,18 @@ class Family extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function umuryango(){
-        $results = $this->fm->getFamilyMembers(3);
-        $data['results'] = $results;
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $results = $this->fm->getFamilyMembers(3);
+            $data['results'] = $results;
 
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('umuryango', $data);
-		$this->load->view('footer');
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('umuryango', $data);
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function umutekano(){
 		$this->load->view('header');
