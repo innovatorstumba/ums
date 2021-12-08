@@ -19,41 +19,71 @@ class Family extends CI_Controller {
     }
 
 	public function akagoroba(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('abashyitsi');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('abashyitsi');
+			$this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 
 	public function amaduka(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('amaduka');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('amaduka');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function abashyitsi(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('abashyitsi');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('abashyitsi');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function amabanki(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('amabanki');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('amabanki');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function amashuri(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('amashuri');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('amashuri');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function amasoko(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('amasoko');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('amasoko');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function amatangazo(){
 		$this->load->view('header');
@@ -62,118 +92,213 @@ class Family extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function amavuriro(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('amavuriro');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('amavuriro');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function guhiga(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('guhiga');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('guhiga');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function guhindura_umwirondoro(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('guhindura_umwirondoro');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('guhindura_umwirondoro');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function hoteli(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('hoteli');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('hoteli');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function ibarura(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('ibarura');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('ibarura');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function ibyaranzwe(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('ibyaranzwe');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('ibyaranzwe');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function ibyibwe(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('ibyibwe');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('ibyibwe');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function igiceri(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('igiceri');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('igiceri');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function imihigo(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('imihigo');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('imihigo');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function inganda(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('inganda');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('inganda');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function insengero(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('insengero');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('insengero');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function isuku(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('isuku');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('isuku');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function kuranga(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('kuranga');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('kuranga');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function kwandika_umushyitsi(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('kwandika_umushyitsi');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('kwandika_umushyitsi');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function my_issues(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('my_issues');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('my_issues');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function pharmacy(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('pharmacy');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('pharmacy');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function restaurant(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('restaurant');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('restaurant');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function salon_de_coiffure(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('salon_de_coiffure');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('salon_de_coiffure');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function umuganda(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('umuganda');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('umuganda');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function umuryango(){
         $sessionData=$this->session->userdata('userid');
@@ -190,68 +315,124 @@ class Family extends CI_Controller {
         }
 	}
 	public function umutekano(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('umutekano');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('umutekano');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function umwirondoro(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('umwirondoro');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('umwirondoro');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function utubari(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('utubari');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('utubari');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function chat(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('chat');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('chat');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function amafoto(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('amafoto');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('amafoto');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function invoice(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('invoice');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('invoice');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function kwandika_ibyibwe(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('kwandika_ibyibwe');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('kwandika_ibyibwe');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function umuhigo(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('umuhigo');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('umuhigo');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function ibikorwaremezo(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('ibikorwaremezo');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('ibikorwaremezo');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function kwishyura(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('kwishyura');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('kwishyura');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function pay(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('pay');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('pay');
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 }

@@ -62,7 +62,7 @@
 				</a>
 			</li>
 			<li class="nav-item theme-text" >
-				<a href="<?=base_url()?>home" style="font-size:14px;color:#000" class="nav-link"> Dadoh Bernard <?=$this->session->userdata('userid');?></a>
+				<a href="<?=base_url()?>home" style="font-size:14px;color:#000" class="nav-link"> <?=$this->session->userdata('firstname')." ".$this->session->userdata('lastname');?></a>
 			</li>
 			<li class="nav-item toggle-sidebar">
 				<a href="javascript:void(0);"  style="color:#000" class="sidebarCollapse" data-placement="bottom">

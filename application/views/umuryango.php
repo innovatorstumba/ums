@@ -216,12 +216,12 @@
                                         $x++;
                                         ?>
                                         <tr><td><?=$x;?></td>
-                                            <td><?=$row->firstname . " " . $row->firstname;?></td>
-                                            <td><?=$row->phone;?></td>
-                                            <td><?=$row->nid;?></td>
-                                            <td><?=$row->email;?></td>
-                                            <td><?=$row->dob;?></td>
-                                            <td><?=$row->gender;?></td>
+                                            <td><?=$row->mbr_firstname . " " . $row->mbr_lastname;?></td>
+                                            <td><?=$row->mbr_phone;?></td>
+                                            <td><?=$row->mbr_nid;?></td>
+                                            <td><?=$row->mbr_email;?></td>
+                                            <td><?=$row->mbr_dob;?></td>
+                                            <td><?=$row->mbr_gender;?></td>
                                         </tr>
                                         <?php
                                     }
