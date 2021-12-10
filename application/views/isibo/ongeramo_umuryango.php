@@ -37,15 +37,10 @@ s
 
 <!-- MultiStep Form -->
 <div class="row">
-    <div  class="col-md-12 col-md-offset-1" >
-        <form  id="msform" method="POST">
+    <div  class="col-md-10 col-md-offset-1" >
+        <form action="<?=base_url()?>Isibo/ongeramo_umuryango" method="POST" enctype="multipart/form-data" id="msform">
             <!-- progressbar -->
-            <ul id="progressbar">
-                <li class="active">Personal </li>
-                <li>Social </li>
-                <li>Account </li>
-                <li>Security </li>
-            </ul>
+        
             <!-- fieldsets -->
             <fieldset>
                 <h2 class="fs-title">uzuza neza ibisabwa</h2>
@@ -68,9 +63,9 @@ s
                 <select name="ubudehe" required>
                 <option style="display:none">HITAMO UBUDEHE</option>
                 <?php
-									foreach($data as $row)
+                foreach($data as $row)
 									{?>
-									<option value=""><?=$row->category_name?></option>
+									<option value="<?php echo $row->cat_cotegory_code; ?>"><?=$row->cat_category_name?></option>
 									<?php
 									}
 				?>
@@ -84,13 +79,12 @@ s
                 <select name="insurance" id="insurance" required>
                 <option style="display:none">HITAMO UBWINSHINGIZI</option>
                 <?php
-									foreach($insurance as $row)
+                foreach($insurance as $row)
 									{?>
-									<option value=""><?=$row->ubw_name?></option>
+									<option value="<?=$row->ubw_id?>"><?=$row->ubw_name?></option>
 									<?php
 									}
 				?>
-                <option value="other">Other</option>
                 </select>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
                 <input type="button" name="next" class="next action-button" value="KOMEZA"/>
@@ -112,7 +106,7 @@ s
                 <input type="password" name="comfirmPassword" id="password2" onkeyup='check();' placeholder="EMEZA IJAMBO RY'IBANGA" required/>
                 <span id='message'></span><br>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
-                <input type="submit" name="submit" class="submit action-button" value="OHEREZA"/>
+                <input type="submit" name="save" value="OHEREZA"/>
             </fieldset>
         </form>
         <!-- link to designify.me code snippets -->
@@ -131,12 +125,3 @@ s
 <script src="<?=base_url()?>assets/asset/multistepform/js/msform.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../asset/js/ie10-viewport-bug-workaround.js"></script>
-
-<!-- <script>
-    $("#insurance").change(function () {
-  var numInputs = $(this).val();
-  if (numInputs == "other"){
-    $("#inputArea").append('<input name="insurance2" placeholder="ubundi bwishingizi"/>');
-  }
-});
-</script> -->
