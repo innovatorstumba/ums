@@ -250,6 +250,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+<<<<<<< HEAD
                                         <?php
                                         foreach($data as $row){
                                           ?>
@@ -276,6 +277,25 @@
                                           <?php                                        
                                         }
                                         ?>
+=======
+                                    <?php
+									foreach($abaturage as $row)
+									{?>
+                                    <tr>
+                           
+							
+                                            <td><?=$row->firstname?></td>
+                                            <td><?=$row->nid?></td>
+                                            <td><?=$row->phone?></td>
+                                            <td><?=$row->dob?></td>
+                                            <td><?=$row->category_code?></td>
+                                            <td><?=$row->phone?></td>
+                                            <td><?=$row->gender?></td>
+                                        </tr>
+                                       		<?php
+									}
+				?>
+>>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
                                     </tbody>
                                     <tfoot>
                                     <tr>

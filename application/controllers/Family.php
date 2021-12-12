@@ -17,7 +17,7 @@ class Family extends CI_Controller {
         //session_start();
         $this->load->library('session');
     }
-
+	
 	public function akagoroba(){
         $sessionData=$this->session->userdata('userid');
         if($sessionData!="") {

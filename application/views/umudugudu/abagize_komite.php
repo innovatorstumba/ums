@@ -216,10 +216,17 @@
                                     <tr>
                            
 							                              <td>1</td>
+<<<<<<< HEAD
                                             <td><?=$row->adm_firstname?></td>
                                             <td><?=$row->adm_phone?></td>
                                             <td><?=$row->adm_user_id?></td>
                                             <td><a href="<?=base_url()?>umudugudu/edit_umuyobozi/<?=$row->adm_id?>">EDIT</a></td>
+=======
+                                            <td><?=$row->firstname?></td>
+                                            <td><?=$row->phone?></td>
+                                            <td><?=$row->user_id?></td>
+                                            <td><a href="<?=base_url()?>umudugudu/edit_umuyobozi/<?=$row->admin_id?>">EDIT</a></td>
+>>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
                                         </tr>
                                        		<?php
 									}

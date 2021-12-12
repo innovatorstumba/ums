@@ -203,6 +203,7 @@
                                     <form method="post">
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">NIMERO Y'IRANGAMUNTU</label>
+<<<<<<< HEAD
                                             <input type="text" class="form-control" name="nid" id="exampleFormControlInput2" value="<?=$row->adm_nid?>">
                                         </div>
                                         <div class="form-group mb-4">
@@ -216,6 +217,21 @@
                                         <div class="form-group mb-4">
                                             <label style="color:#000;"  for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
                                             <input type="text" name="phone" class="form-control" id="exampleFormControlInput2" value="<?=$row->adm_phone?>">
+=======
+                                            <input type="text" class="form-control" name="nid" id="exampleFormControlInput2" value="<?=$row->nid?>">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
+                                            <input type="text" class="form-control" name="firstname" id="exampleFormControlInput2" value="<?=$row->firstname?>">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label style="color:#000;"  for="exampleFormControlInput2">IZINA RYANYUMA</label>
+                                            <input type="text" name="lastname" class="form-control" id="exampleFormControlInput2" value="<?=$row->firstname?>">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label style="color:#000;"  for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
+                                            <input type="text" name="phone" class="form-control" id="exampleFormControlInput2" value="<?=$row->phone?>">
+>>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">ICYO ASHINZWE</label>
