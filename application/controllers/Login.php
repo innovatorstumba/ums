@@ -27,7 +27,7 @@ class Login extends CI_Controller
                     $ldr_session_data = array('userid' => $row->usr_id, 'leader_id' => $leader_data->ldr_leader_id, 'firstname' => $leader_data->ldr_firstname, 'lastname' => $leader_data->ldr_lastname);
                     $this->session->set_userdata($ldr_session_data);
                     redirect(base_url());
-                } else {
+                }else {
                     //Admin Users Session Data
                     $adm_data = $this->login->selectAdminByUserId($row->usr_id);
                     $admin_data = $adm_data->row();

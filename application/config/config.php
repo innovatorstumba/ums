@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://197.243.14.72/ums/';
-$config['base_url'] = 'http://localhost/2022/ums/';
+$config['base_url'] = 'http://localhost/ums-main/';
 
 /*
 |--------------------------------------------------------------------------
