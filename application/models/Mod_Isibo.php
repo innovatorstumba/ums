@@ -25,6 +25,7 @@ class Mod_Isibo extends CI_Model
 			'ldr_nid' => $id,
 			'ldr_profile' => null,
 			'ldr_village_code'=>2,
+			'ldr_insurance'=>$insur,
 			'ldr_used_id'=>$last_id,
 			'ldr_category_code' => $ubu
 		);
@@ -127,11 +128,29 @@ class Mod_Isibo extends CI_Model
 		}
 	}
 
+	function selectForAnn($id=12){
+		$this->db->select('*');
+		$this->db->from('ums_admin');
+		$this->db->join('ums_users', 'adm_user_id=usr_id');
+		$this->db->join('ums_isibo', 'usr_isibo=isibo_code');
+		$this->db->where('usr_id', $id);
+
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query;
+		}
+		else{
+			return false;
+		}
+	}
+
 	function abaturage()
 	{
-		$this->db->select('*');
+		$this->db->select('*,TIMESTAMPDIFF (YEAR, ldr_dob, CURDATE()) AS age,TIMESTAMPDIFF (MONTH, ldr_dob, CURDATE()) AS mnth,TIMESTAMPDIFF (DAY, ldr_dob, CURDATE()) AS dy');
 		$this->db->from('ums_leaders');
 		$this->db->join('ums_category', 'ldr_category_code=cat_cotegory_code');
+		$this->db->join('ums_ubwishingizi', 'ldr_insurance=ubw_id');
 
 		$query = $this->db->get();
 
@@ -142,4 +161,36 @@ class Mod_Isibo extends CI_Model
 			return false;
 		}
 	}
+
+	function itangazo($t, $b, $p, $isibo, $owner){
+		$data1 = array(
+			'ama_id' =>null,
+			'ama_title' => $t,
+			'ama_desc' => $b,
+			'ama_file' => $p,
+			'ama_category' => "ayaleta",
+			'ama_isibo' => $isibo,
+			'ama_created_by' => $owner,
+			'ama_created_on' => gmdate("l jFY h:i:s A")
+		);
+
+		$this->db->insert('ums_amatangazo', $data1);
+	}
+
+	function selectIbyaranzwe($id){
+		$this->db->select('*');
+		$this->db->from('ums_amatangazo');
+		$this->db->join('ums_users', 'ama_created_by=usr_id');
+		$this->db->join('ums_isibo', 'ama_isibo =isibo_code');
+		$this->db->where('isibo_code', $id);
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
 }

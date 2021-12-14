@@ -17,6 +17,8 @@ class Isibo extends CI_Controller {
 
 		//load session library
 		$this->load->library('session');
+
+		$this->load->helper(array('form', 'url'));
 	}
 
 	public function index(){
@@ -97,6 +99,46 @@ class Isibo extends CI_Controller {
 			redirect(base_url() . 'Login');
 		}
 	}
+
+	public function do_upload_ikira(){
+        $config['upload_path']          = './assets/uploads/amatangazo/';
+        $config['allowed_types']        = 'gif|jpg|png|pdf';
+        $config['max_size']             = 0;
+     
+        $this->load->library('upload', $config);
+     
+        if ( ! $this->upload->do_upload('ufile'))
+        {
+			$sessionData=$this->session->userdata('userid');
+			$result = $this->Mod_Isibo->selectForAnn($sessionData);
+			$row = $result->row();
+			$isibo = $row->isibo_code;
+			$owner = $row->usr_id;
+			$title = $this->input->post('title');
+			$body = $this->input->post('desc');
+			$pic = "";
+			$this->Mod_Isibo->itangazo($title, $body, $pic, $isibo, $owner);
+
+			redirect('Isibo/index');
+        }
+        else
+        {
+			$sessionData=$this->session->userdata('userid');
+			$result = $this->Mod_Isibo->selectForAnn($sessionData);
+			$row = $result->row();
+			$isibo = $row->isibo_code;
+			$owner = $row->usr_id;
+            $datav = $this->upload->data();
+			$title = $this->input->post('title');
+			$body = $this->input->post('desc');
+			$pic = "assets/uploads/amatangazo/".$datav['file_name'];
+			$this->Mod_Isibo->itangazo($title, $body, $pic, $isibo, $owner);
+
+			redirect('Isibo/index');
+        }
+    }
+
+
 	public function amafoto(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
@@ -122,9 +164,15 @@ class Isibo extends CI_Controller {
 	public function ibyaranzwe(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$sessionData=$this->session->userdata('userid');
+			$result1 = $this->Mod_Isibo->selectForAnn($sessionData);
+			$row = $result1->row();
+			$isibo = $row->isibo_code;
+
+			$result['data'] = $this->Mod_Isibo->selectIbyaranzwe($isibo);
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/ibyaranzwe');
+			$this->load->view('isibo/ibyaranzwe',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');

@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Upload extends CI_Controller {
 
 	public function __construct()
 	{
 			parent::__construct();
 			$this->load->helper(array('form', 'url'));
-			$this->load->model('upload_model');
+			// $this->load->model('upload_model');
 	}
 
     public function index()
