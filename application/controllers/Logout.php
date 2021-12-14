@@ -11,7 +11,9 @@ class Logout extends CI_Controller
         $this->load->database();
 
         //load Model
+
         $this->load->model('login');
+
 
         //load session library
         //session_start();

@@ -246,146 +246,42 @@
                                             <th>IKICIRO</th>
                                             <th>TELEPHONE</th>
                                             <th>IGITSINA</th>
+                                            <th style="display:none;"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>$320,800</td>
-                                        </tr>  <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>$320,800</td>
-                                        </tr>  <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>$320,800</td>
-                                        </tr>  <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>$320,800</td>
-                                        </tr>  <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>$320,800</td>
-                                        </tr>  <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>$320,800</td>
-                                        </tr>  <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>$320,800</td>
-                                        </tr>  <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>$320,800</td>
-                                        </tr>
+                                        <?php
+                                        foreach($data as $row){
+                                          ?>
+                                          <tr>
+                                               <td><?=$row->ldr_firstname?></td>
+                                               <td><?=$row->ldr_nid?></td>
+                                               <td><?=$row->ubw_name?></td>
+                                               <td><?php
+                                               if($row->age>0){
+                                                 echo "Imyaka ".$row->age;
+                                               }else{
+                                                 if($row->mnth>0){
+                                                   echo "Amezi ".$row->mnth;
+                                                 }else{
+                                                   echo "munsi y'ukwezi";
+                                                 }
+                                               }
+                                               ?></td>
+                                               <td><?=$row->cat_category_name?></td>
+                                               <td><?=$row->ldr_phone?></td>
+                                               <td><?php
+                                               if($row->ldr_gender=="female"){
+                                                 echo "Gore";
+                                               }else{
+                                                 echo "Gabo";
+                                               }
+                                              ?></td>
+                                              <td style="display:none;"><?=$row->age?></td>
+                                           </tr>
+                                          <?php                                        
+                                        }
+                                        ?>
                                     </tbody>
                                     <tfoot>
                                     <tr>
@@ -396,6 +292,7 @@
                                             <th>IKICIRO</th>
                                             <th>TELEPHONE</th>
                                             <th>IGITSINA</th>
+                                            <th style="display:none;"></th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -444,7 +341,7 @@
             function( settings, data, dataIndex ) {
                 var min = parseInt( $('#min').val(), 10 );
                 var max = parseInt( $('#max').val(), 10 );
-                var age = parseFloat( data[3] ) || 0; // use data for the age column
+                var age = parseFloat( data[7] ) || 0;
          
                 if ( ( isNaN( min ) && isNaN( max ) ) ||
                      ( isNaN( min ) && age <= max ) ||

@@ -184,111 +184,96 @@
 </style>
 
 <div id="content" class="main-content">
-            <div class="layout-px-spacing">
-                <div class="row layout-top-spacing">
-                <div class="container">
-<div class="col-md-9" style="padding-right:30px" >
-<div class="social-feed-box">
-<div class="pull-right social-action dropdown">
-            <button>
-               <a href="ayaleta.php"> <i class="fa fa-star"> KURANGISHA</i></a>
-            </button>
-            
-        </div>
+    <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+            <div class="container">
+                <div class="col-md-9" style="padding-right:30px" >
+                    <div class="social-feed-box">
+                        <div class="pull-right social-action dropdown">
+                            <button>
+                                <a href="ayaleta.php"> <i class="fa fa-star"> KURANGISHA</i></a>
+                            </button>            
+                        </div>
 
-<div class="social-avatar">
-    <a href="" class="pull-left">
-        <img alt="image" src="./assets/img/profile.jpg">
-    </a>
-    <div class="media-body">
-        <a href="#">
-           Dadoh Bernard
-        </a>
-        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-    </div>
-</div>
-<div class="social-body">
-<h4>UMUHANDA NIMERO KN 23 ST 60 WANGIRITSE</h4>
+                        <div class="social-avatar">
+                            <a href="" class="pull-left">
+                                <img alt="image" src="./assets/img/profile.jpg">
+                            </a>
+                            <div class="media-body">
+                                <a href="#">
+                                Dadoh Bernard
+                                </a>
+                                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            </div>
+                        </div>
+                        <div class="social-body">
+                            <h4>UMUHANDA NIMERO KN 23 ST 60 WANGIRITSE</h4>
   
-<p style="color:#000; font-family:arial; text-align: justify;">
-                Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text. Lorem Ipsum as their
-                default model text and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text.
-            </p>
-            <img src="./assets/img/road.jpg" class="img-responsive">
-</div>
-
-
-</div>
-
-<div class="social-feed-box">
-
-       
-<div class="social-avatar">
-    <a href="" class="pull-left">
-        <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-    </a>
-    <div class="media-body">
-        <a href="#">
-            KAMANA Jean Bosco
-        </a>
-        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-    </div>
-</div>
-<div class="social-body">
-<h4>UBURYO BWO KWIKINGIZA URUKINGO RWA COVID-19</h4>
-<p style="color:#000; font-family:arial; text-align: justify;">
-                Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text. Lorem Ipsum as their
-                default model text and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text.
-            </p>
-            <img src="./assets/img/corona.jpg" class="img-responsive">
-
-</div>
-
-</div>
-    <div class="social-feed-box">
-
-      
-        <div class="social-avatar">
-            <a href="" class="pull-left">
-            <img alt="image" src="./assets/img/profile4.jpg">            </a>
-            <div class="media-body">
-                <a href="#">
-                    UMUTWARASIBO
-                </a>
-                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            <p style="color:#000; font-family:arial; text-align: justify;">
+                                Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                                default model text, and a search for 'lorem ipsum' will uncover many web sites still
+                                in their infancy. Packages and web page editors now use Lorem Ipsum as their
+                                default model text. Lorem Ipsum as their
+                                default model text and a search for 'lorem ipsum' will uncover many web sites still
+                                in their infancy. Packages and web page editors now use Lorem Ipsum as their
+                                default model text.
+                            </p>
+                            <img src="./assets/img/road.jpg" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="social-feed-box">       
+                    <div class="social-avatar">
+                        <a href="" class="pull-left">
+                            <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                        </a>
+                        <div class="media-body">
+                            <a href="#">
+                                KAMANA Jean Bosco
+                            </a>
+                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                        </div>
+                    </div>
+                    <div class="social-body">
+                        <h4>UBURYO BWO KWIKINGIZA URUKINGO RWA COVID-19</h4>
+                        <p style="color:#000; font-family:arial; text-align: justify;">
+                            Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                            default model text, and a search for 'lorem ipsum' will uncover many web sites still
+                            in their infancy. Packages and web page editors now use Lorem Ipsum as their
+                            default model text. Lorem Ipsum as their
+                            default model text and a search for 'lorem ipsum' will uncover many web sites still
+                            in their infancy. Packages and web page editors now use Lorem Ipsum as their
+                            default model text.
+                        </p>
+                        <img src="./assets/img/corona.jpg" class="img-responsive">
+                    </div>
+                </div>
+                <div class="social-feed-box">      
+                    <div class="social-avatar">
+                        <a href="" class="pull-left">
+                        <img alt="image" src="./assets/img/profile4.jpg">            </a>
+                        <div class="media-body">
+                            <a href="#">
+                                UMUTWARASIBO
+                            </a>
+                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                        </div>
+                    </div>
+                    <div class="social-body" style="color:#000">
+                        <h4>ITANGAZO "AHO UMUGANDA UZABERA"</h4>
+                        <p style="color:#000; font-family:arial; text-align: justify;">
+                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                        default model text, and a search for 'lorem ipsum' will uncover many web sites still
+                        in their infancy. Packages and web page editors now use Lorem Ipsum as their
+                        default model text. Lorem Ipsum as their
+                        default model text and a search for 'lorem ipsum' will uncover many web sites still
+                        in their infancy. Packages and web page editors now use Lorem Ipsum as their
+                        default model text.
+                        </p>
+                        <img src="./assets/img/new2.jpg" class="img-responsive">            
+                    </div> 
+                </div>
             </div>
-        </div>
-        <div class="social-body" style="color:#000">
-        <h4>ITANGAZO "AHO UMUGANDA UZABERA"</h4>
-                <p style="color:#000; font-family:arial; text-align: justify;">
-                Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text. Lorem Ipsum as their
-                default model text and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text.
-            </p>
-            <img src="./assets/img/new2.jpg" class="img-responsive">
-            
-        </div>
-       
-
     </div>
-   
-   
-</div>
-</div>
 
                     <div class="test" >
                         <div class="widget widget-activity-five">

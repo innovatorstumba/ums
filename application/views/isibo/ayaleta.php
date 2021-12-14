@@ -197,19 +197,19 @@
                                     </div>
                                 </div>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <form>
+                                    <?php echo form_open_multipart(site_url('Isibo/do_upload_ikira'));?>
                                         <div class="form-group mb-4">
-                                            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="ITANGAZO">
+                                            <input type="text" name="title" class="form-control" id="exampleFormControlInput2" required="" placeholder="ITANGAZO">
                                         </div>
  
                                         <div class="form-group mb-4">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                                            <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" rows="10" required></textarea>
                                         </div>
                                         <div class="form-group mb-4 mt-3">
-                                            <label style="color:#000;" for="exampleFormControlFile1">IFOTO Y'IKIRANGISHWA</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            <label style="color:#000;" for="exampleFormControlFile1">Ikirangwa</label>
+                                            <input type="file" name="ufile" id="InputFile">
                                         </div>
-                                        <input type="submit" value="Ohereza" name="time" class="mt-4 mb-4 btn btn-primary">
+                                        <button class="btn btn-lg btn-primary btn-block" type="submit">Emeza</button>
                                     </form>
                                 </div>
                             </div>
