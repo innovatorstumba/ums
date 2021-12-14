@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 07:25 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- Generation Time: Dec 05, 2021 at 12:04 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,211 +24,226 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `abatwite`
+-- Table structure for table `ums_abatwite`
 --
 
-CREATE TABLE `abatwite` (
-  `id` int(11) NOT NULL,
-  `member_id` int(20) NOT NULL,
-  `italiki` date NOT NULL
+CREATE TABLE `ums_abatwite` (
+  `abtw_id` int(11) NOT NULL,
+  `abtw_member_id` int(20) NOT NULL,
+  `abtw_italiki` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `ums_admin`
 --
 
-CREATE TABLE `admin` (
-  `admin_id` int(11) NOT NULL,
-  `firstname` varchar(100) NOT NULL,
-  `lastname` varchar(100) NOT NULL,
-  `nid` int(16) NOT NULL,
-  `phone` varchar(100) NOT NULL,
-  `village_code` int(12) NOT NULL,
-  `user_id` int(11) NOT NULL
+CREATE TABLE `ums_admin` (
+  `adm_id` int(11) NOT NULL,
+  `adm_firstname` varchar(100) NOT NULL,
+  `adm_lastname` varchar(100) NOT NULL,
+  `adm_nid` int(16) NOT NULL,
+  `adm_phone` varchar(100) NOT NULL,
+  `adm_village_code` int(12) NOT NULL,
+  `adm_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `amaduka`
+-- Table structure for table `ums_amaduka`
 --
 
-CREATE TABLE `amaduka` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_amaduka` (
+  `duka_id` int(11) NOT NULL,
+  `duka_name` varchar(100) NOT NULL,
+  `duka_village_id` int(15) NOT NULL,
+  `duka_contact` varchar(100) NOT NULL,
+  `duka_file` varchar(100) NOT NULL,
+  `duka_description` varchar(255) NOT NULL,
+  `duka_category` varchar(100) NOT NULL,
+  `duka_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `amashuri`
+-- Table structure for table `ums_amashuri`
 --
 
-CREATE TABLE `amashuri` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_amashuri` (
+  `scl_id` int(11) NOT NULL,
+  `scl_name` varchar(100) NOT NULL,
+  `scl_village_id` int(15) NOT NULL,
+  `scl_contact` varchar(100) NOT NULL,
+  `scl_file` varchar(100) NOT NULL,
+  `scl_description` varchar(255) NOT NULL,
+  `scl_category` varchar(100) NOT NULL,
+  `scl_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `amasoko`
+-- Table structure for table `ums_amasoko`
 --
 
-CREATE TABLE `amasoko` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_amasoko` (
+  `soko_id` int(11) NOT NULL,
+  `soko_name` varchar(100) NOT NULL,
+  `soko_village_id` int(15) NOT NULL,
+  `soko_contact` varchar(100) NOT NULL,
+  `soko_file` varchar(100) NOT NULL,
+  `soko_description` varchar(255) NOT NULL,
+  `soko_category` varchar(100) NOT NULL,
+  `soko_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `amavuriro`
+-- Table structure for table `ums_amavuriro`
 --
 
-CREATE TABLE `amavuriro` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_amavuriro` (
+  `vuriro_id` int(11) NOT NULL,
+  `vuriro_name` varchar(100) NOT NULL,
+  `vuriro_village_id` int(15) NOT NULL,
+  `vuriro_contact` varchar(100) NOT NULL,
+  `vuriro_file` varchar(100) NOT NULL,
+  `vuriro_description` varchar(255) NOT NULL,
+  `vuriro_category` varchar(100) NOT NULL,
+  `vuriro_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banks`
+-- Table structure for table `ums_banks`
 --
 
-CREATE TABLE `banks` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_banks` (
+  `bank_id` int(11) NOT NULL,
+  `bank_name` varchar(100) NOT NULL,
+  `bank_village_id` int(15) NOT NULL,
+  `bank_contact` varchar(100) NOT NULL,
+  `bank_file` varchar(100) NOT NULL,
+  `bank_description` varchar(255) NOT NULL,
+  `bank_category` varchar(100) NOT NULL,
+  `bank_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bar_restaurent`
+-- Table structure for table `ums_bar_restaurent`
 --
 
-CREATE TABLE `bar_restaurent` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_bar_restaurent` (
+  `bar_id` int(11) NOT NULL,
+  `bar_name` varchar(100) NOT NULL,
+  `bar_village_id` int(15) NOT NULL,
+  `bar_contact` varchar(100) NOT NULL,
+  `bar_file` varchar(100) NOT NULL,
+  `bar_description` varchar(255) NOT NULL,
+  `bar_category` varchar(100) NOT NULL,
+  `bar_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Table structure for table `ums_category`
 --
 
-CREATE TABLE `category` (
-  `cotegory_code` int(11) NOT NULL,
-  `category_name` varchar(50) NOT NULL
+CREATE TABLE `ums_category` (
+  `cat_cotegory_code` int(11) NOT NULL,
+  `cat_category_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_category`
+--
+
+INSERT INTO `ums_category` (`cat_cotegory_code`, `cat_category_name`) VALUES
+(1, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ums_cell`
+--
+
+CREATE TABLE `ums_cell` (
+  `c_cell_code` int(11) NOT NULL,
+  `c_sector_code` int(11) NOT NULL,
+  `c_cell_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_cell`
+--
+
+INSERT INTO `ums_cell` (`c_cell_code`, `c_sector_code`, `c_cell_name`) VALUES
+(1, 1, 'Kabuye'),
+(2, 1, 'Nyacyonga');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ums_chat`
+--
+
+CREATE TABLE `ums_chat` (
+  `cht_id` int(11) NOT NULL,
+  `cht_admin_sender` int(11) NOT NULL,
+  `cht_admin_reciever` int(11) NOT NULL,
+  `cht_chat_group` int(11) NOT NULL,
+  `cht_body` longtext NOT NULL,
+  `cht_file` varchar(100) NOT NULL,
+  `cht_chat_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `cht_leader_sender` int(11) NOT NULL,
+  `cht_leader_reciever` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cell`
+-- Table structure for table `ums_chat_group`
 --
 
-CREATE TABLE `cell` (
-  `cell_code` int(11) NOT NULL,
-  `sector_code` int(11) NOT NULL,
-  `cell_name` varchar(20) NOT NULL
+CREATE TABLE `ums_chat_group` (
+  `grp_id` int(11) NOT NULL,
+  `grp_name` varchar(100) NOT NULL,
+  `grp_leader_participant` int(11) NOT NULL,
+  `grp_admin_participant` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chat`
+-- Table structure for table `ums_church`
 --
 
-CREATE TABLE `chat` (
-  `chat_id` int(11) NOT NULL,
-  `admin_sender` int(11) NOT NULL,
-  `admin_reciever` int(11) NOT NULL,
-  `chat_group` int(11) NOT NULL,
-  `body` longtext NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `chat_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `leader_sender` int(11) NOT NULL,
-  `leader_reciever` int(11) NOT NULL
+CREATE TABLE `ums_church` (
+  `ch_id` int(11) NOT NULL,
+  `ch_name` varchar(100) NOT NULL,
+  `ch_village_id` int(15) NOT NULL,
+  `ch_contact` varchar(100) NOT NULL,
+  `ch_file` varchar(100) NOT NULL,
+  `ch_description` varchar(255) NOT NULL,
+  `ch_category` varchar(100) NOT NULL,
+  `ch_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chat_group`
+-- Table structure for table `ums_coin`
 --
 
-CREATE TABLE `chat_group` (
-  `id` int(11) NOT NULL,
-  `group_name` varchar(100) NOT NULL,
-  `leader_participant` int(11) NOT NULL,
-  `admin_participant` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `church`
---
-
-CREATE TABLE `church` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `coin`
---
-
-CREATE TABLE `coin` (
+CREATE TABLE `ums_coin` (
   `id` int(11) NOT NULL,
   `coin_id` int(11) NOT NULL,
   `amount` varchar(50) NOT NULL,
@@ -239,751 +254,853 @@ CREATE TABLE `coin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `coin_member`
+-- Table structure for table `ums_coin_member`
 --
 
-CREATE TABLE `coin_member` (
-  `coin_id` int(11) NOT NULL,
-  `member_id` int(11) NOT NULL,
-  `join_date` date NOT NULL
+CREATE TABLE `ums_coin_member` (
+  `cm_coin_id` int(11) NOT NULL,
+  `cm_member_id` int(11) NOT NULL,
+  `cm_join_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Table structure for table `ums_comment`
 --
 
-CREATE TABLE `comment` (
-  `comment_id` int(11) NOT NULL,
-  `idea_id` int(11) NOT NULL,
-  `comment` varchar(255) NOT NULL,
-  `comment_date` date NOT NULL,
-  `uploaded` varchar(100) NOT NULL
+CREATE TABLE `ums_comment` (
+  `co_id` int(11) NOT NULL,
+  `co_idea_id` int(11) NOT NULL,
+  `co_comment` varchar(255) NOT NULL,
+  `co_comment_date` date NOT NULL,
+  `co_uploaded` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cooperative`
+-- Table structure for table `ums_cooperative`
 --
 
-CREATE TABLE `cooperative` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_cooperative` (
+  `co_id` int(11) NOT NULL,
+  `co_name` varchar(100) NOT NULL,
+  `co_village_id` int(15) NOT NULL,
+  `co_contact` varchar(100) NOT NULL,
+  `co_file` varchar(100) NOT NULL,
+  `co_description` varchar(255) NOT NULL,
+  `co_category` varchar(100) NOT NULL,
+  `co_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `district`
+-- Table structure for table `ums_district`
 --
 
-CREATE TABLE `district` (
-  `district_code` int(11) NOT NULL,
-  `province_code` int(11) NOT NULL,
-  `district_name` varchar(20) NOT NULL
+CREATE TABLE `ums_district` (
+  `d_code` int(11) NOT NULL,
+  `d_province_code` int(11) NOT NULL,
+  `d_district_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_district`
+--
+
+INSERT INTO `ums_district` (`d_code`, `d_province_code`, `d_district_name`) VALUES
+(1, 1, 'Gasabo'),
+(2, 1, 'Nyarugenge'),
+(3, 2, 'Rulindo'),
+(4, 2, 'Musanze');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ums_ejoheza`
+--
+
+CREATE TABLE `ums_ejoheza` (
+  `ejo_id` int(11) NOT NULL,
+  `ejo_leader_id` int(11) NOT NULL,
+  `ejo_amount` varchar(20) NOT NULL,
+  `ejo_pay_date` date NOT NULL,
+  `ejo_pay_year` int(11) NOT NULL,
+  `ejo_pay_month` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ejoheza`
+-- Table structure for table `ums_hotel`
 --
 
-CREATE TABLE `ejoheza` (
-  `ejoheza_id` int(11) NOT NULL,
-  `leader_id` int(11) NOT NULL,
-  `amount` varchar(20) NOT NULL,
-  `pay_date` date NOT NULL,
-  `pay_year` int(11) NOT NULL,
-  `pay_month` varchar(100) NOT NULL
+CREATE TABLE `ums_hotel` (
+  `ho_id` int(11) NOT NULL,
+  `ho_name` varchar(100) NOT NULL,
+  `ho_village_id` int(15) NOT NULL,
+  `ho_contact` varchar(100) NOT NULL,
+  `ho_file` varchar(100) NOT NULL,
+  `ho_description` varchar(255) NOT NULL,
+  `ho_category` varchar(100) NOT NULL,
+  `ho_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hotel`
+-- Table structure for table `ums_house`
 --
 
-CREATE TABLE `hotel` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_house` (
+  `h_number` varchar(30) NOT NULL,
+  `h_isibo_code` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `house`
+-- Table structure for table `ums_ibarura`
 --
 
-CREATE TABLE `house` (
-  `house_number` varchar(30) NOT NULL,
-  `isibo_code` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ibarura`
---
-
-CREATE TABLE `ibarura` (
-  `ibarura_id` int(11) NOT NULL,
-  `leader_id` int(11) NOT NULL,
-  `girinka` varchar(100) NOT NULL,
-  `agatanda` varchar(100) NOT NULL,
-  `akarima` varchar(100) NOT NULL,
-  `abanyeshuri` varchar(100) NOT NULL,
-  `abatiga` varchar(100) NOT NULL,
-  `abana_batwite` varchar(100) NOT NULL,
-  `abashomeri` varchar(100) NOT NULL,
-  `abakozi` varchar(100) NOT NULL,
+CREATE TABLE `ums_ibarura` (
+  `iba_id` int(11) NOT NULL,
+  `iba_leader_id` int(11) NOT NULL,
+  `iba_girinka` varchar(100) NOT NULL,
+  `iba_agatanda` varchar(100) NOT NULL,
+  `iba_akarima` varchar(100) NOT NULL,
+  `iba_abanyeshuri` varchar(100) NOT NULL,
+  `iba_abatiga` varchar(100) NOT NULL,
+  `iba_abana_batwite` varchar(100) NOT NULL,
+  `iba_abashomeri` varchar(100) NOT NULL,
+  `iba_abakozi` varchar(100) NOT NULL,
   `ibicanwa` varchar(100) NOT NULL,
-  `abana_babyaye` varchar(100) NOT NULL
+  `iba_abana_babyaye` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ibyemezo`
+-- Table structure for table `ums_ibyemezo`
 --
 
-CREATE TABLE `ibyemezo` (
-  `ibyemezo_id` int(11) NOT NULL,
-  `title` varchar(50) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `file` varchar(50) NOT NULL,
-  `date` date NOT NULL,
-  `member_id` int(11) NOT NULL
+CREATE TABLE `ums_ibyemezo` (
+  `ib_id` int(11) NOT NULL,
+  `ib_title` varchar(50) NOT NULL,
+  `ib_description` varchar(255) NOT NULL,
+  `ib_file` varchar(50) NOT NULL,
+  `ib_date` date NOT NULL,
+  `ib_member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `idea`
+-- Table structure for table `ums_idea`
 --
 
-CREATE TABLE `idea` (
+CREATE TABLE `ums_idea` (
   `idea_id` int(11) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
+  `idea_description` varchar(100) NOT NULL,
+  `dea_file` varchar(100) NOT NULL,
   `idea_date` date NOT NULL,
-  `uploaded` varchar(100) NOT NULL
+  `dea_uploaded` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `igiceri`
+-- Table structure for table `ums_igiceri`
 --
 
-CREATE TABLE `igiceri` (
+CREATE TABLE `ums_igiceri` (
   `igiceri_id` int(11) NOT NULL,
-  `leader_id` int(11) NOT NULL,
-  `amount` varchar(20) NOT NULL,
-  `pay_date` date NOT NULL,
-  `pay_year` int(11) NOT NULL,
-  `pay_month` varchar(100) NOT NULL
+  `igiceri_leader_id` int(11) NOT NULL,
+  `igiceri_amount` varchar(20) NOT NULL,
+  `igiceri_pay_date` date NOT NULL,
+  `igiceri_pay_year` int(11) NOT NULL,
+  `igiceri_pay_month` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `imihigo`
+-- Table structure for table `ums_imihigo`
 --
 
-CREATE TABLE `imihigo` (
+CREATE TABLE `ums_imihigo` (
   `imihigo_code` int(11) NOT NULL,
-  `leader_id` int(11) NOT NULL,
+  `imihigo_leader_id` int(11) NOT NULL,
   `imihigo` varchar(255) NOT NULL,
-  `start_date` date NOT NULL,
-  `end_date` date NOT NULL,
+  `imihigo_start_date` date NOT NULL,
+  `imihigo_end_date` date NOT NULL,
   `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inganda`
+-- Table structure for table `ums_inganda`
 --
 
-CREATE TABLE `inganda` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_inganda` (
+  `in_id` int(11) NOT NULL,
+  `in_name` varchar(100) NOT NULL,
+  `in_village_id` int(15) NOT NULL,
+  `in_contact` varchar(100) NOT NULL,
+  `in_file` varchar(100) NOT NULL,
+  `in_description` varchar(255) NOT NULL,
+  `in_category` varchar(100) NOT NULL,
+  `in_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `isibo`
+-- Table structure for table `ums_isibo`
 --
 
-CREATE TABLE `isibo` (
+CREATE TABLE `ums_isibo` (
   `isibo_code` int(11) NOT NULL,
-  `village_code` int(11) NOT NULL,
+  `isibo_village_code` int(11) NOT NULL,
   `isibo_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_isibo`
+--
+
+INSERT INTO `ums_isibo` (`isibo_code`, `isibo_village_code`, `isibo_name`) VALUES
+(1, 1, 'Ubumwe'),
+(2, 1, 'Itetero');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `isuku`
+-- Table structure for table `ums_isuku`
 --
 
-CREATE TABLE `isuku` (
+CREATE TABLE `ums_isuku` (
   `isuku_id` int(11) NOT NULL,
-  `leader_id` int(11) NOT NULL,
-  `amount` varchar(20) NOT NULL,
-  `pay_date` date NOT NULL,
-  `pay_year` int(11) NOT NULL,
-  `pay_month` varchar(100) NOT NULL
+  `isuku_leader_id` int(11) NOT NULL,
+  `isuku_amount` varchar(20) NOT NULL,
+  `isuku_pay_date` date NOT NULL,
+  `isuku_pay_year` int(11) NOT NULL,
+  `isuku_pay_month` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `leaders`
+-- Table structure for table `ums_leaders`
 --
 
-CREATE TABLE `leaders` (
-  `leader_id` int(11) NOT NULL,
-  `firstname` varchar(20) NOT NULL,
-  `lastname` varchar(20) NOT NULL,
-  `phone` varchar(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `dob` date NOT NULL,
-  `nid` int(16) NOT NULL,
-  `profile` varchar(100) NOT NULL,
-  `village_code` int(11) NOT NULL,
-  `used_id` int(11) NOT NULL,
-  `category_code` int(11) NOT NULL
+CREATE TABLE `ums_leaders` (
+  `ldr_leader_id` int(11) NOT NULL,
+  `ldr_firstname` varchar(20) NOT NULL,
+  `ldr_lastname` varchar(20) NOT NULL,
+  `ldr_phone` varchar(20) NOT NULL,
+  `ldr_email` varchar(50) NOT NULL,
+  `ldr_gender` varchar(10) NOT NULL,
+  `ldr_dob` date NOT NULL,
+  `ldr_nid` int(16) NOT NULL,
+  `ldr_profile` varchar(100) DEFAULT NULL,
+  `ldr_village_code` int(11) NOT NULL,
+  `ldr_used_id` int(11) NOT NULL,
+  `ldr_category_code` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_leaders`
+--
+
+INSERT INTO `ums_leaders` (`ldr_leader_id`, `ldr_firstname`, `ldr_lastname`, `ldr_phone`, `ldr_email`, `ldr_gender`, `ldr_dob`, `ldr_nid`, `ldr_profile`, `ldr_village_code`, `ldr_used_id`, `ldr_category_code`) VALUES
+(3, 'Kamana', 'Emmanuel', '0785656565', 'kamana@gmail.com', 'male', '1996-01-01', 115452565, '', 1, 1, 1),
+(5, 'audace', 'sangano', '0783503691', 'audasang2018@gmail.com', 'male', '2021-12-01', 2345678, NULL, 2, 8, 1),
+(6, 'xxvcbv', 'esrdtyhj', '0783503691', 'habiyaremye97@gmail.com', 'female', '2021-12-16', 2345678, NULL, 2, 9, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ums_market`
+--
+
+CREATE TABLE `ums_market` (
+  `m_id` int(11) NOT NULL,
+  `m_name` varchar(100) NOT NULL,
+  `m_village_id` int(15) NOT NULL,
+  `m_contact` varchar(100) NOT NULL,
+  `m_file` varchar(100) NOT NULL,
+  `m_description` varchar(255) NOT NULL,
+  `m_category` varchar(100) NOT NULL,
+  `m_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `market`
+-- Table structure for table `ums_members`
 --
 
-CREATE TABLE `market` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_members` (
+  `mbr_member_id` int(11) NOT NULL,
+  `mbr_firstname` varchar(30) NOT NULL,
+  `mbr_lastname` varchar(50) NOT NULL,
+  `mbr_phone` varchar(20) NOT NULL,
+  `mbr_nid` int(20) NOT NULL,
+  `mbr_email` varchar(50) NOT NULL,
+  `mbr_dob` date NOT NULL,
+  `mbr_gender` varchar(10) NOT NULL,
+  `mbr_leader_id` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_members`
+--
+
+INSERT INTO `ums_members` (`mbr_member_id`, `mbr_firstname`, `mbr_lastname`, `mbr_phone`, `mbr_nid`, `mbr_email`, `mbr_dob`, `mbr_gender`, `mbr_leader_id`) VALUES
+(1, 'Rukundo', 'Love', '0785654852', 1515151515, 'rukundo@gmail.com', '2011-12-01', 'male', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ums_parent_evening`
+--
+
+CREATE TABLE `ums_parent_evening` (
+  `pare_id` int(11) NOT NULL,
+  `pare_participant` longtext NOT NULL,
+  `pare_italiki` date NOT NULL,
+  `pare_title` varchar(100) NOT NULL,
+  `pare_descrption` varchar(250) NOT NULL,
+  `pare_file` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `members`
+-- Table structure for table `ums_pharmacy`
 --
 
-CREATE TABLE `members` (
-  `member_id` int(11) NOT NULL,
-  `firstname` varchar(30) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `phone` varchar(20) NOT NULL,
-  `nid` int(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `dob` date NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `leader_id` int(15) NOT NULL
+CREATE TABLE `ums_pharmacy` (
+  `ph_id` int(11) NOT NULL,
+  `ph_name` varchar(100) NOT NULL,
+  `ph_village_id` int(15) NOT NULL,
+  `ph_contact` varchar(100) NOT NULL,
+  `ph_file` varchar(100) NOT NULL,
+  `ph_description` varchar(255) NOT NULL,
+  `ph_category` varchar(100) NOT NULL,
+  `ph_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `parent_evening`
+-- Table structure for table `ums_province`
 --
 
-CREATE TABLE `parent_evening` (
-  `id` int(11) NOT NULL,
-  `participant` longtext NOT NULL,
-  `italiki` date NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `descrption` varchar(250) NOT NULL,
-  `file` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pharmacy`
---
-
-CREATE TABLE `pharmacy` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `province`
---
-
-CREATE TABLE `province` (
+CREATE TABLE `ums_province` (
   `province_code` int(11) NOT NULL,
   `province_name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_province`
+--
+
+INSERT INTO `ums_province` (`province_code`, `province_name`) VALUES
+(1, 'Kigali'),
+(2, 'Northern');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Table structure for table `ums_roles`
 --
 
-CREATE TABLE `roles` (
+CREATE TABLE `ums_roles` (
   `roles_id` int(11) NOT NULL,
   `roles_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_roles`
+--
+
+INSERT INTO `ums_roles` (`roles_id`, `roles_name`) VALUES
+(1, 'Admin'),
+(2, 'Family');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `saloon`
+-- Table structure for table `ums_saloon`
 --
 
-CREATE TABLE `saloon` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_saloon` (
+  `salo_id` int(11) NOT NULL,
+  `salo_name` varchar(100) NOT NULL,
+  `salo_village_id` int(15) NOT NULL,
+  `salo_contact` varchar(100) NOT NULL,
+  `salo_file` varchar(100) NOT NULL,
+  `salo_description` varchar(255) NOT NULL,
+  `salo_category` varchar(100) NOT NULL,
+  `salo_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sector`
+-- Table structure for table `ums_sector`
 --
 
-CREATE TABLE `sector` (
+CREATE TABLE `ums_sector` (
   `sector_code` int(11) NOT NULL,
   `district_code` int(11) NOT NULL,
   `sector_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ums_sector`
+--
+
+INSERT INTO `ums_sector` (`sector_code`, `district_code`, `sector_name`) VALUES
+(1, 1, 'Jabana'),
+(2, 1, 'Kinyinya');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supermarket`
+-- Table structure for table `ums_supermarket`
 --
 
-CREATE TABLE `supermarket` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `village_id` int(15) NOT NULL,
-  `contact` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `owner` varchar(255) NOT NULL
+CREATE TABLE `ums_supermarket` (
+  `sup_id` int(11) NOT NULL,
+  `sup_name` varchar(100) NOT NULL,
+  `sup_village_id` int(15) NOT NULL,
+  `sup_contact` varchar(100) NOT NULL,
+  `sup_file` varchar(100) NOT NULL,
+  `sup_description` varchar(255) NOT NULL,
+  `sup_category` varchar(100) NOT NULL,
+  `sup_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `umugereka`
+-- Table structure for table `ums_ubwishingizi`
 --
 
-CREATE TABLE `umugereka` (
-  `umugereka_id` int(11) NOT NULL,
-  `firstname` varchar(20) NOT NULL,
-  `lastname` varchar(20) NOT NULL,
-  `phone` varchar(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `dob` date NOT NULL,
-  `nid` int(16) NOT NULL,
-  `profile` varchar(100) NOT NULL,
-  `village_code` int(11) NOT NULL,
-  `used_id` int(11) NOT NULL,
-  `category_code` int(11) NOT NULL
+CREATE TABLE `ums_ubwishingizi` (
+  `ubw_id` int(11) NOT NULL,
+  `ubw_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_ubwishingizi`
+--
+
+INSERT INTO `ums_ubwishingizi` (`ubw_id`, `ubw_name`) VALUES
+(1, 'MMI'),
+(2, 'RAMA'),
+(3, 'MITUWELE'),
+(4, 'UAP');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ums_umugereka`
+--
+
+CREATE TABLE `ums_umugereka` (
+  `um_id` int(11) NOT NULL,
+  `um_firstname` varchar(20) NOT NULL,
+  `um_lastname` varchar(20) NOT NULL,
+  `um_phone` varchar(20) NOT NULL,
+  `um_email` varchar(50) NOT NULL,
+  `um_gender` varchar(10) NOT NULL,
+  `um_dob` date NOT NULL,
+  `um_nid` int(16) NOT NULL,
+  `um_profile` varchar(100) NOT NULL,
+  `um_village_code` int(11) NOT NULL,
+  `um_used_id` int(11) NOT NULL,
+  `um_category_code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `umutekano`
+-- Table structure for table `ums_umutekano`
 --
 
-CREATE TABLE `umutekano` (
-  `umutekano_id` int(11) NOT NULL,
-  `leader_id` int(11) NOT NULL,
-  `amount` varchar(20) NOT NULL,
-  `pay_date` date NOT NULL,
-  `pay_year` int(11) NOT NULL,
-  `pay_month` varchar(20) NOT NULL
+CREATE TABLE `ums_umutekano` (
+  `umt_id` int(11) NOT NULL,
+  `umt_leader_id` int(11) NOT NULL,
+  `umt_amount` varchar(20) NOT NULL,
+  `umt_pay_date` date NOT NULL,
+  `umt_pay_year` int(11) NOT NULL,
+  `umt_pay_month` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `ums_users`
 --
 
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `roles_id` int(11) NOT NULL
+CREATE TABLE `ums_users` (
+  `usr_id` int(11) NOT NULL,
+  `usr_username` varchar(100) NOT NULL,
+  `usr_password` varchar(100) NOT NULL,
+  `usr_roles_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_users`
+--
+
+INSERT INTO `ums_users` (`usr_id`, `usr_username`, `usr_password`, `usr_roles_id`) VALUES
+(1, 'user1', '123', 1),
+(8, 'sano', '123', 2),
+(9, 'user3', 'qwerty', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `village`
+-- Table structure for table `ums_village`
 --
 
-CREATE TABLE `village` (
+CREATE TABLE `ums_village` (
   `village_code` int(11) NOT NULL,
   `cell_code` int(11) NOT NULL,
   `village_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `ums_village`
+--
+
+INSERT INTO `ums_village` (`village_code`, `cell_code`, `village_name`) VALUES
+(1, 1, 'Amasangano'),
+(2, 1, 'Karuruma');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `abatwite`
+-- Indexes for table `ums_abatwite`
 --
-ALTER TABLE `abatwite`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `member_id` (`member_id`);
+ALTER TABLE `ums_abatwite`
+  ADD PRIMARY KEY (`abtw_id`),
+  ADD KEY `member_id` (`abtw_member_id`);
 
 --
--- Indexes for table `admin`
+-- Indexes for table `ums_admin`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`),
-  ADD KEY `location_id` (`village_code`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `village_code` (`village_code`);
+ALTER TABLE `ums_admin`
+  ADD PRIMARY KEY (`adm_id`),
+  ADD KEY `location_id` (`adm_village_code`),
+  ADD KEY `user_id` (`adm_user_id`),
+  ADD KEY `village_code` (`adm_village_code`);
 
 --
--- Indexes for table `amaduka`
+-- Indexes for table `ums_amaduka`
 --
-ALTER TABLE `amaduka`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_amaduka`
+  ADD PRIMARY KEY (`duka_id`),
+  ADD KEY `village_id` (`duka_village_id`);
 
 --
--- Indexes for table `amashuri`
+-- Indexes for table `ums_amashuri`
 --
-ALTER TABLE `amashuri`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_amashuri`
+  ADD PRIMARY KEY (`scl_id`),
+  ADD KEY `village_id` (`scl_village_id`);
 
 --
--- Indexes for table `amasoko`
+-- Indexes for table `ums_amasoko`
 --
-ALTER TABLE `amasoko`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_amasoko`
+  ADD PRIMARY KEY (`soko_id`),
+  ADD KEY `village_id` (`soko_village_id`);
 
 --
--- Indexes for table `amavuriro`
+-- Indexes for table `ums_amavuriro`
 --
-ALTER TABLE `amavuriro`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_amavuriro`
+  ADD PRIMARY KEY (`vuriro_id`),
+  ADD KEY `village_id` (`vuriro_village_id`);
 
 --
--- Indexes for table `banks`
+-- Indexes for table `ums_banks`
 --
-ALTER TABLE `banks`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_banks`
+  ADD PRIMARY KEY (`bank_id`),
+  ADD KEY `village_id` (`bank_village_id`);
 
 --
--- Indexes for table `bar_restaurent`
+-- Indexes for table `ums_bar_restaurent`
 --
-ALTER TABLE `bar_restaurent`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_bar_restaurent`
+  ADD PRIMARY KEY (`bar_id`),
+  ADD KEY `village_id` (`bar_village_id`);
 
 --
--- Indexes for table `category`
+-- Indexes for table `ums_category`
 --
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`cotegory_code`),
-  ADD KEY `category_name` (`category_name`);
+ALTER TABLE `ums_category`
+  ADD PRIMARY KEY (`cat_cotegory_code`),
+  ADD KEY `category_name` (`cat_category_name`);
 
 --
--- Indexes for table `cell`
+-- Indexes for table `ums_cell`
 --
-ALTER TABLE `cell`
-  ADD PRIMARY KEY (`cell_code`),
-  ADD KEY `sector_code` (`sector_code`);
+ALTER TABLE `ums_cell`
+  ADD PRIMARY KEY (`c_cell_code`),
+  ADD KEY `sector_code` (`c_sector_code`);
 
 --
--- Indexes for table `chat`
+-- Indexes for table `ums_chat`
 --
-ALTER TABLE `chat`
-  ADD KEY `admin_sender` (`admin_sender`),
-  ADD KEY `admin_reciever` (`admin_reciever`),
-  ADD KEY `leader_sender` (`leader_sender`),
-  ADD KEY `leader_reciever` (`leader_reciever`);
+ALTER TABLE `ums_chat`
+  ADD KEY `admin_sender` (`cht_admin_sender`),
+  ADD KEY `admin_reciever` (`cht_admin_reciever`),
+  ADD KEY `leader_sender` (`cht_leader_sender`),
+  ADD KEY `leader_reciever` (`cht_leader_reciever`);
 
 --
--- Indexes for table `chat_group`
+-- Indexes for table `ums_chat_group`
 --
-ALTER TABLE `chat_group`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `admin_participant` (`admin_participant`),
-  ADD KEY `leader_participant` (`leader_participant`);
+ALTER TABLE `ums_chat_group`
+  ADD PRIMARY KEY (`grp_id`),
+  ADD KEY `admin_participant` (`grp_admin_participant`),
+  ADD KEY `leader_participant` (`grp_leader_participant`);
 
 --
--- Indexes for table `church`
+-- Indexes for table `ums_church`
 --
-ALTER TABLE `church`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_church`
+  ADD PRIMARY KEY (`ch_id`),
+  ADD KEY `village_id` (`ch_village_id`);
 
 --
--- Indexes for table `coin`
+-- Indexes for table `ums_coin`
 --
-ALTER TABLE `coin`
+ALTER TABLE `ums_coin`
   ADD PRIMARY KEY (`id`),
   ADD KEY `coin_id` (`coin_id`);
 
 --
--- Indexes for table `coin_member`
+-- Indexes for table `ums_coin_member`
 --
-ALTER TABLE `coin_member`
-  ADD PRIMARY KEY (`coin_id`),
-  ADD KEY `member_id` (`member_id`);
+ALTER TABLE `ums_coin_member`
+  ADD PRIMARY KEY (`cm_coin_id`),
+  ADD KEY `member_id` (`cm_member_id`);
 
 --
--- Indexes for table `comment`
+-- Indexes for table `ums_comment`
 --
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`comment_id`),
-  ADD KEY `idea_id` (`idea_id`);
+ALTER TABLE `ums_comment`
+  ADD PRIMARY KEY (`co_id`),
+  ADD KEY `idea_id` (`co_idea_id`);
 
 --
--- Indexes for table `cooperative`
+-- Indexes for table `ums_cooperative`
 --
-ALTER TABLE `cooperative`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_cooperative`
+  ADD PRIMARY KEY (`co_id`),
+  ADD KEY `village_id` (`co_village_id`);
 
 --
--- Indexes for table `district`
+-- Indexes for table `ums_district`
 --
-ALTER TABLE `district`
-  ADD PRIMARY KEY (`district_code`),
-  ADD KEY `province_code` (`province_code`);
+ALTER TABLE `ums_district`
+  ADD PRIMARY KEY (`d_code`),
+  ADD KEY `province_code` (`d_province_code`);
 
 --
--- Indexes for table `ejoheza`
+-- Indexes for table `ums_ejoheza`
 --
-ALTER TABLE `ejoheza`
-  ADD PRIMARY KEY (`ejoheza_id`),
-  ADD KEY `leader_id` (`leader_id`);
+ALTER TABLE `ums_ejoheza`
+  ADD PRIMARY KEY (`ejo_id`),
+  ADD KEY `leader_id` (`ejo_leader_id`);
 
 --
--- Indexes for table `hotel`
+-- Indexes for table `ums_hotel`
 --
-ALTER TABLE `hotel`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_hotel`
+  ADD PRIMARY KEY (`ho_id`),
+  ADD KEY `village_id` (`ho_village_id`);
 
 --
--- Indexes for table `house`
+-- Indexes for table `ums_house`
 --
-ALTER TABLE `house`
-  ADD PRIMARY KEY (`house_number`),
-  ADD KEY `isibo_code` (`isibo_code`);
+ALTER TABLE `ums_house`
+  ADD PRIMARY KEY (`h_number`),
+  ADD KEY `isibo_code` (`h_isibo_code`);
 
 --
--- Indexes for table `ibarura`
+-- Indexes for table `ums_ibarura`
 --
-ALTER TABLE `ibarura`
-  ADD PRIMARY KEY (`ibarura_id`),
-  ADD KEY `leader_id` (`leader_id`);
+ALTER TABLE `ums_ibarura`
+  ADD PRIMARY KEY (`iba_id`),
+  ADD KEY `leader_id` (`iba_leader_id`);
 
 --
--- Indexes for table `ibyemezo`
+-- Indexes for table `ums_ibyemezo`
 --
-ALTER TABLE `ibyemezo`
-  ADD PRIMARY KEY (`ibyemezo_id`),
-  ADD KEY `member_id` (`member_id`);
+ALTER TABLE `ums_ibyemezo`
+  ADD PRIMARY KEY (`ib_id`),
+  ADD KEY `member_id` (`ib_member_id`);
 
 --
--- Indexes for table `idea`
+-- Indexes for table `ums_idea`
 --
-ALTER TABLE `idea`
+ALTER TABLE `ums_idea`
   ADD PRIMARY KEY (`idea_id`);
 
 --
--- Indexes for table `igiceri`
+-- Indexes for table `ums_igiceri`
 --
-ALTER TABLE `igiceri`
+ALTER TABLE `ums_igiceri`
   ADD PRIMARY KEY (`igiceri_id`),
-  ADD KEY `leader_id` (`leader_id`);
+  ADD KEY `leader_id` (`igiceri_leader_id`);
 
 --
--- Indexes for table `imihigo`
+-- Indexes for table `ums_imihigo`
 --
-ALTER TABLE `imihigo`
+ALTER TABLE `ums_imihigo`
   ADD PRIMARY KEY (`imihigo_code`),
-  ADD KEY `leader_id` (`leader_id`);
+  ADD KEY `leader_id` (`imihigo_leader_id`);
 
 --
--- Indexes for table `inganda`
+-- Indexes for table `ums_inganda`
 --
-ALTER TABLE `inganda`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_inganda`
+  ADD PRIMARY KEY (`in_id`),
+  ADD KEY `village_id` (`in_village_id`);
 
 --
--- Indexes for table `isibo`
+-- Indexes for table `ums_isibo`
 --
-ALTER TABLE `isibo`
+ALTER TABLE `ums_isibo`
   ADD PRIMARY KEY (`isibo_code`),
-  ADD KEY `village_code` (`village_code`);
+  ADD KEY `village_code` (`isibo_village_code`);
 
 --
--- Indexes for table `isuku`
+-- Indexes for table `ums_isuku`
 --
-ALTER TABLE `isuku`
+ALTER TABLE `ums_isuku`
   ADD PRIMARY KEY (`isuku_id`),
-  ADD KEY `leader_id` (`leader_id`);
+  ADD KEY `leader_id` (`isuku_leader_id`);
 
 --
--- Indexes for table `leaders`
+-- Indexes for table `ums_leaders`
 --
-ALTER TABLE `leaders`
-  ADD PRIMARY KEY (`leader_id`),
-  ADD KEY `village_id` (`village_code`),
-  ADD KEY `used_id` (`used_id`),
-  ADD KEY `village_code` (`village_code`),
-  ADD KEY `category_code` (`category_code`);
+ALTER TABLE `ums_leaders`
+  ADD PRIMARY KEY (`ldr_leader_id`),
+  ADD KEY `village_id` (`ldr_village_code`),
+  ADD KEY `used_id` (`ldr_used_id`),
+  ADD KEY `village_code` (`ldr_village_code`),
+  ADD KEY `category_code` (`ldr_category_code`);
 
 --
--- Indexes for table `market`
+-- Indexes for table `ums_market`
 --
-ALTER TABLE `market`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_market`
+  ADD PRIMARY KEY (`m_id`),
+  ADD KEY `village_id` (`m_village_id`);
 
 --
--- Indexes for table `members`
+-- Indexes for table `ums_members`
 --
-ALTER TABLE `members`
-  ADD PRIMARY KEY (`member_id`),
-  ADD KEY `leader_id` (`leader_id`);
+ALTER TABLE `ums_members`
+  ADD PRIMARY KEY (`mbr_member_id`),
+  ADD KEY `leader_id` (`mbr_leader_id`);
 
 --
--- Indexes for table `parent_evening`
+-- Indexes for table `ums_parent_evening`
 --
-ALTER TABLE `parent_evening`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `ums_parent_evening`
+  ADD PRIMARY KEY (`pare_id`);
 
 --
--- Indexes for table `pharmacy`
+-- Indexes for table `ums_pharmacy`
 --
-ALTER TABLE `pharmacy`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_pharmacy`
+  ADD PRIMARY KEY (`ph_id`),
+  ADD KEY `village_id` (`ph_village_id`);
 
 --
--- Indexes for table `province`
+-- Indexes for table `ums_province`
 --
-ALTER TABLE `province`
+ALTER TABLE `ums_province`
   ADD PRIMARY KEY (`province_code`);
 
 --
--- Indexes for table `roles`
+-- Indexes for table `ums_roles`
 --
-ALTER TABLE `roles`
+ALTER TABLE `ums_roles`
   ADD PRIMARY KEY (`roles_id`);
 
 --
--- Indexes for table `saloon`
+-- Indexes for table `ums_saloon`
 --
-ALTER TABLE `saloon`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_saloon`
+  ADD PRIMARY KEY (`salo_id`),
+  ADD KEY `village_id` (`salo_village_id`);
 
 --
--- Indexes for table `sector`
+-- Indexes for table `ums_sector`
 --
-ALTER TABLE `sector`
+ALTER TABLE `ums_sector`
   ADD PRIMARY KEY (`sector_code`),
   ADD KEY `district_code` (`district_code`);
 
 --
--- Indexes for table `supermarket`
+-- Indexes for table `ums_supermarket`
 --
-ALTER TABLE `supermarket`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `village_id` (`village_id`);
+ALTER TABLE `ums_supermarket`
+  ADD PRIMARY KEY (`sup_id`),
+  ADD KEY `village_id` (`sup_village_id`);
 
 --
--- Indexes for table `umugereka`
+-- Indexes for table `ums_ubwishingizi`
 --
-ALTER TABLE `umugereka`
-  ADD PRIMARY KEY (`umugereka_id`),
-  ADD KEY `village_id` (`village_code`),
-  ADD KEY `used_id` (`used_id`),
-  ADD KEY `village_code` (`village_code`),
-  ADD KEY `category_code` (`category_code`);
+ALTER TABLE `ums_ubwishingizi`
+  ADD PRIMARY KEY (`ubw_id`);
 
 --
--- Indexes for table `umutekano`
+-- Indexes for table `ums_umugereka`
 --
-ALTER TABLE `umutekano`
-  ADD PRIMARY KEY (`umutekano_id`),
-  ADD KEY `leader_id` (`leader_id`);
+ALTER TABLE `ums_umugereka`
+  ADD PRIMARY KEY (`um_id`),
+  ADD KEY `village_id` (`um_village_code`),
+  ADD KEY `used_id` (`um_used_id`),
+  ADD KEY `village_code` (`um_village_code`),
+  ADD KEY `category_code` (`um_category_code`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `ums_umutekano`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `roles_id` (`roles_id`);
+ALTER TABLE `ums_umutekano`
+  ADD PRIMARY KEY (`umt_id`),
+  ADD KEY `leader_id` (`umt_leader_id`);
 
 --
--- Indexes for table `village`
+-- Indexes for table `ums_users`
 --
-ALTER TABLE `village`
+ALTER TABLE `ums_users`
+  ADD PRIMARY KEY (`usr_id`),
+  ADD KEY `roles_id` (`usr_roles_id`);
+
+--
+-- Indexes for table `ums_village`
+--
+ALTER TABLE `ums_village`
   ADD PRIMARY KEY (`village_code`),
   ADD KEY `cell_code` (`cell_code`);
 
@@ -992,430 +1109,436 @@ ALTER TABLE `village`
 --
 
 --
--- AUTO_INCREMENT for table `abatwite`
+-- AUTO_INCREMENT for table `ums_abatwite`
 --
-ALTER TABLE `abatwite`
+ALTER TABLE `ums_abatwite`
+  MODIFY `abtw_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_admin`
+--
+ALTER TABLE `ums_admin`
+  MODIFY `adm_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_amaduka`
+--
+ALTER TABLE `ums_amaduka`
+  MODIFY `duka_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_amashuri`
+--
+ALTER TABLE `ums_amashuri`
+  MODIFY `scl_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_amasoko`
+--
+ALTER TABLE `ums_amasoko`
+  MODIFY `soko_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_amavuriro`
+--
+ALTER TABLE `ums_amavuriro`
+  MODIFY `vuriro_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_banks`
+--
+ALTER TABLE `ums_banks`
+  MODIFY `bank_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_bar_restaurent`
+--
+ALTER TABLE `ums_bar_restaurent`
+  MODIFY `bar_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_chat_group`
+--
+ALTER TABLE `ums_chat_group`
+  MODIFY `grp_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_church`
+--
+ALTER TABLE `ums_church`
+  MODIFY `ch_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_coin`
+--
+ALTER TABLE `ums_coin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `ums_comment`
 --
-ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_comment`
+  MODIFY `co_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `amaduka`
+-- AUTO_INCREMENT for table `ums_cooperative`
 --
-ALTER TABLE `amaduka`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_cooperative`
+  MODIFY `co_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `amashuri`
+-- AUTO_INCREMENT for table `ums_ejoheza`
 --
-ALTER TABLE `amashuri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_ejoheza`
+  MODIFY `ejo_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `amasoko`
+-- AUTO_INCREMENT for table `ums_hotel`
 --
-ALTER TABLE `amasoko`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_hotel`
+  MODIFY `ho_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `amavuriro`
+-- AUTO_INCREMENT for table `ums_ibarura`
 --
-ALTER TABLE `amavuriro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_ibarura`
+  MODIFY `iba_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `banks`
+-- AUTO_INCREMENT for table `ums_ibyemezo`
 --
-ALTER TABLE `banks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_ibyemezo`
+  MODIFY `ib_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `bar_restaurent`
+-- AUTO_INCREMENT for table `ums_idea`
 --
-ALTER TABLE `bar_restaurent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `chat_group`
---
-ALTER TABLE `chat_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `church`
---
-ALTER TABLE `church`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `coin`
---
-ALTER TABLE `coin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `comment`
---
-ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cooperative`
---
-ALTER TABLE `cooperative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ejoheza`
---
-ALTER TABLE `ejoheza`
-  MODIFY `ejoheza_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `hotel`
---
-ALTER TABLE `hotel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ibarura`
---
-ALTER TABLE `ibarura`
-  MODIFY `ibarura_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ibyemezo`
---
-ALTER TABLE `ibyemezo`
-  MODIFY `ibyemezo_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `idea`
---
-ALTER TABLE `idea`
+ALTER TABLE `ums_idea`
   MODIFY `idea_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `igiceri`
+-- AUTO_INCREMENT for table `ums_igiceri`
 --
-ALTER TABLE `igiceri`
+ALTER TABLE `ums_igiceri`
   MODIFY `igiceri_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `imihigo`
+-- AUTO_INCREMENT for table `ums_imihigo`
 --
-ALTER TABLE `imihigo`
+ALTER TABLE `ums_imihigo`
   MODIFY `imihigo_code` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `inganda`
+-- AUTO_INCREMENT for table `ums_inganda`
 --
-ALTER TABLE `inganda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_inganda`
+  MODIFY `in_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `isuku`
+-- AUTO_INCREMENT for table `ums_isuku`
 --
-ALTER TABLE `isuku`
+ALTER TABLE `ums_isuku`
   MODIFY `isuku_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `leaders`
+-- AUTO_INCREMENT for table `ums_leaders`
 --
-ALTER TABLE `leaders`
-  MODIFY `leader_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_leaders`
+  MODIFY `ldr_leader_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `market`
+-- AUTO_INCREMENT for table `ums_market`
 --
-ALTER TABLE `market`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_market`
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `members`
+-- AUTO_INCREMENT for table `ums_members`
 --
-ALTER TABLE `members`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_members`
+  MODIFY `mbr_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `parent_evening`
+-- AUTO_INCREMENT for table `ums_parent_evening`
 --
-ALTER TABLE `parent_evening`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_parent_evening`
+  MODIFY `pare_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pharmacy`
+-- AUTO_INCREMENT for table `ums_pharmacy`
 --
-ALTER TABLE `pharmacy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_pharmacy`
+  MODIFY `ph_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT for table `ums_roles`
 --
-ALTER TABLE `roles`
-  MODIFY `roles_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_roles`
+  MODIFY `roles_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `saloon`
+-- AUTO_INCREMENT for table `ums_saloon`
 --
-ALTER TABLE `saloon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_saloon`
+  MODIFY `salo_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `supermarket`
+-- AUTO_INCREMENT for table `ums_supermarket`
 --
-ALTER TABLE `supermarket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_supermarket`
+  MODIFY `sup_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `umugereka`
+-- AUTO_INCREMENT for table `ums_ubwishingizi`
 --
-ALTER TABLE `umugereka`
-  MODIFY `umugereka_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_ubwishingizi`
+  MODIFY `ubw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `umutekano`
+-- AUTO_INCREMENT for table `ums_umugereka`
 --
-ALTER TABLE `umutekano`
-  MODIFY `umutekano_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_umugereka`
+  MODIFY `um_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `ums_umutekano`
 --
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ums_umutekano`
+  MODIFY `umt_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_users`
+--
+ALTER TABLE `ums_users`
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `abatwite`
+-- Constraints for table `ums_abatwite`
 --
-ALTER TABLE `abatwite`
-  ADD CONSTRAINT `abatwite_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_abatwite`
+  ADD CONSTRAINT `ums_abatwite_ibfk_1` FOREIGN KEY (`abtw_member_id`) REFERENCES `ums_members` (`mbr_member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `admin`
+-- Constraints for table `ums_admin`
 --
-ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `admin_ibfk_2` FOREIGN KEY (`admin_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_admin`
+  ADD CONSTRAINT `ums_admin_ibfk_1` FOREIGN KEY (`adm_user_id`) REFERENCES `ums_users` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_admin_ibfk_2` FOREIGN KEY (`adm_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `amaduka`
+-- Constraints for table `ums_amaduka`
 --
-ALTER TABLE `amaduka`
-  ADD CONSTRAINT `amaduka_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_amaduka`
+  ADD CONSTRAINT `ums_amaduka_ibfk_1` FOREIGN KEY (`duka_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `amashuri`
+-- Constraints for table `ums_amashuri`
 --
-ALTER TABLE `amashuri`
-  ADD CONSTRAINT `amashuri_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_amashuri`
+  ADD CONSTRAINT `ums_amashuri_ibfk_1` FOREIGN KEY (`scl_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `amasoko`
+-- Constraints for table `ums_amasoko`
 --
-ALTER TABLE `amasoko`
-  ADD CONSTRAINT `amasoko_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_amasoko`
+  ADD CONSTRAINT `ums_amasoko_ibfk_1` FOREIGN KEY (`soko_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `amavuriro`
+-- Constraints for table `ums_amavuriro`
 --
-ALTER TABLE `amavuriro`
-  ADD CONSTRAINT `amavuriro_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_amavuriro`
+  ADD CONSTRAINT `ums_amavuriro_ibfk_1` FOREIGN KEY (`vuriro_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `banks`
+-- Constraints for table `ums_banks`
 --
-ALTER TABLE `banks`
-  ADD CONSTRAINT `banks_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_banks`
+  ADD CONSTRAINT `ums_banks_ibfk_1` FOREIGN KEY (`bank_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `bar_restaurent`
+-- Constraints for table `ums_bar_restaurent`
 --
-ALTER TABLE `bar_restaurent`
-  ADD CONSTRAINT `bar_restaurent_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_bar_restaurent`
+  ADD CONSTRAINT `ums_bar_restaurent_ibfk_1` FOREIGN KEY (`bar_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cell`
+-- Constraints for table `ums_cell`
 --
-ALTER TABLE `cell`
-  ADD CONSTRAINT `cell_ibfk_1` FOREIGN KEY (`sector_code`) REFERENCES `sector` (`sector_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_cell`
+  ADD CONSTRAINT `ums_cell_ibfk_1` FOREIGN KEY (`c_sector_code`) REFERENCES `ums_sector` (`sector_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `chat`
+-- Constraints for table `ums_chat`
 --
-ALTER TABLE `chat`
-  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`leader_sender`) REFERENCES `leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`leader_reciever`) REFERENCES `leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `chat_ibfk_3` FOREIGN KEY (`admin_sender`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `chat_ibfk_4` FOREIGN KEY (`admin_reciever`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_chat`
+  ADD CONSTRAINT `ums_chat_ibfk_1` FOREIGN KEY (`cht_leader_sender`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_chat_ibfk_2` FOREIGN KEY (`cht_leader_reciever`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_chat_ibfk_3` FOREIGN KEY (`cht_admin_sender`) REFERENCES `ums_admin` (`adm_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_chat_ibfk_4` FOREIGN KEY (`cht_admin_reciever`) REFERENCES `ums_admin` (`adm_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `chat_group`
+-- Constraints for table `ums_chat_group`
 --
-ALTER TABLE `chat_group`
-  ADD CONSTRAINT `chat_group_ibfk_1` FOREIGN KEY (`leader_participant`) REFERENCES `leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_chat_group`
+  ADD CONSTRAINT `ums_chat_group_ibfk_1` FOREIGN KEY (`grp_leader_participant`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `church`
+-- Constraints for table `ums_church`
 --
-ALTER TABLE `church`
-  ADD CONSTRAINT `church_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_church`
+  ADD CONSTRAINT `ums_church_ibfk_1` FOREIGN KEY (`ch_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `coin`
+-- Constraints for table `ums_coin`
 --
-ALTER TABLE `coin`
-  ADD CONSTRAINT `coin_ibfk_1` FOREIGN KEY (`coin_id`) REFERENCES `coin_member` (`coin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_coin`
+  ADD CONSTRAINT `ums_coin_ibfk_1` FOREIGN KEY (`coin_id`) REFERENCES `ums_coin_member` (`cm_coin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `coin_member`
+-- Constraints for table `ums_coin_member`
 --
-ALTER TABLE `coin_member`
-  ADD CONSTRAINT `coin_member_ibfk_1` FOREIGN KEY (`coin_id`) REFERENCES `members` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_coin_member`
+  ADD CONSTRAINT `ums_coin_member_ibfk_1` FOREIGN KEY (`cm_coin_id`) REFERENCES `ums_members` (`mbr_member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `comment`
+-- Constraints for table `ums_comment`
 --
-ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`idea_id`) REFERENCES `idea` (`idea_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_comment`
+  ADD CONSTRAINT `ums_comment_ibfk_1` FOREIGN KEY (`co_idea_id`) REFERENCES `ums_idea` (`idea_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cooperative`
+-- Constraints for table `ums_cooperative`
 --
-ALTER TABLE `cooperative`
-  ADD CONSTRAINT `cooperative_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_cooperative`
+  ADD CONSTRAINT `ums_cooperative_ibfk_1` FOREIGN KEY (`co_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `district`
+-- Constraints for table `ums_district`
 --
-ALTER TABLE `district`
-  ADD CONSTRAINT `district_ibfk_1` FOREIGN KEY (`province_code`) REFERENCES `province` (`province_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_district`
+  ADD CONSTRAINT `ums_district_ibfk_1` FOREIGN KEY (`d_province_code`) REFERENCES `ums_province` (`province_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `hotel`
+-- Constraints for table `ums_hotel`
 --
-ALTER TABLE `hotel`
-  ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_hotel`
+  ADD CONSTRAINT `ums_hotel_ibfk_1` FOREIGN KEY (`ho_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `house`
+-- Constraints for table `ums_house`
 --
-ALTER TABLE `house`
-  ADD CONSTRAINT `house_ibfk_1` FOREIGN KEY (`isibo_code`) REFERENCES `isibo` (`isibo_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_house`
+  ADD CONSTRAINT `ums_house_ibfk_1` FOREIGN KEY (`h_isibo_code`) REFERENCES `ums_isibo` (`isibo_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ibarura`
+-- Constraints for table `ums_ibarura`
 --
-ALTER TABLE `ibarura`
-  ADD CONSTRAINT `ibarura_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_ibarura`
+  ADD CONSTRAINT `ums_ibarura_ibfk_1` FOREIGN KEY (`iba_leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ibyemezo`
+-- Constraints for table `ums_ibyemezo`
 --
-ALTER TABLE `ibyemezo`
-  ADD CONSTRAINT `ibyemezo_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_ibyemezo`
+  ADD CONSTRAINT `ums_ibyemezo_ibfk_1` FOREIGN KEY (`ib_member_id`) REFERENCES `ums_members` (`mbr_member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `imihigo`
+-- Constraints for table `ums_imihigo`
 --
-ALTER TABLE `imihigo`
-  ADD CONSTRAINT `imihigo_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_imihigo`
+  ADD CONSTRAINT `ums_imihigo_ibfk_1` FOREIGN KEY (`imihigo_leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `inganda`
+-- Constraints for table `ums_inganda`
 --
-ALTER TABLE `inganda`
-  ADD CONSTRAINT `inganda_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_inganda`
+  ADD CONSTRAINT `ums_inganda_ibfk_1` FOREIGN KEY (`in_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `isibo`
+-- Constraints for table `ums_isibo`
 --
-ALTER TABLE `isibo`
-  ADD CONSTRAINT `isibo_ibfk_1` FOREIGN KEY (`village_code`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_isibo`
+  ADD CONSTRAINT `ums_isibo_ibfk_1` FOREIGN KEY (`isibo_village_code`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `isuku`
+-- Constraints for table `ums_isuku`
 --
-ALTER TABLE `isuku`
-  ADD CONSTRAINT `isuku_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_isuku`
+  ADD CONSTRAINT `ums_isuku_ibfk_1` FOREIGN KEY (`isuku_leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `leaders`
+-- Constraints for table `ums_leaders`
 --
-ALTER TABLE `leaders`
-  ADD CONSTRAINT `leaders_ibfk_1` FOREIGN KEY (`used_id`) REFERENCES `roles` (`roles_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `leaders_ibfk_2` FOREIGN KEY (`village_code`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `leaders_ibfk_3` FOREIGN KEY (`category_code`) REFERENCES `category` (`cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_leaders`
+  ADD CONSTRAINT `ums_leaders_ibfk_2` FOREIGN KEY (`ldr_village_code`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_leaders_ibfk_3` FOREIGN KEY (`ldr_category_code`) REFERENCES `ums_category` (`cat_cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_leaders_ibfk_4` FOREIGN KEY (`ldr_used_id`) REFERENCES `ums_users` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `market`
+-- Constraints for table `ums_market`
 --
-ALTER TABLE `market`
-  ADD CONSTRAINT `market_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_market`
+  ADD CONSTRAINT `ums_market_ibfk_1` FOREIGN KEY (`m_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `members`
+-- Constraints for table `ums_members`
 --
-ALTER TABLE `members`
-  ADD CONSTRAINT `members_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_members`
+  ADD CONSTRAINT `ums_members_ibfk_1` FOREIGN KEY (`mbr_leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pharmacy`
+-- Constraints for table `ums_pharmacy`
 --
-ALTER TABLE `pharmacy`
-  ADD CONSTRAINT `pharmacy_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_pharmacy`
+  ADD CONSTRAINT `ums_pharmacy_ibfk_1` FOREIGN KEY (`ph_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `saloon`
+-- Constraints for table `ums_saloon`
 --
-ALTER TABLE `saloon`
-  ADD CONSTRAINT `saloon_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_saloon`
+  ADD CONSTRAINT `ums_saloon_ibfk_1` FOREIGN KEY (`salo_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `sector`
+-- Constraints for table `ums_sector`
 --
-ALTER TABLE `sector`
-  ADD CONSTRAINT `sector_ibfk_1` FOREIGN KEY (`district_code`) REFERENCES `district` (`district_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_sector`
+  ADD CONSTRAINT `ums_sector_ibfk_1` FOREIGN KEY (`district_code`) REFERENCES `ums_district` (`d_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `supermarket`
+-- Constraints for table `ums_supermarket`
 --
-ALTER TABLE `supermarket`
-  ADD CONSTRAINT `supermarket_ibfk_1` FOREIGN KEY (`village_id`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_supermarket`
+  ADD CONSTRAINT `ums_supermarket_ibfk_1` FOREIGN KEY (`sup_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `umugereka`
+-- Constraints for table `ums_umugereka`
 --
-ALTER TABLE `umugereka`
-  ADD CONSTRAINT `umugereka_ibfk_1` FOREIGN KEY (`village_code`) REFERENCES `village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `umugereka_ibfk_2` FOREIGN KEY (`used_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `umugereka_ibfk_3` FOREIGN KEY (`category_code`) REFERENCES `category` (`cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_umugereka`
+  ADD CONSTRAINT `ums_umugereka_ibfk_1` FOREIGN KEY (`um_village_code`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_umugereka_ibfk_2` FOREIGN KEY (`um_used_id`) REFERENCES `ums_users` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_umugereka_ibfk_3` FOREIGN KEY (`um_category_code`) REFERENCES `ums_category` (`cat_cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `umutekano`
+-- Constraints for table `ums_umutekano`
 --
-ALTER TABLE `umutekano`
-  ADD CONSTRAINT `umutekano_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `leaders` (`leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_umutekano`
+  ADD CONSTRAINT `ums_umutekano_ibfk_1` FOREIGN KEY (`umt_leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `users`
+-- Constraints for table `ums_users`
 --
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`roles_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_users`
+  ADD CONSTRAINT `ums_users_ibfk_1` FOREIGN KEY (`usr_roles_id`) REFERENCES `ums_roles` (`roles_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `village`
+-- Constraints for table `ums_village`
 --
-ALTER TABLE `village`
-  ADD CONSTRAINT `village_ibfk_1` FOREIGN KEY (`cell_code`) REFERENCES `cell` (`cell_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ums_village`
+  ADD CONSTRAINT `ums_village_ibfk_1` FOREIGN KEY (`cell_code`) REFERENCES `ums_cell` (`c_cell_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
