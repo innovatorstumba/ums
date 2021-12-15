@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2021 at 12:04 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Dec 15, 2021 at 02:18 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,6 +48,13 @@ CREATE TABLE `ums_admin` (
   `adm_village_code` int(12) NOT NULL,
   `adm_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_admin`
+--
+
+INSERT INTO `ums_admin` (`adm_id`, `adm_firstname`, `adm_lastname`, `adm_nid`, `adm_phone`, `adm_village_code`, `adm_user_id`) VALUES
+(1, 'huska', 'kamana', 1234567890, '0780000000', 1, 12);
 
 -- --------------------------------------------------------
 
@@ -103,6 +110,35 @@ CREATE TABLE `ums_amasoko` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ums_amatangazo`
+--
+
+CREATE TABLE `ums_amatangazo` (
+  `ama_id` int(11) NOT NULL,
+  `ama_title` varchar(30) NOT NULL,
+  `ama_desc` text NOT NULL,
+  `ama_file` text DEFAULT NULL,
+  `ama_category` varchar(20) NOT NULL,
+  `ama_isibo` int(11) NOT NULL,
+  `ama_created_by` int(11) NOT NULL,
+  `ama_created_on` varchar(50) NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_amatangazo`
+--
+
+INSERT INTO `ums_amatangazo` (`ama_id`, `ama_title`, `ama_desc`, `ama_file`, `ama_category`, `ama_isibo`, `ama_created_by`, `ama_created_on`) VALUES
+(1, 'inama3', 'buri wakabiri dufite inama', 'assets/uploads/amatangazo/Capture1.PNG', 'ayaleta', 1, 12, ''),
+(2, 'hjad', 'jlhasdlja', 'assets/uploads/amatangazo/sangano13.jpg', 'ayaleta', 1, 12, '2021-12-12 14:48:38'),
+(3, 'shlahd', 'iuhwefljhs', '', 'ayaleta', 1, 12, '2021-12-12 15:00:13'),
+(4, 'sajhgf', 'kiuytredcvbnm', '', 'ayaleta', 1, 12, 'Sunday 12December2021 01:'),
+(5, 'indangamuntu', 'kujyhtgfdfvjhk,', 'assets/uploads/amatangazo/sangano14.jpg', 'ayaleta', 1, 12, 'Sunday 12December2021 01:12:45 PM'),
+(6, 'From Blaise', 'jhbjhb hjfdvbh fhdv bvjhdb vhfdjb dfhjvb jdfhvb jdfhv jdfhv dufhjv djfhv djhfv djhfv jdfhv djhfv ', 'assets/uploads/amatangazo/image_2.jpg', 'ayaleta', 1, 12, 'Tuesday 14December2021 06:55:33 PM');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ums_amavuriro`
 --
 
@@ -116,6 +152,29 @@ CREATE TABLE `ums_amavuriro` (
   `vuriro_category` varchar(100) NOT NULL,
   `vuriro_owner` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ums_announcement`
+--
+
+CREATE TABLE `ums_announcement` (
+  `ann_id` int(11) NOT NULL,
+  `ann_title` varchar(100) NOT NULL,
+  `ann_body` text NOT NULL,
+  `ann_pic` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_announcement`
+--
+
+INSERT INTO `ums_announcement` (`ann_id`, `ann_title`, `ann_body`, `ann_pic`) VALUES
+(1, 'Indangamuntu', 'kjhfgd', 'asset/uploads/amatangazo/sangano.jpg'),
+(2, 'umuganda', 'jhk\\z xck\\ c\\kjh kc\\\r\nvhshd shjhsf lhsf shjlhfjfhg hgjkfhglskhs slhjhsfdjsgurhl sjhulaujnchvuhf ', 'asset/uploads/amatangazo/sangano.jpg'),
+(3, 'umuganda', '.lkjhgf', 'assets/uploads/amatangazo/Capture.PNG'),
+(4, 'umuganda', 'liuytrdf', 'assets/uploads/amatangazo/Report_Officiel_Moise_BISHOBOKERUWIZEYE.pdf');
 
 -- --------------------------------------------------------
 
@@ -505,21 +564,25 @@ CREATE TABLE `ums_leaders` (
   `ldr_email` varchar(50) NOT NULL,
   `ldr_gender` varchar(10) NOT NULL,
   `ldr_dob` date NOT NULL,
+  `ldr_house` varchar(20) NOT NULL,
   `ldr_nid` int(16) NOT NULL,
   `ldr_profile` varchar(100) DEFAULT NULL,
   `ldr_village_code` int(11) NOT NULL,
+  `ldr_isibo_code` int(11) NOT NULL,
   `ldr_used_id` int(11) NOT NULL,
-  `ldr_category_code` int(11) NOT NULL
+  `ldr_category_code` int(11) NOT NULL,
+  `ldr_insurance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ums_leaders`
 --
 
-INSERT INTO `ums_leaders` (`ldr_leader_id`, `ldr_firstname`, `ldr_lastname`, `ldr_phone`, `ldr_email`, `ldr_gender`, `ldr_dob`, `ldr_nid`, `ldr_profile`, `ldr_village_code`, `ldr_used_id`, `ldr_category_code`) VALUES
-(3, 'Kamana', 'Emmanuel', '0785656565', 'kamana@gmail.com', 'male', '1996-01-01', 115452565, '', 1, 1, 1),
-(5, 'audace', 'sangano', '0783503691', 'audasang2018@gmail.com', 'male', '2021-12-01', 2345678, NULL, 2, 8, 1),
-(6, 'xxvcbv', 'esrdtyhj', '0783503691', 'habiyaremye97@gmail.com', 'female', '2021-12-16', 2345678, NULL, 2, 9, 1);
+INSERT INTO `ums_leaders` (`ldr_leader_id`, `ldr_firstname`, `ldr_lastname`, `ldr_phone`, `ldr_email`, `ldr_gender`, `ldr_dob`, `ldr_house`, `ldr_nid`, `ldr_profile`, `ldr_village_code`, `ldr_isibo_code`, `ldr_used_id`, `ldr_category_code`, `ldr_insurance`) VALUES
+(3, 'Kamana', 'Emmanuel', '0785656565', 'kamana@gmail.com', 'male', '1996-01-01', '127', 115452565, '', 1, 1, 1, 1, 1),
+(5, 'audace', 'sangano', '0783503691', 'audasang2018@gmail.com', 'male', '2021-12-01', '124', 2345678, NULL, 1, 1, 8, 1, 2),
+(7, 'audace', 'sangano', '0783503691', 'audasang2018@gmail.com', 'male', '1982-06-30', '261', 2345678, NULL, 1, 1, 10, 1, 2),
+(9, 'iradukunda', 'emmanuel', '0783503691', 'igihozo1@gmail.com', 'female', '2021-10-04', '', 2345678, NULL, 1, 1, 13, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -552,6 +615,7 @@ CREATE TABLE `ums_members` (
   `mbr_nid` int(20) NOT NULL,
   `mbr_email` varchar(50) NOT NULL,
   `mbr_dob` date NOT NULL,
+  `mbr_relationship` varchar(20) NOT NULL,
   `mbr_gender` varchar(10) NOT NULL,
   `mbr_leader_id` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -560,8 +624,8 @@ CREATE TABLE `ums_members` (
 -- Dumping data for table `ums_members`
 --
 
-INSERT INTO `ums_members` (`mbr_member_id`, `mbr_firstname`, `mbr_lastname`, `mbr_phone`, `mbr_nid`, `mbr_email`, `mbr_dob`, `mbr_gender`, `mbr_leader_id`) VALUES
-(1, 'Rukundo', 'Love', '0785654852', 1515151515, 'rukundo@gmail.com', '2011-12-01', 'male', 3);
+INSERT INTO `ums_members` (`mbr_member_id`, `mbr_firstname`, `mbr_lastname`, `mbr_phone`, `mbr_nid`, `mbr_email`, `mbr_dob`, `mbr_relationship`, `mbr_gender`, `mbr_leader_id`) VALUES
+(1, 'Rukundo', 'Love', '0785654852', 1515151515, 'rukundo@gmail.com', '2011-12-01', 'UMWANA', 'male', 3);
 
 -- --------------------------------------------------------
 
@@ -631,7 +695,8 @@ CREATE TABLE `ums_roles` (
 
 INSERT INTO `ums_roles` (`roles_id`, `roles_name`) VALUES
 (1, 'Admin'),
-(2, 'Family');
+(2, 'Family'),
+(3, 'Isibo');
 
 -- --------------------------------------------------------
 
@@ -706,7 +771,35 @@ INSERT INTO `ums_ubwishingizi` (`ubw_id`, `ubw_name`) VALUES
 (1, 'MMI'),
 (2, 'RAMA'),
 (3, 'MITUWELE'),
-(4, 'UAP');
+(4, 'UAP'),
+(5, 'SORAS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ums_umuganda`
+--
+
+CREATE TABLE `ums_umuganda` (
+  `umg_id` int(11) NOT NULL,
+  `umg_title` varchar(100) NOT NULL,
+  `umg_description` varchar(255) NOT NULL,
+  `umg_date` varchar(10) NOT NULL,
+  `umg_participant` varchar(10) NOT NULL,
+  `umg_agaciro` varchar(10) NOT NULL,
+  `umg_abagore` varchar(100) NOT NULL,
+  `umg_abagabo` varchar(100) NOT NULL,
+  `umg_urubyiruko` varchar(100) NOT NULL,
+  `umg_village` int(11) NOT NULL,
+  `umg_amafoto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ums_umuganda`
+--
+
+INSERT INTO `ums_umuganda` (`umg_id`, `umg_title`, `umg_description`, `umg_date`, `umg_participant`, `umg_agaciro`, `umg_abagore`, `umg_abagabo`, `umg_urubyiruko`, `umg_village`, `umg_amafoto`) VALUES
+(1, 'hello', 'kigali', '2021-12-12', '23', '3456543', '21', '23', '1', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -754,17 +847,22 @@ CREATE TABLE `ums_users` (
   `usr_id` int(11) NOT NULL,
   `usr_username` varchar(100) NOT NULL,
   `usr_password` varchar(100) NOT NULL,
-  `usr_roles_id` int(11) NOT NULL
+  `usr_roles_id` int(11) NOT NULL,
+  `usr_isibo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ums_users`
 --
 
-INSERT INTO `ums_users` (`usr_id`, `usr_username`, `usr_password`, `usr_roles_id`) VALUES
-(1, 'user1', '123', 1),
-(8, 'sano', '123', 2),
-(9, 'user3', 'qwerty', 2);
+INSERT INTO `ums_users` (`usr_id`, `usr_username`, `usr_password`, `usr_roles_id`, `usr_isibo`) VALUES
+(1, 'user1', '123', 1, 1),
+(8, 'sano', '123', 2, 1),
+(9, 'user3', 'qwerty', 2, 1),
+(10, 'sano', '123', 2, 1),
+(11, 'huska', 'huska', 2, 1),
+(12, 'huska', '123', 3, 1),
+(13, 'user7', '123', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -828,11 +926,25 @@ ALTER TABLE `ums_amasoko`
   ADD KEY `village_id` (`soko_village_id`);
 
 --
+-- Indexes for table `ums_amatangazo`
+--
+ALTER TABLE `ums_amatangazo`
+  ADD PRIMARY KEY (`ama_id`),
+  ADD KEY `ama_isibo` (`ama_isibo`),
+  ADD KEY `ama_created_by` (`ama_created_by`);
+
+--
 -- Indexes for table `ums_amavuriro`
 --
 ALTER TABLE `ums_amavuriro`
   ADD PRIMARY KEY (`vuriro_id`),
   ADD KEY `village_id` (`vuriro_village_id`);
+
+--
+-- Indexes for table `ums_announcement`
+--
+ALTER TABLE `ums_announcement`
+  ADD PRIMARY KEY (`ann_id`);
 
 --
 -- Indexes for table `ums_banks`
@@ -1005,7 +1117,9 @@ ALTER TABLE `ums_leaders`
   ADD KEY `village_id` (`ldr_village_code`),
   ADD KEY `used_id` (`ldr_used_id`),
   ADD KEY `village_code` (`ldr_village_code`),
-  ADD KEY `category_code` (`ldr_category_code`);
+  ADD KEY `category_code` (`ldr_category_code`),
+  ADD KEY `ldr_insurance` (`ldr_insurance`),
+  ADD KEY `ldr_isibo_code` (`ldr_isibo_code`);
 
 --
 -- Indexes for table `ums_market`
@@ -1074,6 +1188,13 @@ ALTER TABLE `ums_ubwishingizi`
   ADD PRIMARY KEY (`ubw_id`);
 
 --
+-- Indexes for table `ums_umuganda`
+--
+ALTER TABLE `ums_umuganda`
+  ADD PRIMARY KEY (`umg_id`),
+  ADD KEY `umg_village` (`umg_village`);
+
+--
 -- Indexes for table `ums_umugereka`
 --
 ALTER TABLE `ums_umugereka`
@@ -1095,7 +1216,8 @@ ALTER TABLE `ums_umutekano`
 --
 ALTER TABLE `ums_users`
   ADD PRIMARY KEY (`usr_id`),
-  ADD KEY `roles_id` (`usr_roles_id`);
+  ADD KEY `roles_id` (`usr_roles_id`),
+  ADD KEY `usr_isibo` (`usr_isibo`);
 
 --
 -- Indexes for table `ums_village`
@@ -1118,7 +1240,7 @@ ALTER TABLE `ums_abatwite`
 -- AUTO_INCREMENT for table `ums_admin`
 --
 ALTER TABLE `ums_admin`
-  MODIFY `adm_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `adm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ums_amaduka`
@@ -1139,10 +1261,22 @@ ALTER TABLE `ums_amasoko`
   MODIFY `soko_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ums_amatangazo`
+--
+ALTER TABLE `ums_amatangazo`
+  MODIFY `ama_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `ums_amavuriro`
 --
 ALTER TABLE `ums_amavuriro`
   MODIFY `vuriro_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ums_announcement`
+--
+ALTER TABLE `ums_announcement`
+  MODIFY `ann_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ums_banks`
@@ -1244,7 +1378,7 @@ ALTER TABLE `ums_isuku`
 -- AUTO_INCREMENT for table `ums_leaders`
 --
 ALTER TABLE `ums_leaders`
-  MODIFY `ldr_leader_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ldr_leader_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `ums_market`
@@ -1274,7 +1408,7 @@ ALTER TABLE `ums_pharmacy`
 -- AUTO_INCREMENT for table `ums_roles`
 --
 ALTER TABLE `ums_roles`
-  MODIFY `roles_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `roles_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ums_saloon`
@@ -1292,7 +1426,13 @@ ALTER TABLE `ums_supermarket`
 -- AUTO_INCREMENT for table `ums_ubwishingizi`
 --
 ALTER TABLE `ums_ubwishingizi`
-  MODIFY `ubw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ubw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `ums_umuganda`
+--
+ALTER TABLE `ums_umuganda`
+  MODIFY `umg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ums_umugereka`
@@ -1310,7 +1450,7 @@ ALTER TABLE `ums_umutekano`
 -- AUTO_INCREMENT for table `ums_users`
 --
 ALTER TABLE `ums_users`
-  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -1346,6 +1486,13 @@ ALTER TABLE `ums_amashuri`
 --
 ALTER TABLE `ums_amasoko`
   ADD CONSTRAINT `ums_amasoko_ibfk_1` FOREIGN KEY (`soko_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `ums_amatangazo`
+--
+ALTER TABLE `ums_amatangazo`
+  ADD CONSTRAINT `ums_amatangazo_ibfk_1` FOREIGN KEY (`ama_isibo`) REFERENCES `ums_isibo` (`isibo_code`),
+  ADD CONSTRAINT `ums_amatangazo_ibfk_2` FOREIGN KEY (`ama_created_by`) REFERENCES `ums_users` (`usr_id`);
 
 --
 -- Constraints for table `ums_amavuriro`
@@ -1476,7 +1623,9 @@ ALTER TABLE `ums_isuku`
 ALTER TABLE `ums_leaders`
   ADD CONSTRAINT `ums_leaders_ibfk_2` FOREIGN KEY (`ldr_village_code`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ums_leaders_ibfk_3` FOREIGN KEY (`ldr_category_code`) REFERENCES `ums_category` (`cat_cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ums_leaders_ibfk_4` FOREIGN KEY (`ldr_used_id`) REFERENCES `ums_users` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_leaders_ibfk_4` FOREIGN KEY (`ldr_used_id`) REFERENCES `ums_users` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_leaders_ibfk_5` FOREIGN KEY (`ldr_insurance`) REFERENCES `ums_ubwishingizi` (`ubw_id`),
+  ADD CONSTRAINT `ums_leaders_ibfk_6` FOREIGN KEY (`ldr_isibo_code`) REFERENCES `ums_isibo` (`isibo_code`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_market`
@@ -1515,6 +1664,12 @@ ALTER TABLE `ums_supermarket`
   ADD CONSTRAINT `ums_supermarket_ibfk_1` FOREIGN KEY (`sup_village_id`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `ums_umuganda`
+--
+ALTER TABLE `ums_umuganda`
+  ADD CONSTRAINT `ums_umuganda_ibfk_1` FOREIGN KEY (`umg_village`) REFERENCES `ums_village` (`village_code`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `ums_umugereka`
 --
 ALTER TABLE `ums_umugereka`
@@ -1532,7 +1687,8 @@ ALTER TABLE `ums_umutekano`
 -- Constraints for table `ums_users`
 --
 ALTER TABLE `ums_users`
-  ADD CONSTRAINT `ums_users_ibfk_1` FOREIGN KEY (`usr_roles_id`) REFERENCES `ums_roles` (`roles_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_users_ibfk_1` FOREIGN KEY (`usr_roles_id`) REFERENCES `ums_roles` (`roles_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_users_ibfk_2` FOREIGN KEY (`usr_isibo`) REFERENCES `ums_isibo` (`isibo_code`);
 
 --
 -- Constraints for table `ums_village`

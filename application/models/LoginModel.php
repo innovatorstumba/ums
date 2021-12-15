@@ -14,7 +14,7 @@ class LoginModel extends CI_Model
             return $query;
         }else{
             //false
-            return false;
+            return null;
         }
     }
     //Get leader data based on user ID
@@ -28,7 +28,7 @@ class LoginModel extends CI_Model
             return $query;
         } else{
             //false
-            return false;
+            return null;
         }
     }
 
@@ -43,7 +43,7 @@ class LoginModel extends CI_Model
             return $query;
         } else{
             //false
-            return false;
+            return null;
         }
     }
 }
