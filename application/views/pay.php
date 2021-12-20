@@ -1735,7 +1735,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
                                 <a href="#" class="btn btn-primary">Checkout via Paypal</a>
                             </div> -->
                             <div class="paypal_agile">
-                                <form action="#" method="post" class="creditly-card-form shopf-sear-headinfo_form">
+                                <form action="" method="post" enctype="multipart/form-data">
                                     <section class="creditly-wrapper payf_wrapper">
                                         <div class="credit-card-wrapper">
                                             <div class="first-row form-group">
@@ -1746,9 +1746,9 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
                                                 <div class="paymntf_card_number_grids">
                                                     <div class="fpay_card_number_grid_left">
                                                         <div class="controls">
-                                                            <label style="color:#000" class="control-label">TELEPHONE</label>
-                                                            <input class="number credit-card-number form-control" type="text" name="number" inputmode="numeric" autocomplete="cc-number"
-                                                                autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+                                                            <label style="color:#000" class="control-label">Agiye kwishyurwa</label><br>
+                                                            <label style="color:#000" class="control-label"><b><?=@$data?> RWF</b></label>
+                                                            <input type="hidden" value="<?=@$data?>" name="amt">
                                                         </div>
                                                     </div>
                                                     <!-- <div class="fpay_card_number_grid_right">
@@ -1764,7 +1764,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
                                                     <input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
                                                 </div> -->
                                             </div>
-                                            <input class="btn btn-primary submit" type="submit" value="ISHYURA">
+                                            <input name="nber" class="btn btn-primary submit" type="submit" value="ISHYURA">
                                         </div>
                                     </section>
                                 </form>
