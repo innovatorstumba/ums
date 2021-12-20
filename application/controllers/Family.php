@@ -231,4 +231,141 @@ class Family extends CI_Controller {
 		$this->load->view('sidebar');
 		$this->load->view('pay');
 	}
+	public function payUmutekano(){
+		
+		if ($this->input->post('pay')){
+			$amezi = $this->input->post('amezi');
+		}
+		$amount =intval($amezi)*2000;
+		$email = "audasang2018@gmail.com";
+		if ($this->input->post('nber')){
+			$amount =$this->input->post('amt');
+			$request = [
+				'tx_ref' => time(),
+				'amount' => $amount,
+				'currency' => 'RWF',
+				'payment_options' => 'mobilemoneyrwanda',
+				'redirect_url' => 'http://localhost/ums/process.php',
+				'customer' => [
+					'email' => $email,
+					'name' => 'sanga'
+				],
+				'meta' => [
+					'price' => $amount
+				],
+				'customizations' => [
+					'title' => 'Ishyura umutekano',
+					'description' => 'UMS',
+					'logo'=> 'http://localhost/pay/sano.png'
+				]
+			];
+		
+			//* Ca;; f;iterwave emdpoint
+			$curl = curl_init();
+		
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => 'https://api.flutterwave.com/v3/payments',
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST',
+			CURLOPT_POSTFIELDS => json_encode($request),
+			CURLOPT_HTTPHEADER => array(
+				'Authorization: Bearer FLWSECK-083ae3b8d5dfb256278a72490903c75e-X',
+				'Content-Type: application/json'
+			),
+			));
+		
+			$response = curl_exec($curl);
+		
+			curl_close($curl);
+			
+			$res = json_decode($response);
+			if($res->status == 'success')
+			{
+				$link = $res->data->link;
+				header('Location: '.$link);
+			}
+			else
+			{
+				echo 'We can not process your payment';
+			}
+		}
+		$result['data']=$amount;
+		$this->load->view('header');
+		$this->load->view('sidebar');
+		$this->load->view('pay',$result);		
+	}
+
+	public function payIsuku(){
+		
+		if ($this->input->post('pay')){
+			$amezi = $this->input->post('amezi');
+		}
+		$amount =intval($amezi)*3000;
+		$email = "audasang2018@gmail.com";
+		if ($this->input->post('nber')){
+			$amount =$this->input->post('amt');
+			$request = [
+				'tx_ref' => time(),
+				'amount' => $amount,
+				'currency' => 'RWF',
+				'payment_options' => 'mobilemoneyrwanda',
+				'redirect_url' => 'http://localhost/ums/process.php',
+				'customer' => [
+					'email' => $email,
+					'name' => 'sanga'
+				],
+				'meta' => [
+					'price' => $amount
+				],
+				'customizations' => [
+					'title' => 'Ishyura isuku',
+					'description' => 'UMS',
+					'logo'=> 'http://localhost/pay/sano.png'
+				]
+			];
+		
+			//* Ca;; f;iterwave emdpoint
+			$curl = curl_init();
+		
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => 'https://api.flutterwave.com/v3/payments',
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST',
+			CURLOPT_POSTFIELDS => json_encode($request),
+			CURLOPT_HTTPHEADER => array(
+				'Authorization: Bearer FLWSECK-083ae3b8d5dfb256278a72490903c75e-X',
+				'Content-Type: application/json'
+			),
+			));
+		
+			$response = curl_exec($curl);
+		
+			curl_close($curl);
+			
+			$res = json_decode($response);
+			if($res->status == 'success')
+			{
+				$link = $res->data->link;
+				header('Location: '.$link);
+			}
+			else
+			{
+				echo 'We can not process your payment';
+			}
+		}
+		$result['data']=$amount;
+		$this->load->view('header');
+		$this->load->view('sidebar');
+		$this->load->view('pay',$result);		
+	}
 }
