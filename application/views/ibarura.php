@@ -215,22 +215,22 @@
                                         </div>
                                         <label for="exampleFormControlSelect1">Ufite Akarima Kigikoni?</label>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                                        <input type="radio" id="customRadioInline1" name="akarima" class="custom-control-input">
                                         <label class="custom-control-label" for="customRadioInline1">yego</label>
                                         </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                        <input type="radio" id="customRadioInline2" name="akarima" class="custom-control-input">
                                         <label class="custom-control-label" for="customRadioInline2">Oya</label>
                                     </div>
                                     <br><br>
                                         <label for="exampleFormControlSelect1">Ufite Agatanda Kamasahani?</label>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadioInline1">yego</label>
+                                        <input type="radio" id="customRadioInline3" name="agatanda" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline3">yego</label>
                                         </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadioInline2">Oya</label>
+                                        <input type="radio" id="customRadioInline4" name="agatanda" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline4">Oya</label>
                                     </div><br>
                                         <input type="submit" value="Ohereza" name="time" class="mt-4 mb-4 btn btn-primary">
                                     </form>
