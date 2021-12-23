@@ -328,10 +328,27 @@ class Isibo extends CI_Controller {
 		if($sessionData!="") {
 			$result['family'] = $this->Mod_Isibo->selectFamily1($userId);
 			$result['data'] = $this->Mod_Isibo->selectFamilyDetails($userId);
+			$result['insurance'] = $this->Mod_Isibo->selectInsurance();
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
 			$this->load->view('isibo/kureba_umuryango',$result);
 			$this->load->view('isibo/footer');
+			
+			if ($this->input->post('save')){
+				$fname = $this->input->post('fname');
+				$lname = $this->input->post('lname');
+				$tel = $this->input->post('tel');
+				$nid = $this->input->post('nid');
+				$email = $this->input->post('email');
+				$dob = $this->input->post('dob');
+				$ins = $this->input->post('ins');
+				$isano = $this->input->post('isano');
+				$sex = $this->input->post('sex');
+				$id = $this->input->post('id');
+				$this->Mod_Isibo->registerMember($fname, $lname, $tel, $nid,$email,$dob, $isano, $sex, $id,$ins);
+
+				redirect("isibo/kureba_umuryango/".$id);
+			}
 		}else {
 			redirect(base_url() . 'Login');
 		}

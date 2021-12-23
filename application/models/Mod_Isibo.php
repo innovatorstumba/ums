@@ -33,6 +33,25 @@ class Mod_Isibo extends CI_Model
 		$this->db->insert('ums_leaders', $data);
 	}
 
+	function registerMember($fname, $lname, $tel, $nid,$email,$dob, $isano, $sex, $id,$ins){
+
+		$data = array(
+			'mbr_member_id' =>null,
+			'mbr_firstname' => $fname,
+			'mbr_lastname' => $lname,
+			'mbr_phone' => $tel,
+			'mbr_nid'=>$nid,
+			'mbr_email' =>$email,
+			'mbr_dob' => $dob,
+			'mbr_insurance' => $ins,
+			'mbr_relationship' => $isano,
+			'mbr_gender' => $sex,
+			'mbr_leader_id'=>$id
+		);
+
+		$this->db->insert('ums_members', $data);
+	}
+
 	function selectCategory(){
 		$this->db->select('*');
 		$this->db->from('ums_category');
@@ -90,6 +109,7 @@ class Mod_Isibo extends CI_Model
 		$this->db->select('*');
 		$this->db->from('ums_members');
 		$this->db->join('ums_leaders', 'mbr_leader_id = ldr_leader_id');
+		$this->db->join('ums_ubwishingizi', 'mbr_insurance = ubw_id');
 		$this->db->where('mbr_leader_id', $id);
 		$query = $this->db->get();
 		$query->num_rows();
