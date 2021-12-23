@@ -30,7 +30,7 @@ class Login extends CI_Controller
                     $ldr_data = $this->login->selectLeaderByUserId($row->usr_id);
 
                     $leader_data = $ldr_data->row();
-                    $ldr_session_data = array('userid' => $row->usr_id, 'leader_id' => $leader_data->ldr_leader_id, 'firstname' => $leader_data->ldr_firstname, 'lastname' => $leader_data->ldr_lastname);
+                    $ldr_session_data = array('userid' => $row->usr_id, 'leader_id' => $leader_data->ldr_leader_id, 'firstname' => $leader_data->ldr_firstname, 'lastname' => $leader_data->ldr_lastname, 'isibo' => $leader_data->ldr_isibo_code);
                     $this->session->set_userdata($ldr_session_data);
                     redirect(base_url());
                 } else {

@@ -86,10 +86,25 @@ class Family extends CI_Controller {
         }
 	}
 	public function amatangazo(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('amatangazo');
-		$this->load->view('footer');
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $results = $this->fm->getAmatangazo($this->session->userdata('isibo'));
+            if ($results != null){
+                $data['selected'] = $results->result();
+                $this->load->view('header');
+                $this->load->view('sidebar');
+                $this->load->view('amatangazo', $data);
+                $this->load->view('footer');
+            } else{
+                $data['selected'] = null;
+                $this->load->view('header');
+                $this->load->view('sidebar');
+                $this->load->view('amatangazo', $data);
+                $this->load->view('footer');
+            }
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function amavuriro(){
         $sessionData=$this->session->userdata('userid');

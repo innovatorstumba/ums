@@ -10,7 +10,19 @@ class Family_Model extends CI_Model
         if ($query->num_rows() > 0){
             return $query;
         } else{
-            return false;
+            return null;
+        }
+    }
+
+    function getAmatangazo($isibo){
+        $this->db->select('*');
+        $this->db->from('ums_amatangazo');
+        $this->db->where('ama_isibo', $isibo);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0){
+            return $query;
+        } else{
+            return null;
         }
     }
 }
