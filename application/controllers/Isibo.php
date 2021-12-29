@@ -36,9 +36,10 @@ class Isibo extends CI_Controller {
 	public function abashyitsi(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->abashyitsi();
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/abashyitsi');
+			$this->load->view('isibo/abashyitsi',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -58,9 +59,10 @@ class Isibo extends CI_Controller {
 	public function umuganda(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->umuganda();
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/umuganda');
+			$this->load->view('isibo/umuganda',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -102,7 +104,7 @@ class Isibo extends CI_Controller {
 
 	public function do_upload_ikira(){
         $config['upload_path']          = './assets/uploads/amatangazo/';
-        $config['allowed_types']        = 'gif|jpg|png|pdf';
+        $config['allowed_types']        = 'pdf';
         $config['max_size']             = 0;
      
         $this->load->library('upload', $config);
@@ -113,28 +115,28 @@ class Isibo extends CI_Controller {
 			$result = $this->Mod_Isibo->selectForAnn($sessionData);
 			$row = $result->row();
 			$isibo = $row->isibo_code;
-			$owner = $row->usr_id;
+			$owner = $row->adm_id;
 			$title = $this->input->post('title');
-			$body = $this->input->post('desc');
+			$body = $this->input->post('myTextarea');
 			$pic = "";
 			$this->Mod_Isibo->itangazo($title, $body, $pic, $isibo, $owner);
 
-			redirect('Isibo/index');
+			redirect('Isibo/ibyaranzwe');
         }
-        else
+        elseif ($this->upload->do_upload('ufile'))
         {
 			$sessionData=$this->session->userdata('userid');
 			$result = $this->Mod_Isibo->selectForAnn($sessionData);
 			$row = $result->row();
 			$isibo = $row->isibo_code;
-			$owner = $row->usr_id;
+			$owner = $row->adm_id;
             $datav = $this->upload->data();
 			$title = $this->input->post('title');
-			$body = $this->input->post('desc');
+			$body = $this->input->post('myTextarea');
 			$pic = "assets/uploads/amatangazo/".$datav['file_name'];
 			$this->Mod_Isibo->itangazo($title, $body, $pic, $isibo, $owner);
 
-			redirect('Isibo/index');
+			redirect('Isibo/ibyaranzwe');
         }
     }
 
@@ -153,9 +155,10 @@ class Isibo extends CI_Controller {
 	public function amatangazo(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->selectAmatangazo();
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/amatangazo');
+			$this->load->view('isibo/amatangazo',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -183,6 +186,8 @@ class Isibo extends CI_Controller {
 		if($sessionData!="") {
 			$result['data'] = $this->Mod_Isibo->selectCategory();
 			$result['insurance'] = $this->Mod_Isibo->selectInsurance();
+			$res = $this->Mod_Isibo->isibo($sessionData);
+			$row = $res->row();
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
 			$this->load->view('isibo/ongeramo_umuryango',$result);
@@ -200,7 +205,8 @@ class Isibo extends CI_Controller {
 				$uname = $this->input->post('uname');
 				$password = $this->input->post('password');
 				$email = $this->input->post('email');
-				$this->Mod_Isibo->registerHeader($fname, $lname, $BOD, $id,$sex,$ubudehe, $isano, $insurance, $phone, $houseNumber, $uname, $password, $email);
+				$isibo = $row->isibo_code; 
+				$this->Mod_Isibo->registerHeader($fname, $lname, $BOD, $id,$sex,$ubudehe, $isano, $insurance, $phone, $houseNumber, $uname, $password, $isibo, $email);
 
 				redirect('Isibo/index');
 			}
@@ -323,6 +329,33 @@ class Isibo extends CI_Controller {
 			redirect(base_url() . 'Login');
 		}
 	}
+
+	public function ubudehe(){
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->ubudehe();
+			$this->load->view('isibo/header');
+			$this->load->view('isibo/sidebar');
+			$this->load->view('isibo/ubudehe',$result);			
+			$this->load->view('isibo/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
+	}
+
+	public function ubwishingizi(){
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->ubwishingizi();
+			$this->load->view('isibo/header');
+			$this->load->view('isibo/sidebar');
+			$this->load->view('isibo/ubwishingizi',$result);			
+			$this->load->view('isibo/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
+	}
+
 	public function kureba_umuryango($userId){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
@@ -357,7 +390,7 @@ class Isibo extends CI_Controller {
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
 			$this->load->view('isibo/header');
-			$this->load->view('isibo/sidebar');
+			$this->load->view('isibo/sidebar'); 
 			$this->load->view('isibo/kuzuza_umuganda');
 		}else {
 			redirect(base_url() . 'Login');
@@ -535,6 +568,17 @@ class Isibo extends CI_Controller {
 			$this->load->view('isibo/sidebar');
 			$this->load->view('isibo/hoteli');
 			$this->load->view('isibo/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
+	}
+	public function read($a){
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result = $this->Mod_Isibo->soma($a);
+			$row = $result->row();
+			$results['data'] = $row->ama_file;
+			$this->load->view('isibo/soma',$results);
 		}else {
 			redirect(base_url() . 'Login');
 		}

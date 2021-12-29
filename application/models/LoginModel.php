@@ -3,7 +3,7 @@
 class LoginModel extends CI_Model
 {
     function validateLogin($username, $password){
-        $this->db->select('ums_users.usr_id, ums_users.usr_username, ums_users.usr_password, ums_users.usr_roles_id, ums_roles.roles_id, ums_roles.roles_name');
+        $this->db->select('ums_users.usr_id,ums_users.usr_isibo, ums_users.usr_username, ums_users.usr_password, ums_users.usr_roles_id, ums_roles.roles_id, ums_roles.roles_name');
         $this->db->where('ums_users.usr_username', $username);
         $this->db->where('ums_users.usr_password', $password);
         $this->db->from('ums_users');

@@ -203,13 +203,13 @@
                                         </div>
  
                                         <div class="form-group mb-4">
-                                            <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" rows="10" required></textarea>
+                                           <textarea name="myTextarea" id="myTextarea"></textarea>
                                         </div>
                                         <div class="form-group mb-4 mt-3">
-                                            <label style="color:#000;" for="exampleFormControlFile1">Ikirangwa</label>
-                                            <input type="file" name="ufile" id="InputFile">
+                                            <label style="color:#000;" for="exampleFormControlFile1">Ikirangwa(pdf*)</label>
+                                            <input type="file" name="ufile" id="InputFile" accept="application/pdf">
                                         </div>
-                                        <button class="btn btn-lg btn-primary btn-block" type="submit">Emeza</button>
+                                        <button class="btn btn-lg btn-primary btn-block" id="btn-submit" type="submit">Emeza</button>
                                     </form>
                                 </div>
                             </div>
@@ -350,3 +350,10 @@
                             </div>
                         </div>
                     </div>
+                    <script src='<?=base_url()?>assets/tinymce/tinymce.min.js'></script>
+                    <script type="text/javascript">
+                      tinymce.init({
+                          selector: '#myTextarea',
+                          branding: false
+                      });
+                    </script>

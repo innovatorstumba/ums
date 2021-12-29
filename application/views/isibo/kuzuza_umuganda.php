@@ -25,7 +25,7 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div  class="col-md-10 col-md-offset-1" >
-    <form  id="msform">
+        <form  id="msform" method="POST" enctype="multipart/form-data" action="">
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">Personal Details</li>
@@ -36,27 +36,27 @@
             <fieldset>
                 <h2 class="fs-title">uzuza neza ibisabwa</h2>
                 <h3 class="fs-subtitle">Igikorwa cy'umuganda</h3>
-                <input type="date" name="phone" placeholder="ITARIKI Y'AMAVUKO"/>
-                <input type="text" name="fname" placeholder="IGIKORWA"/>
-                <input type="text" name="lname" placeholder="AHO CYAKOREWE"/>
+                <input type="date" name="date" placeholder="ITARIKI Y'UMUGANDA"/>
+                <input type="text" name="Igikorwa" placeholder="IGIKORWA"/>
+                <input type="text" name="place" placeholder="AHO CYAKOREWE"/>
                 <input type="button" name="next" class="next action-button" value="KOMEZA"/>
             </fieldset>
             
             <fieldset>
             <h2 class="fs-title">uzuza neza ibisabwa</h2>
                 <h3 class="fs-subtitle">UBWITABIRE</h3>
-                <input type="text" name="umudugudu" placeholder="ABITABIRIYE"/>
-                <input type="text" name="umurenge" placeholder="ABAGORE"/>
-                <input type="text" name="akagari" placeholder="ABAGABO"/>
+                <input type="text" name="abitabiriye" placeholder="ABITABIRIYE"/>
+                <input type="text" name="abagore" placeholder="ABAGORE"/>
+                <input type="text" name="abagabo" placeholder="ABAGABO"/>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
                 <input type="button" name="next" class="next action-button" value="KOMEZA"/>
             </fieldset>
             <fieldset>
                 <h2 class="fs-title">uzuza neza ibisabwat</h2>
                 <h3 class="fs-subtitle">UMUGANDA</h3>
-                <input type="text" name="email" placeholder="URUBYIRUKO"/>
-                <input type="text" name="pass" placeholder="AGACIRO MUMAFARANGA"/>
-                <input type="file" name="cpass" placeholder="EMEZA IJAMBO RY'IBANGA"/>
+                <input type="text" name="urubyiruko" placeholder="URUBYIRUKO"/>
+                <input type="text" name="agaciro" placeholder="AGACIRO MUMAFARANGA"/>
+                <input type="file" name="file"/>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
                 <input type="submit" name="submit" class="submit action-button" value="OHEREZA"/>
             </fieldset>

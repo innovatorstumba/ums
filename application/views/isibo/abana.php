@@ -216,10 +216,10 @@
                                         $cnt++;                                      
                                       ?>
                                       <tr><td><?=$cnt?></td>
-                                          <td><?=$row->ldr_firstname?></td>
-                                          <td><?=$row->ldr_phone?></td>
-                                          <td><?=$row->ldr_dob?></td>
-                                          <td><?=$row->ldr_gender?></td>
+                                          <td><?=$row->mbr_firstname?></td>
+                                          <td><?=$row->mbr_phone?></td>
+                                          <td><?=$row->mbr_dob?></td>
+                                          <td><?=$row->mbr_gender?></td>
                                       </tr>
                                       <?php
                                       }
