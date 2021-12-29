@@ -1,16 +1,16 @@
 // Basic
 
-var quill = new Quill('#editor-container', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['image', 'code-block']
-    ]
-  },
-  placeholder: 'Compose an epic...',
-  theme: 'snow'  // or 'bubble'
-});
+// var quill = new Quill('#editor-container', {
+//   modules: {
+//     toolbar: [
+//       [{ header: [1, 2, false] }],
+//       ['bold', 'italic', 'underline'],
+//       ['image', 'code-block']
+//     ]
+//   },
+//   placeholder: 'Andika itangazo',
+//   theme: 'snow'  // or 'bubble'
+// });
 
 
 // With Tooltip
@@ -19,7 +19,7 @@ var quill = new Quill('#editor-container', {
     modules: {
       toolbar: '#toolbar-container'
     },
-    placeholder: 'Compose an epic...',
+    placeholder: 'Andika itangazo',
     theme: 'snow'
   });
   

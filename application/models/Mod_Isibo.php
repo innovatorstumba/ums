@@ -1,14 +1,15 @@
-<?php
+<?php 
 
 
 class Mod_Isibo extends CI_Model
 {
-	function registerHeader($fn, $ln, $dob, $id,$sex,$ubu, $isano, $insur, $phone, $houseNumber, $uname, $password, $email="none"){
+	function registerHeader($fn, $ln, $dob, $id,$sex,$ubu, $isano, $insur, $phone, $houseNumber, $uname, $password,$isibo, $email="none"){
 		$data1 = array(
 			'usr_id' =>null,
 			'usr_username' => $uname,
 			'usr_password' => $password,
-			'usr_roles_id' => 2
+			'usr_roles_id' => 2,
+			'usr_isibo' => $isibo
 		);
 
 		$this->db->insert('ums_users', $data1);
@@ -29,8 +30,42 @@ class Mod_Isibo extends CI_Model
 			'ldr_used_id'=>$last_id,
 			'ldr_category_code' => $ubu
 		);
-
 		$this->db->insert('ums_leaders', $data);
+		$last_id1 = $this->db->insert_id();
+		$data1 = array(
+			'mbr_member_id' =>null,
+			'mbr_firstname' => $fn,
+			'mbr_lastname' => $ln,
+			'mbr_phone' => $phone,
+			'mbr_email'=>$email,
+			'mbr_gender' =>$sex,
+			'mbr_dob' => $dob,
+			'mbr_nid' => $id,
+			'mbr_relationship' => "head",
+			'mbr_leader_id'=>$last_id1,
+			'mbr_insurance'=>$insur
+		);
+
+		$this->db->insert('ums_members', $data1);
+	}
+
+	function registerMember($fname, $lname, $tel, $nid,$email,$dob, $isano, $sex, $id,$ins){
+
+		$data = array(
+			'mbr_member_id' =>null,
+			'mbr_firstname' => $fname,
+			'mbr_lastname' => $lname,
+			'mbr_phone' => $tel,
+			'mbr_nid'=>$nid,
+			'mbr_email' =>$email,
+			'mbr_dob' => $dob,
+			'mbr_insurance' => $ins,
+			'mbr_relationship' => $isano,
+			'mbr_gender' => $sex,
+			'mbr_leader_id'=>$id
+		);
+
+		$this->db->insert('ums_members', $data);
 	}
 
 	function selectCategory(){
@@ -46,9 +81,62 @@ class Mod_Isibo extends CI_Model
 		}
 	}
 
+	function isibo($id){
+		$this->db->select('*');
+		$this->db->from('ums_users');
+		$this->db->join('ums_isibo','usr_isibo=isibo_code');
+		$query = $this->db->get();
+		$query->num_rows();
+		if ($query->num_rows()>0) {
+			return $query;
+		}else{
+			return null;
+		}
+	}
+
+	function soma($id){
+		$this->db->select('*');
+		$this->db->from('ums_amatangazo');
+		$this->db->where('ama_id',$id);
+		$query = $this->db->get();
+		$query->num_rows();
+		if ($query->num_rows()>0) {
+			return $query;
+		}else{
+			return null;
+		}
+	}
+
 	function selectInsurance(){
 		$this->db->select('*');
 		$this->db->from('ums_ubwishingizi');
+		$query = $this->db->get();
+		$query->num_rows();
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	function umuganda(){
+		$this->db->select('*');
+		$this->db->from('ums_umuganda');
+		$query = $this->db->get();
+		$query->num_rows();
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	function abashyitsi(){
+		$this->db->select('*');
+		$this->db->from('ums_guests');
+		$this->db->join('ums_leaders', 'gue_ldr_id =ldr_leader_id ');
 		$query = $this->db->get();
 		$query->num_rows();
 		if ($query->num_rows()>0){
@@ -90,6 +178,7 @@ class Mod_Isibo extends CI_Model
 		$this->db->select('*');
 		$this->db->from('ums_members');
 		$this->db->join('ums_leaders', 'mbr_leader_id = ldr_leader_id');
+		$this->db->join('ums_ubwishingizi', 'mbr_insurance = ubw_id');
 		$this->db->where('mbr_leader_id', $id);
 		$query = $this->db->get();
 		$query->num_rows();
@@ -162,7 +251,55 @@ class Mod_Isibo extends CI_Model
 		}
 	}
 
-	function itangazo($t, $b, $p, $isibo, $owner){
+	function ubudehe()
+	{
+		$this->db->select('*');
+		$this->db->from('ums_members');
+		$this->db->join('ums_leaders', 'mbr_leader_id=ldr_leader_id');
+		$this->db->join('ums_category', 'ldr_category_code=cat_cotegory_code');
+
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	function ubwishingizi()
+	{
+		$this->db->select('*');
+		$this->db->from('ums_members');
+		$this->db->join('ums_ubwishingizi', 'mbr_insurance=ubw_id');
+
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	function selectChild()
+	{
+		$this->db->select('*,TIMESTAMPDIFF (YEAR, mbr_dob, CURDATE()) AS age');
+		$this->db->from('ums_members');
+
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	function itangazo($t, $b, $p, $isibo, $owner){ 
 		$data1 = array(
 			'ama_id' =>null,
 			'ama_title' => $t,
@@ -180,9 +317,28 @@ class Mod_Isibo extends CI_Model
 	function selectIbyaranzwe($id){
 		$this->db->select('*');
 		$this->db->from('ums_amatangazo');
-		$this->db->join('ums_users', 'ama_created_by=usr_id');
+		$this->db->join('ums_admin', 'ama_created_by=adm_id');
 		$this->db->join('ums_isibo', 'ama_isibo =isibo_code');
 		$this->db->where('isibo_code', $id);
+		$this->db->where('ama_category', 'ayaleta');
+		$this->db->order_by('ama_id', 'DESC');
+
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	function selectAmatangazo(){
+		$this->db->select('*');
+		$this->db->from('ums_announcement');
+		$this->db->join('ums_leaders', 'ann_leader_id =ldr_leader_id');
+		$this->db->order_by('ann_id', 'DESC');
+
 		$query = $this->db->get();
 
 		if ($query->num_rows()>0){

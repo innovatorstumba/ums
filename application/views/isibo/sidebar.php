@@ -107,9 +107,6 @@
                     <li>
                         <a href="<?=base_url()?>isibo/umuganda"> Kureba Imiganda </a>
                     </li>
-                    <li>
-                        <a href="<?=base_url()?>isibo/kuzuza_umuganda"> Kuzuza Umuganda  </a>
-                    </li>
                                          
                     
 
@@ -220,9 +217,6 @@
                     </li>
                     <li>
                         <a href="<?=base_url()?>isibo/ibyibwe"> Ibyibwe</a>
-                    </li>
-                    <li>
-                        <a href="<?=base_url()?>isibo/ayaleta"> Amatangazo y'umutekano</a>
                     </li>
                     <li>
                         <a href="<?=base_url()?>isibo/umutekano"> Umusanzu W'umutekano</a>
