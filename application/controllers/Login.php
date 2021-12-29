@@ -39,7 +39,11 @@ class Login extends CI_Controller
                     $adm_data = $this->login->selectAdminByUserId($row->usr_id);
 
                     $admin_data = $adm_data->row();
+<<<<<<< Updated upstream
                     $adm_session_data = array('userid' => $row->usr_id,'isibo' => $row->usr_isibo, 'admin_id' => $admin_data->adm_id, 'firstname' => $admin_data->adm_firstname, 'lastname' => $admin_data->adm_lastname);
+=======
+                    $adm_session_data = array('userid' => $row->usr_id, 'admin_id' => $admin_data->adm_id, 'firstname' => $admin_data->adm_firstname, 'lastname' => $admin_data->adm_lastname, 'isibo' => $row->usr_isibo);
+>>>>>>> Stashed changes
                     $this->session->set_userdata($adm_session_data);
                     redirect(base_url().$row->roles_name);
                 }
