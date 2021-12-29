@@ -42,7 +42,7 @@
                 }
                 else
                 {
-                    echo 'Fraud transactio detected';
+                    echo 'Fraud transaction detected';
                 }
               }
               else

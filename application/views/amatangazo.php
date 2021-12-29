@@ -194,12 +194,12 @@
                             <div class="social-feed-box">
                                 <div class="social-avatar">
                                     <a href="" class="pull-left">
-                                        <img alt="image" src="<?=base_url()?>assets/assets/img/profile4.jpg">            </a>
+                                        <img alt="image" src="<?=base_url()?>assets/assets/img/profile.png">            </a>
                                     <div class="media-body">
                                         <a href="#">
-                                            UMUTWARASIBO
+                                            <?=$row->adm_firstname.' '.$row->adm_lastname;?>
                                         </a>
-                                        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                                        <small class="text-muted"><?=date('l - F d, Y g:i a', strtotime($row->ama_created_on))?><!--Today 4:21 pm - 12.06.2014--></small>
                                     </div>
                                 </div>
                                 <div class="social-body" style="color:#000">
