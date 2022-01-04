@@ -686,78 +686,27 @@ class Family extends CI_Controller {
         }
         elseif($status == 'successful') {
             $txid = $this->input->get('transaction_id', TRUE);
-
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://api.flutterwave.com/v3/transactions/{$txid}/verify",
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_HTTPHEADER => array(
-                    "Content-Type: application/json",
-                    "Authorization: Bearer FLWSECK_TEST-eee25be1b44ef9a132a872075b3a0910-X"
-                ),
-            ));
-
-            $response = curl_exec($curl);
-
-            curl_close($curl);
-
-            $res = json_decode($response);
-            if($res->status)
-            {
-                $amountPaid = $res->data->charged_amount;
-                $amountToPay = $res->data->meta->price;
-                if($amountPaid >= $amountToPay)
-                {
-                    $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), 'success');
-                    $leader_id = $this->session->userdata('leader_id');
-                    $trans_id = $this->input->get('tx_ref', TRUE);
-                    $query = $this->fm->getTransactionById($trans_id);
-                    $trans = $query->row();
-                    $monthCount = $trans->trs_months_count;
-                    if ($trans->trs_title == 'Umutekano'){
-                        $saved = $this->fm->saveUmutekanoTrans($leader_id, $trans_id, $monthCount);
-                    } elseif($trans->trs_title == 'Isuku'){
-                        $saved = $this->fm->saveIsukuTrans($leader_id, $trans_id, $monthCount);
-                    } elseif($trans->trs_title == 'Igiceri'){
-                        $saved = $this->fm->saveIgiceriTrans($leader_id, $trans_id, $monthCount);
-                    } elseif($trans->trs_title == 'Ejo Heza'){
-                        $saved = $this->fm->saveEjohezaTrans($leader_id, $trans_id, $monthCount);
-                    }
-                    ?>
-                    <script>
-                        window.alert('Kwishyura Byagenze neza!');
-                        window.location = '<?=base_url();?>Family/kwishyura';
-                    </script>
-                    <?php
-                }
-                else
-                {
-                    //echo 'Fraud transaction detected';
-                    $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), 'blocked');
-                    ?>
-                    <script>
-                        window.alert('Fraud transaction detected');
-                        window.location = '<?=base_url();?>Family/kwishyura';
-                    </script>
-                    <?php
-                }
+            $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), 'success');
+            $leader_id = $this->session->userdata('leader_id');
+            $trans_id = $this->input->get('tx_ref', TRUE);
+            $query = $this->fm->getTransactionById($trans_id);
+            $trans = $query->row();
+            $monthCount = $trans->trs_months_count;
+            if ($trans->trs_title == 'Umutekano'){
+                $saved = $this->fm->saveUmutekanoTrans($leader_id, $trans_id, $monthCount);
+            } elseif($trans->trs_title == 'Isuku'){
+                $saved = $this->fm->saveIsukuTrans($leader_id, $trans_id, $monthCount);
+            } elseif($trans->trs_title == 'Igiceri'){
+                $saved = $this->fm->saveIgiceriTrans($leader_id, $trans_id, $monthCount);
+            } elseif($trans->trs_title == 'Ejo Heza'){
+                $saved = $this->fm->saveEjohezaTrans($leader_id, $trans_id, $monthCount);
             }
-            else
-            {
-                $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), 'failed');
-                ?>
-                <script>
-                    window.alert('Kwishyura Ntibyabaye, musubiremo!');
-                    window.location = '<?=base_url();?>Family/kwishyura';
-                </script>
-                <?php
-            }
+            ?>
+            <script>
+                window.alert('Kwishyura Byagenze neza!');
+                window.location = '<?=base_url();?>Family/kwishyura';
+            </script>
+            <?php
         } elseif($status == 'failed'){
             $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), $status);
             ?>
