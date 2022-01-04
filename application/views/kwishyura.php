@@ -31,7 +31,7 @@
                                                     </ul>
                                                     <input type="hidden" name="title" value="Umutekano">
                                                     <input type="hidden" name="table" value="umutekano">
-                                                    <input type="hidden" name="amount" value="2000">
+                                                    <input type="hidden" name="amount" value="100">
                                                     <input name="pay" class="btn btn-primary submit" type="submit" value="ISHYURA">
                                                 </form>
                                             </div>
@@ -82,7 +82,7 @@
                                                     </ul>
                                                     <input type="hidden" name="title" value="Igiceri">
                                                     <input type="hidden" name="table" value="igiceri">
-                                                    <input type="hidden" name="amount" value="5000">
+                                                    <input type="hidden" name="amount" value="100">
                                                     <input name="pay" class="btn btn-primary submit" type="submit" value="ISHYURA">
                                                 </form>
                                             </div>

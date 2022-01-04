@@ -341,8 +341,8 @@ class Family_Model extends CI_Model
                 $this->isukuSaved($leader_id, $transaction, $year, $month, $mon, $regDate);
             }
         } else{
-            $mon = $transData->umt_pay_month;
-            $year = $transData->umt_year;
+            $mon = $transData->isuku_pay_month;
+            $year = $transData->isuku_year;
             $mons = '';
             if(($mon + $month) > 12){
                 $newYear = $year + 1;
@@ -433,8 +433,8 @@ class Family_Model extends CI_Model
                 $this->ejohezaSaved($leader_id, $transaction, $year, $month, $mon, $regDate);
             }
         } else{
-            $mon = $transData->umt_pay_month;
-            $year = $transData->umt_year;
+            $mon = $transData->ejo_pay_month;
+            $year = $transData->ejo_year;
             $mons = '';
             if(($mon + $month) > 12){
                 $newYear = $year + 1;
@@ -525,8 +525,8 @@ class Family_Model extends CI_Model
                 $this->igiceriSaved($leader_id, $transaction, $year, $month, $mon, $regDate);
             }
         } else{
-            $mon = $transData->umt_pay_month;
-            $year = $transData->umt_year;
+            $mon = $transData->igiceri_pay_month;
+            $year = $transData->igiceri_year;
             $mons = '';
             if(($mon + $month) > 12){
                 $newYear = $year + 1;
