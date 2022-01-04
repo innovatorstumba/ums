@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2022 at 08:26 AM
+-- Generation Time: Jan 04, 2022 at 12:11 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -520,7 +520,7 @@ CREATE TABLE `ums_igiceri` (
 --
 
 INSERT INTO `ums_igiceri` (`igiceri_id`, `igiceri_leader_id`, `igiceri_transaction_id`, `igiceri_year`, `igiceri_pay_month`, `igiceri_months`, `igiceri_date`) VALUES
-(1, 5, 'TRX1641241575', 2022, 6, 'January,February,March,April,May,June', '1641241615');
+(1, 11, 'TRX1641241575', 2022, 6, 'January,February,March,April,May,June', '1641241615');
 
 -- --------------------------------------------------------
 
@@ -595,7 +595,7 @@ CREATE TABLE `ums_isuku` (
 --
 
 INSERT INTO `ums_isuku` (`isuku_id`, `isuku_leader_id`, `isuku_transaction_id`, `isuku_year`, `isuku_pay_month`, `isuku_months`, `isuku_date`) VALUES
-(1, 5, 'TRX1641240354', 2022, 3, 'January,February,March', '1641240413');
+(1, 11, 'TRX1641240354', 2022, 3, 'January,February,March', '1641240413');
 
 -- --------------------------------------------------------
 
@@ -615,7 +615,6 @@ CREATE TABLE `ums_leaders` (
   `ldr_nid` varchar(16) NOT NULL,
   `ldr_profile` varchar(100) DEFAULT NULL,
   `ldr_village_code` int(11) NOT NULL,
-  `ldr_isibo_code` int(11) NOT NULL,
   `ldr_used_id` int(11) NOT NULL,
   `ldr_category_code` int(11) NOT NULL,
   `ldr_insurance` int(11) NOT NULL
@@ -625,11 +624,8 @@ CREATE TABLE `ums_leaders` (
 -- Dumping data for table `ums_leaders`
 --
 
-INSERT INTO `ums_leaders` (`ldr_leader_id`, `ldr_firstname`, `ldr_lastname`, `ldr_phone`, `ldr_email`, `ldr_gender`, `ldr_dob`, `ldr_house`, `ldr_nid`, `ldr_profile`, `ldr_village_code`, `ldr_isibo_code`, `ldr_used_id`, `ldr_category_code`, `ldr_insurance`) VALUES
-(3, 'Kamana', 'Emmanuel', '0785656565', 'kamana@gmail.com', 'male', '1996-01-01', '127', '115452565', '', 1, 1, 1, 1, 1),
-(5, 'audace', 'sangano', '0783503691', 'audasang2018@gmail.com', 'male', '2021-12-01', '124', '119985658', NULL, 1, 1, 8, 1, 2),
-(7, 'audace', 'sangano', '0783503691', 'audasang2018@gmail.com', 'male', '1982-06-30', '261', '2345678', NULL, 1, 1, 10, 1, 2),
-(9, 'iradukunda', 'emmanuel', '0783503691', 'igihozo1@gmail.com', 'female', '2021-10-04', '', '2345678', NULL, 1, 1, 13, 1, 4);
+INSERT INTO `ums_leaders` (`ldr_leader_id`, `ldr_firstname`, `ldr_lastname`, `ldr_phone`, `ldr_email`, `ldr_gender`, `ldr_dob`, `ldr_house`, `ldr_nid`, `ldr_profile`, `ldr_village_code`, `ldr_used_id`, `ldr_category_code`, `ldr_insurance`) VALUES
+(11, 'Blaise ', 'YONKURU', '0785658565', 'mentor@test.com', 'male', '1983-01-12', '', '1732687426968531', NULL, 2, 15, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -664,15 +660,16 @@ CREATE TABLE `ums_members` (
   `mbr_dob` date NOT NULL,
   `mbr_relationship` varchar(20) NOT NULL,
   `mbr_gender` varchar(10) NOT NULL,
-  `mbr_leader_id` int(15) NOT NULL
+  `mbr_leader_id` int(15) NOT NULL,
+  `mbr_insurance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ums_members`
 --
 
-INSERT INTO `ums_members` (`mbr_member_id`, `mbr_firstname`, `mbr_lastname`, `mbr_phone`, `mbr_nid`, `mbr_email`, `mbr_dob`, `mbr_relationship`, `mbr_gender`, `mbr_leader_id`) VALUES
-(1, 'Rukundo', 'Love', '0785654852', 1515151515, 'rukundo@gmail.com', '2011-12-01', 'UMWANA', 'male', 3);
+INSERT INTO `ums_members` (`mbr_member_id`, `mbr_firstname`, `mbr_lastname`, `mbr_phone`, `mbr_nid`, `mbr_email`, `mbr_dob`, `mbr_relationship`, `mbr_gender`, `mbr_leader_id`, `mbr_insurance`) VALUES
+(2, 'Blaise ', 'YONKURU', '0785658565', 2147483647, 'mentor@test.com', '1983-01-12', 'head', 'male', 11, 4);
 
 -- --------------------------------------------------------
 
@@ -820,18 +817,18 @@ CREATE TABLE `ums_transactions` (
 --
 
 INSERT INTO `ums_transactions` (`trs_id`, `trs_leader_id`, `trs_title`, `trs_months_count`, `trs_amount`, `trs_date`, `trs_status`) VALUES
-('TRX1641221771', 5, 'Umutekano', 2, 4000, '1641221771', 'Pending'),
-('TRX1641222799', 5, 'Isuku', 2, 6000, '1641222799', 'Pending'),
-('TRX1641223192', 5, 'Umutekano', 1, 2000, '1641223192', 'Pending'),
-('TRX1641223289', 5, 'Ejo Heza', 2, 2000, '1641223289', 'Pending'),
-('TRX1641223430', 5, 'Igiceri', 3, 1500, '1641223430', 'Pending'),
-('TRX1641236759', 5, 'Umutekano', 2, 40000, '1641236759', 'failed'),
-('TRX1641237535', 5, 'Umutekano', 3, 60000, '1641237535', 'failed'),
-('TRX1641238641', 5, 'Umutekano', 3, 60000, '1641238641', 'failed'),
-('TRX1641239016', 5, 'Umutekano', 2, 40000, '1641239016', 'failed'),
-('TRX1641240354', 5, 'Isuku', 3, 90000, '1641240354', 'failed'),
-('TRX1641241483', 5, 'Ejo Heza', 4, 40000, '1641241483', 'failed'),
-('TRX1641241575', 5, 'Igiceri', 6, 30000, '1641241575', 'failed');
+('TRX1641221771', 11, 'Umutekano', 2, 4000, '1641221771', 'Pending'),
+('TRX1641222799', 11, 'Isuku', 2, 6000, '1641222799', 'Pending'),
+('TRX1641223192', 11, 'Umutekano', 1, 2000, '1641223192', 'Pending'),
+('TRX1641223289', 11, 'Ejo Heza', 2, 2000, '1641223289', 'Pending'),
+('TRX1641223430', 11, 'Igiceri', 3, 1500, '1641223430', 'Pending'),
+('TRX1641236759', 11, 'Umutekano', 2, 40000, '1641236759', 'failed'),
+('TRX1641237535', 11, 'Umutekano', 3, 60000, '1641237535', 'failed'),
+('TRX1641238641', 11, 'Umutekano', 3, 60000, '1641238641', 'failed'),
+('TRX1641239016', 11, 'Umutekano', 2, 40000, '1641239016', 'failed'),
+('TRX1641240354', 11, 'Isuku', 3, 90000, '1641240354', 'failed'),
+('TRX1641241483', 11, 'Ejo Heza', 4, 40000, '1641241483', 'failed'),
+('TRX1641241575', 11, 'Igiceri', 6, 30000, '1641241575', 'failed');
 
 -- --------------------------------------------------------
 
@@ -924,8 +921,8 @@ CREATE TABLE `ums_umutekano` (
 --
 
 INSERT INTO `ums_umutekano` (`umt_id`, `umt_leader_id`, `umt_transaction_id`, `umt_year`, `umt_pay_month`, `umt_months`, `umt_date`) VALUES
-(3, 5, 'TRX1641238641', 2022, 3, 'January,February,March', '1641238726'),
-(4, 5, 'TRX1641239016', 2022, 5, 'April,May', '1641239061');
+(3, 11, 'TRX1641238641', 2022, 3, 'January,February,March', '1641238726'),
+(4, 11, 'TRX1641239016', 2022, 5, 'April,May', '1641239061');
 
 -- --------------------------------------------------------
 
@@ -946,13 +943,8 @@ CREATE TABLE `ums_users` (
 --
 
 INSERT INTO `ums_users` (`usr_id`, `usr_username`, `usr_password`, `usr_roles_id`, `usr_isibo`) VALUES
-(1, 'user1', '123', 1, 1),
-(8, 'sano', '123', 2, 1),
-(9, 'user3', 'qwerty', 2, 1),
-(10, 'sano', '123', 2, 1),
-(11, 'huska', 'huska', 2, 1),
 (12, 'huska', '123', 3, 1),
-(13, 'user7', '123', 2, 1);
+(15, 'family', '123', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1219,8 +1211,7 @@ ALTER TABLE `ums_leaders`
   ADD KEY `used_id` (`ldr_used_id`),
   ADD KEY `village_code` (`ldr_village_code`),
   ADD KEY `category_code` (`ldr_category_code`),
-  ADD KEY `ldr_insurance` (`ldr_insurance`),
-  ADD KEY `ldr_isibo_code` (`ldr_isibo_code`);
+  ADD KEY `ldr_insurance` (`ldr_insurance`);
 
 --
 -- Indexes for table `ums_market`
@@ -1234,7 +1225,8 @@ ALTER TABLE `ums_market`
 --
 ALTER TABLE `ums_members`
   ADD PRIMARY KEY (`mbr_member_id`),
-  ADD KEY `leader_id` (`mbr_leader_id`);
+  ADD KEY `leader_id` (`mbr_leader_id`),
+  ADD KEY `mbr_insurance` (`mbr_insurance`);
 
 --
 -- Indexes for table `ums_parent_evening`
@@ -1493,7 +1485,7 @@ ALTER TABLE `ums_isuku`
 -- AUTO_INCREMENT for table `ums_leaders`
 --
 ALTER TABLE `ums_leaders`
-  MODIFY `ldr_leader_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ldr_leader_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `ums_market`
@@ -1505,7 +1497,7 @@ ALTER TABLE `ums_market`
 -- AUTO_INCREMENT for table `ums_members`
 --
 ALTER TABLE `ums_members`
-  MODIFY `mbr_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mbr_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ums_parent_evening`
@@ -1565,7 +1557,7 @@ ALTER TABLE `ums_umutekano`
 -- AUTO_INCREMENT for table `ums_users`
 --
 ALTER TABLE `ums_users`
-  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
@@ -1760,8 +1752,7 @@ ALTER TABLE `ums_leaders`
   ADD CONSTRAINT `ums_leaders_ibfk_2` FOREIGN KEY (`ldr_village_code`) REFERENCES `ums_village` (`village_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ums_leaders_ibfk_3` FOREIGN KEY (`ldr_category_code`) REFERENCES `ums_category` (`cat_cotegory_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ums_leaders_ibfk_4` FOREIGN KEY (`ldr_used_id`) REFERENCES `ums_users` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ums_leaders_ibfk_5` FOREIGN KEY (`ldr_insurance`) REFERENCES `ums_ubwishingizi` (`ubw_id`),
-  ADD CONSTRAINT `ums_leaders_ibfk_6` FOREIGN KEY (`ldr_isibo_code`) REFERENCES `ums_isibo` (`isibo_code`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_leaders_ibfk_5` FOREIGN KEY (`ldr_insurance`) REFERENCES `ums_ubwishingizi` (`ubw_id`);
 
 --
 -- Constraints for table `ums_market`
@@ -1773,7 +1764,8 @@ ALTER TABLE `ums_market`
 -- Constraints for table `ums_members`
 --
 ALTER TABLE `ums_members`
-  ADD CONSTRAINT `ums_members_ibfk_1` FOREIGN KEY (`mbr_leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ums_members_ibfk_1` FOREIGN KEY (`mbr_leader_id`) REFERENCES `ums_leaders` (`ldr_leader_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ums_members_ibfk_2` FOREIGN KEY (`mbr_insurance`) REFERENCES `ums_ubwishingizi` (`ubw_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ums_pharmacy`
