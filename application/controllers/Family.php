@@ -76,7 +76,7 @@ class Family extends CI_Controller {
                 ?>
                 <script>
                     window.alert('Kwemeza ko umushyitsi yatashye ntibyakunze!');
-                    window.location = '<?=base_url();?>Family/abashyitsi'';
+                    window.location = '<?=base_url();?>Family/abashyitsi';
                 </script>
                 <?php
             }
@@ -219,10 +219,12 @@ class Family extends CI_Controller {
 	}
 	public function igiceri(){
         $sessionData=$this->session->userdata('userid');
+        $leader_id = $this->session->userdata('leader_id');
+        $data['selected'] = $this->fm->getIgiceriByLeaderId($leader_id);
         if($sessionData!="") {
             $this->load->view('header');
             $this->load->view('sidebar');
-            $this->load->view('igiceri');
+            $this->load->view('igiceri', $data);
             $this->load->view('footer');
         }else {
             redirect(base_url() . 'Login');
@@ -263,10 +265,12 @@ class Family extends CI_Controller {
 	}
 	public function isuku(){
         $sessionData=$this->session->userdata('userid');
+        $leader_id = $this->session->userdata('leader_id');
+        $data['selected'] = $this->fm->getIsukuByLeaderId($leader_id);
         if($sessionData!="") {
             $this->load->view('header');
             $this->load->view('sidebar');
-            $this->load->view('isuku');
+            $this->load->view('isuku', $data);
             $this->load->view('footer');
         }else {
             redirect(base_url() . 'Login');
@@ -453,10 +457,12 @@ class Family extends CI_Controller {
 	}
 	public function umutekano(){
         $sessionData=$this->session->userdata('userid');
+        $leader_id = $this->session->userdata('leader_id');
+        $data['selected'] = $this->fm->getUmutekanoByLeaderId($leader_id);
         if($sessionData!="") {
             $this->load->view('header');
             $this->load->view('sidebar');
-            $this->load->view('umutekano');
+            $this->load->view('umutekano', $data);
             $this->load->view('footer');
         }else {
             redirect(base_url() . 'Login');
@@ -580,47 +586,120 @@ class Family extends CI_Controller {
             $title = $this->input->post('title');
             $amt = $this->input->post('amount');
             $table = 'ums_'.$this->input->post('table');
+            $amount =intval($amezi)*$amt;
         }
-        $amount =intval($amezi)*$amt;
+
         $email = "audasang2018@gmail.com";
         if ($this->input->post('nber')){
+            $amezi = $this->input->post('amezi');
+            $transaction_reference = 'TRX'.time();
+            $leader_id = $this->session->userdata('leader_id');
             $amount =$this->input->post('amt');
-            $request = [
-                'tx_ref' => time(),
-                'amount' => $amount,
-                'currency' => 'RWF',
-                'payment_options' => 'mobilemoneyrwanda',
-                'redirect_url' => base_url().'process.php',
-                'customer' => [
-                    'email' => $email,
-                    'name' => 'sanga'
-                ],
-                'meta' => [
-                    'price' => $amount
-                ],
-                'customizations' => [
-                    'title' => 'Ishyura '.$title,
-                    'description' => 'UMS',
-                    'logo'=> 'http://localhost/pay/sano.png'
-                ]
-            ];
+            $table =$this->input->post('table');
+            $regDate = $this->fm->getCurrentUnixDate();
+            $save_transaction = $this->fm->saveTransaction($transaction_reference, $leader_id, $table,$amezi, $amount, $regDate);
+            if ($save_transaction){
+                $request = [
+                    'tx_ref' => $transaction_reference,
+                    'amount' => $amount,
+                    'currency' => 'RWF',
+                    'payment_options' => 'mobilemoneyrwanda',
+                    'redirect_url' => base_url().'Family/process',
+                    'customer' => [
+                        'email' => $email,
+                        'name' => 'sanga'
+                    ],
+                    'meta' => [
+                        'price' => $amount
+                    ],
+                    'customizations' => [
+                        'title' => 'Ishyura '.$title,
+                        'description' => 'UMS',
+                        'logo'=> 'http://localhost/pay/sano.png'
+                    ]
+                ];
 
-            //* Ca;; f;iterwave emdpoint
+                //* Ca;; f;iterwave emdpoint
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://api.flutterwave.com/v3/payments',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS => json_encode($request),
+                    CURLOPT_HTTPHEADER => array(
+                        'Authorization: Bearer FLWSECK-083ae3b8d5dfb256278a72490903c75e-X',
+                        'Content-Type: application/json'
+                    ),
+                ));
+
+                $response = curl_exec($curl);
+
+                curl_close($curl);
+
+                $res = json_decode($response);
+                if($res->status == 'success')
+                {
+                    $link = $res->data->link;
+                    header('Location: '.$link);
+                }
+                else
+                {
+                    echo 'We can not process your payment';
+                }
+            } else{
+                ?>
+                <script>
+                    window.alert('Kwishyura ntabwo bikunze, Ongera ugerageze!');
+                    window.location = '<?=base_url();?>Family/kwishyura';
+                </script>
+                <?php
+            }
+        }
+        $result['total']=$amount;
+        $result['title'] = 'Kwishyura '.$title;
+        $result['table'] = $title;
+        $result['amount'] = $amt;
+        $result['amezi'] = $amezi;
+        $this->load->view('header');
+        $this->load->view('sidebar');
+        $this->load->view('pay',$result);
+    }
+
+    function process(){
+        $status = $this->input->get('status', TRUE);
+        //* check payment status
+        if($status == 'cancelled') {
+            // echo 'YOu cancel the payment';
+            $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), $status);
+            ?>
+            <script>
+                window.alert('Wahagaritse Kwishyura!');
+                window.location = '<?=base_url();?>Family/kwishyura';
+            </script>
+            <?php
+        }
+        elseif($status == 'successful') {
+            $txid = $this->input->get('transaction_id', TRUE);
+
             $curl = curl_init();
-
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://api.flutterwave.com/v3/payments',
+                CURLOPT_URL => "https://api.flutterwave.com/v3/transactions/{$txid}/verify",
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
+                CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
                 CURLOPT_TIMEOUT => 0,
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => json_encode($request),
+                CURLOPT_CUSTOMREQUEST => "GET",
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: Bearer FLWSECK-083ae3b8d5dfb256278a72490903c75e-X',
-                    'Content-Type: application/json'
+                    "Content-Type: application/json",
+                    "Authorization: Bearer FLWSECK_TEST-eee25be1b44ef9a132a872075b3a0910-X"
                 ),
             ));
 
@@ -629,22 +708,64 @@ class Family extends CI_Controller {
             curl_close($curl);
 
             $res = json_decode($response);
-            if($res->status == 'success')
+            if($res->status)
             {
-                $link = $res->data->link;
-                header('Location: '.$link);
+                $amountPaid = $res->data->charged_amount;
+                $amountToPay = $res->data->meta->price;
+                if($amountPaid >= $amountToPay)
+                {
+                    $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), 'success');
+                    $leader_id = $this->session->userdata('leader_id');
+                    $trans_id = $this->input->get('tx_ref', TRUE);
+                    $query = $this->fm->getTransactionById($trans_id);
+                    $trans = $query->row();
+                    $monthCount = $trans->trs_months_count;
+                    if ($trans->trs_title == 'Umutekano'){
+                        $saved = $this->fm->saveUmutekanoTrans($leader_id, $trans_id, $monthCount);
+                    } elseif($trans->trs_title == 'Isuku'){
+                        $saved = $this->fm->saveIsukuTrans($leader_id, $trans_id, $monthCount);
+                    } elseif($trans->trs_title == 'Igiceri'){
+                        $saved = $this->fm->saveIgiceriTrans($leader_id, $trans_id, $monthCount);
+                    } elseif($trans->trs_title == 'Ejo Heza'){
+                        $saved = $this->fm->saveEjohezaTrans($leader_id, $trans_id, $monthCount);
+                    }
+                    ?>
+                    <script>
+                        window.alert('Kwishyura Byagenze neza!');
+                        window.location = '<?=base_url();?>Family/kwishyura';
+                    </script>
+                    <?php
+                }
+                else
+                {
+                    //echo 'Fraud transaction detected';
+                    $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), 'blocked');
+                    ?>
+                    <script>
+                        window.alert('Fraud transaction detected');
+                        window.location = '<?=base_url();?>Family/kwishyura';
+                    </script>
+                    <?php
+                }
             }
             else
             {
-                echo 'We can not process your payment';
+                $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), 'failed');
+                ?>
+                <script>
+                    window.alert('Kwishyura Ntibyabaye, musubiremo!');
+                    window.location = '<?=base_url();?>Family/kwishyura';
+                </script>
+                <?php
             }
+        } elseif($status == 'failed'){
+            $this->fm->updateTransaction($this->input->get('tx_ref', TRUE), $status);
+            ?>
+            <script>
+                window.alert('Transaction failed!');
+                window.location = '<?=base_url();?>Family/kwishyura';
+            </script>
+            <?php
         }
-        $result['total']=$amount;
-        $result['title'] = 'Kwishyura '.$title;
-        $result['amount'] = $amt;
-        $result['amezi'] = $amezi;
-        $this->load->view('header');
-        $this->load->view('sidebar');
-        $this->load->view('pay',$result);
     }
 }

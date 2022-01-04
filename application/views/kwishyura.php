@@ -65,7 +65,7 @@
                                                     </ul>
                                                     <input type="hidden" name="title" value="Ejo Heza">
                                                     <input type="hidden" name="table" value="ejoheza">
-                                                    <input type="hidden" name="amount" value="1000">
+                                                    <input type="hidden" name="amount" value="10000">
                                                     <input name="pay" class="btn btn-primary submit" type="submit" value="ISHYURA">
                                                 </form>
                                             </div>
@@ -82,7 +82,7 @@
                                                     </ul>
                                                     <input type="hidden" name="title" value="Igiceri">
                                                     <input type="hidden" name="table" value="igiceri">
-                                                    <input type="hidden" name="amount" value="500">
+                                                    <input type="hidden" name="amount" value="5000">
                                                     <input name="pay" class="btn btn-primary submit" type="submit" value="ISHYURA">
                                                 </form>
                                             </div>

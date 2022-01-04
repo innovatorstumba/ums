@@ -1639,6 +1639,8 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
                                                             <label style="color:#000" class="control-label"><b>Umubare W'amezi:</b> <?=@$amezi?></label><br>
                                                             <label style="color:#000" class="control-label"><b>Yose Hamwe:</b> <?=@$total?> RWF</label>
                                                             <input type="hidden" value="<?=@$total?>" name="amt">
+                                                            <input type="hidden" value="<?=@$amezi?>" name="amezi">
+                                                            <input type="hidden" value="<?=@$table?>" name="table">
                                                         </div>
                                                     </div>
                                                     <div class="clear"> </div>
@@ -1811,6 +1813,6 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
     </script>
     <!-- //credit-card -->
    
-</body>
+</div>
 <!-- //Body -->
 
