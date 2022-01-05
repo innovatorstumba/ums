@@ -52,10 +52,19 @@
                 <input type="button" name="next" class="next action-button" value="KOMEZA"/>
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">uzuza neza ibisabwat</h2>
+                <h2 class="fs-title">uzuza neza ibisabwa</h2>
                 <h3 class="fs-subtitle">UMUGANDA</h3>
                 <input type="text" name="urubyiruko" placeholder="URUBYIRUKO"/>
                 <input type="text" name="agaciro" placeholder="AGACIRO MUMAFARANGA"/>
+                
+
+                <?php
+                foreach($data as $row)
+									{?>
+                                    <input type="text" value="<?php echo $row->adm_village_code; ?>" name="village"/>
+									<?php
+									}
+				?>
                 <input type="file" name="amafoto"/>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
                 <input type="submit" name="send"  value="OHEREZA"/>

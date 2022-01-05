@@ -4,7 +4,6 @@
 class Mod_Umudugudu extends CI_Model
 {
 
-<<<<<<< HEAD
 	function abaturage()
 	{
 		$this->db->select('*,TIMESTAMPDIFF (YEAR, ldr_dob, CURDATE()) AS age,TIMESTAMPDIFF (MONTH, ldr_dob, CURDATE()) AS mnth,TIMESTAMPDIFF (DAY, ldr_dob, CURDATE()) AS dy');
@@ -13,13 +12,6 @@ class Mod_Umudugudu extends CI_Model
 
 		$query = $this->db->get();
 
-=======
-	function selectAbaturage(){
-		$this->db->select('*');
-		$this->db->from('ums_leaders');
-		$query = $this->db->get();
-		$query->num_rows();
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 		if ($query->num_rows()>0){
 			return $query->result();
 		}
@@ -39,7 +31,6 @@ class Mod_Umudugudu extends CI_Model
 			return false;
 		}
 	}
-<<<<<<< HEAD
 	function selectUmuganda(){
 		$this->db->select('*');
 		$this->db->from('ums_umuganda');
@@ -56,12 +47,6 @@ class Mod_Umudugudu extends CI_Model
 		$this->db->select('*');
 		$this->db->from('ums_admin');
 		$this->db->where('adm_id',$id);
-=======
-	function viewAdmin($id){
-		$this->db->select('*');
-		$this->db->from('ums_admin');
-		$this->db->where('admin_id',$id);
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 		$query = $this->db->get();
 		$query->num_rows();
 		if ($query->num_rows()>0){
@@ -72,7 +57,6 @@ class Mod_Umudugudu extends CI_Model
 		}
 	}
 	function insertAdmin($firstname, $lastname, $nid, $phone){
-<<<<<<< HEAD
 		$data1 = array(
 			'usr_id' =>null,
 			'usr_username' => $nid,
@@ -91,21 +75,10 @@ class Mod_Umudugudu extends CI_Model
 			'adm_phone' => $phone,
 			'adm_village_code'=>1,
 			'adm_user_id' =>$last_id
-=======
-		$data = array(
-			'admin_id' =>null,
-			'firstname' => $firstname,
-			'lastname' => $lastname,
-			'nid' => $nid,
-			'phone' => $phone,
-			'village_code'=>1,
-			'user_id' =>1
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 		);
 
 		$this->db->insert('ums_admin', $data);
 	}
-<<<<<<< HEAD
 	function insertIsibo($isibo_name, $isibo_code){
 		$data = array(
 			'isibo_code' =>$isibo_code,
@@ -140,22 +113,11 @@ class Mod_Umudugudu extends CI_Model
 			'adm_phone' => $phone
 		);
 		$this->db->where('adm_id', $id);
-=======
-	function updateAdmin($firstname, $lastname, $nid, $phone, $id){
-		$data = array(
-			'firstname' => $firstname,
-			'lastname' => $lastname,
-			'nid' => $nid,
-			'phone' => $phone
-		);
-		$this->db->where('admin_id', $id);
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 
 		$this->db->update('ums_admin', $data);
 		
 		
 	}
-<<<<<<< HEAD
 	function registerHeader($fn, $ln, $dob, $id,$sex,$ubu, $isano, $insur, $phone, $houseNumber, $uname, $password, $email="none"){
 		$data1 = array(
 			'usr_id' =>null,
@@ -279,7 +241,5 @@ class Mod_Umudugudu extends CI_Model
 			return false;
 		}
 	}
-=======
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 
 }

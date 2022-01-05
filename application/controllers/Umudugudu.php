@@ -12,13 +12,9 @@ class Umudugudu extends CI_Controller {
 		$this->load->database();
 
 		//load Model
-<<<<<<< HEAD
 		$this->load->model('fm');
 		$this->load->model('Mod_Umudugudu');
 		$this->load->library('session');
-=======
-		$this->load->model('Mod_Umudugudu');
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 	}
 	public function index(){
 		$sessionData=$this->session->userdata('userid');
@@ -55,7 +51,6 @@ class Umudugudu extends CI_Controller {
 	}
 	}
 	public function abaturage(){
-<<<<<<< HEAD
 		$sessionData=$this->session->userdata('userid');
 	if($sessionData!="") {
 		$result['data'] = $this->Mod_Umudugudu->abaturage();
@@ -65,12 +60,6 @@ class Umudugudu extends CI_Controller {
 	}else {
 		redirect(base_url() . 'Login');
 	}
-=======
-		$result['abaturage'] = $this->Mod_Umudugudu->selectAbaturage();
-		$this->load->view('umudugudu/header');
-		$this->load->view('umudugudu/sidebar');
-		$this->load->view('umudugudu/abaturage', $result);
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 	
 	}
 	public function citizen(){
@@ -263,11 +252,7 @@ class Umudugudu extends CI_Controller {
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
 		$this->load->view('umudugudu/kwandika_umuyobozi');
-<<<<<<< HEAD
 		if ($this->input->post('send')){
-=======
-		if ($this->input->post('submit')){
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 			$firstname = $this->input->post('firstname');
 			$lastname = $this->input->post('lastname');
 			$nid = $this->input->post('nid');
@@ -276,12 +261,9 @@ class Umudugudu extends CI_Controller {
 
 			redirect('umudugudu/abagize_komite');
 		}
-<<<<<<< HEAD
 	}else {
 		redirect(base_url() . 'Login');
 	}
-=======
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 	}
 	public function kongeramo_isibo(){
 		$sessionData=$this->session->userdata('userid');
@@ -300,12 +282,13 @@ class Umudugudu extends CI_Controller {
 		redirect(base_url() . 'Login');
 	}
 	}
-	public function kuzuza_umuganda(){
+	public function kuzuza_umuganda($userId){
 		$sessionData=$this->session->userdata('userid');
 	if($sessionData!="") {
+		$result['data'] = $this->Mod_LoginModel->selectAdminByUserId($userId);
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
-		$this->load->view('umudugudu/kuzuza_umuganda');
+		$this->load->view('umudugudu/kuzuza_umuganda',$result);
 		if ($this->input->post('send')){
 			$title = $this->input->post('title');
 			$description = $this->input->post('description');
@@ -633,29 +616,9 @@ class Umudugudu extends CI_Controller {
 		redirect(base_url() . 'Login');
 	}
 	}
-	public function edit_umuyobozi($id){
-		$result['admin'] = $this->Mod_Umudugudu->viewAdmin($id);
-		$this->load->view('umudugudu/header');
-		$this->load->view('umudugudu/sidebar');
-		$this->load->view('umudugudu/edit_umuyobozi',$result);
-		$this->load->view('umudugudu/footer');
-		if ($this->input->post('update')){
-			$firstname = $this->input->post('firstname');
-			$lastname = $this->input->post('lastname');
-			$nid = $this->input->post('nid');
-			$phone = $this->input->post('phone');
-			
-			$this->Mod_Umudugudu->updateAdmin($firstname, $lastname, $nid, $phone, $id);
-
-			redirect('umudugudu/abagize_komite');
-		}
-	}
 	public function abagize_komite(){
-<<<<<<< HEAD
 		$sessionData=$this->session->userdata('userid');
 	if($sessionData!="") {
-=======
->>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
 		$result['admin'] = $this->Mod_Umudugudu->selectAdmin();
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
