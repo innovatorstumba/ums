@@ -19,5 +19,11 @@
     <script src="<?=base_url()?>assets/assets/js/dashboard/dash_2.js"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script src="<?=base_url()?>assets/assets/js/apps/mailbox-chat.js"></script>
+
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="<?=base_url()?>assets/js/scrollspyNav.js"></script>
+    <script src="<?=base_url()?>plugins/editors/quill/quill.js"></script>
+    <script src="<?=base_url()?>plugins/editors/quill/custom-quill.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
 </body>
 </html>

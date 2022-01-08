@@ -197,21 +197,21 @@
                                     </div>
                                 </div>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <form>
+                                    <?php echo form_open_multipart(site_url('Family/kuranga'));?>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IKIRANGISHWA</label>
-                                            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="IKIRANGISHWA">
+                                            <input type="text" name="title" class="form-control" id="exampleFormControlInput2" placeholder="IKIRANGISHWA">
                                         </div>
  
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlTextarea1">UBUSOBANURO</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
                                         <div class="form-group mb-4 mt-3">
                                             <label style="color:#000;" for="exampleFormControlFile1">IFOTO Y'IKIRANGISHWA</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            <input type="file" name="ifoto" accept=".gif,.jpg,.jpeg,.png" class="form-control-file" id="exampleFormControlFile1">
                                         </div>
-                                        <input type="submit" value="Ohereza" name="time" class="mt-4 mb-4 btn btn-primary">
+                                        <input type="submit" value="Ohereza" name="savefile" class="mt-4 mb-4 btn btn-primary">
                                     </form>
                                 </div>
                             </div>
