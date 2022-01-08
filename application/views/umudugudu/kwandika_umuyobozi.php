@@ -197,32 +197,51 @@
                                     </div>
                                 </div>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <form>
+                                    <form method="post">
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">NIMERO Y'IRANGAMUNTU</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="UHAGARARIYE UMURYANGO">
+<<<<<<< HEAD
+                                            <input type="text" name="nid" class="form-control" id="exampleFormControlInput2" placeholder="UHAGARARIYE UMURYANGO">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
+                                            <input type="text" name="firstname" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IZINA RYANYUMA</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
+                                            <input type="text" name="lastname" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
+=======
+                                            <input type="text" class="form-control" name="nid" id="exampleFormControlInput2" placeholder="UHAGARARIYE UMURYANGO">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
+                                            <input type="text" class="form-control" name="firstname" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label style="color:#000;"  for="exampleFormControlInput2">IZINA RYANYUMA</label>
+                                            <input type="text" name="lastname" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label style="color:#000;"  for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
+>>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
+                                            <input type="text" name="phone" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">ICYO ASHINZWE</label>
-                                            <select class="mt-4 mb-4 btn btn-primary">
+                                            <select name="user_id" class="mt-4 mb-4 btn btn-primary">
                                                 <option>UMUTEKANO
                                                     <option>IMIBEREHO MYIZA
                                                         <option>ITERAMBERE
                                                             <option>ISIBO
                                             </select>
-                                            <input type="submit" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+<<<<<<< HEAD
+                                            <input type="submit" name="send" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+=======
+                                            <input type="submit" name="submit" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+>>>>>>> dceaa1f0c723483ac99b4d0317bf874a4b63388f
                                         </div>
                                     </form>
                                 </div>

@@ -19,7 +19,7 @@ class Family extends CI_Controller {
 
         $this->load->helper(array('form', 'url'));
     }
-
+	
 	public function akagoroba(){
         $sessionData=$this->session->userdata('userid');
         if($sessionData!="") {

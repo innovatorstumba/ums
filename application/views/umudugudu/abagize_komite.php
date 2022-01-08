@@ -206,39 +206,24 @@
                                         <th>AMAZINA</th>
                                         <th>NIMERO YA TELEPHONE</th>
                                         <th>ICYO AHAGARARIYE</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                    </tr>
+                                <?php
+									foreach($admin as $row)
+									{?>
+                                    <tr>
+                           
+							                              <td>1</td>
+                                            <td><?=$row->adm_firstname?></td>
+                                            <td><?=$row->adm_phone?></td>
+                                            <td><?=$row->adm_user_id?></td>
+                                            <td><a href="<?=base_url()?>umudugudu/edit_umuyobozi/<?=$row->adm_id?>">EDIT</a></td>
+                                        </tr>
+                                       		<?php
+									}
+				?>
                                 </tbody>
                             
                             </table>

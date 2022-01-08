@@ -24,4 +24,5 @@ class Home extends CI_Controller {
             redirect(base_url().'Login');
         }
 	}
+	
 }
