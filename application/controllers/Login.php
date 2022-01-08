@@ -35,7 +35,6 @@ class Login extends CI_Controller
                     redirect(base_url());
                 } else {
                     //Admin Users Session Data 
-
                     $adm_data = $this->login->selectAdminByUserId($row->usr_id);
 
                     $admin_data = $adm_data->row();

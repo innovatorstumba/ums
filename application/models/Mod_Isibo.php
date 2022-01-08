@@ -66,6 +66,7 @@ class Mod_Isibo extends CI_Model
 		);
 
 		$this->db->insert('ums_members', $data);
+
 	}
 
 	function selectCategory(){
@@ -180,6 +181,7 @@ class Mod_Isibo extends CI_Model
 		$this->db->join('ums_leaders', 'mbr_leader_id = ldr_leader_id');
 		$this->db->join('ums_ubwishingizi', 'mbr_insurance = ubw_id');
 		$this->db->where('mbr_leader_id', $id);
+
 		$query = $this->db->get();
 		$query->num_rows();
 		if ($query->num_rows()>0){

@@ -203,108 +203,32 @@
                                 <thead>
                                     <tr style="background-color:#f1f1f1"><th>No</th>
                                         <th>AMAZINA</th>
-                                        <th>IRANGAMUNTU</th>
                                         <th>NIMERO YA TELEPHONE</th>
                                         <th>ITALIKI Y'AMAVUKO</th>
                                         <th>IGITSINA</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr> <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr> <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr> <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr> <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr> <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr> <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr> <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr> <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
+                                    <?php
+                                    $cnt=0;
+                                    foreach($data as $row){
+                                      if($row->age>=18 && $row->age<36){  
+                                        $cnt++;                                      
+                                      ?>
+                                      <tr><td><?=$cnt?></td>
+                                          <td><?=$row->ldr_firstname?></td>
+                                          <td><?=$row->ldr_phone?></td>
+                                          <td><?=$row->ldr_dob?></td>
+                                          <td><?=$row->ldr_gender?></td>
+                                      </tr>
+                                      <?php
+                                      }
+                                    }
+                                    ?>
                                 </tbody>
                                 <tfoot>
                                 <tr style="background-color:#f1f1f1"><th>No</th>
                                 <th>AMAZINA</th>
-                                        <th>IRANGAMUNTU</th>
                                         <th>NIMERO YA TELEPHONE</th>
                                         <th>ITALIKI Y'AMAVUKO</th>
                                         <th>IGITSINA</th>

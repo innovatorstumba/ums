@@ -187,8 +187,7 @@
                 <div class="row layout-top-spacing">
                 <div class="container">
 <div class="col-md-9" style="padding-right:30px" >
-<div class="col-lg-12 col-12 layout-spacing"><BR>
-<H3>KONGERAMO ISIBO</H3><BR>
+<div class="col-lg-12 col-12 layout-spacing">
                             <div class="statbox widget box box-shadow">
                                 <div class="widget-header">                                
                                     <div class="row">
@@ -197,21 +196,37 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php
+                                foreach($admin as $row){
+                                ?>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
                                     <form method="post">
                                         <div class="form-group mb-4">
-                                            <label style="color:#000;" for="exampleFormControlInput2">AMAZINA Y'ISIBO</label>
-                                            <input type="text" name="isibo_name" class="form-control" id="exampleFormControlInput2" placeholder="">
+                                            <label style="color:#000;" for="exampleFormControlInput2">NIMERO Y'IRANGAMUNTU</label>
+                                            <input type="text" class="form-control" name="nid" id="exampleFormControlInput2" value="<?=$row->adm_nid?>">
                                         </div>
                                         <div class="form-group mb-4">
-                                            <label style="color:#000;" for="exampleFormControlInput2">CODE Y'ISIBO</label>
-                                            <input type="text" name="isibo_code" class="form-control" id="exampleFormControlInput2" placeholder="">
+                                            <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
+                                            <input type="text" class="form-control" name="firstname" id="exampleFormControlInput2" value="<?=$row->adm_firstname?>">
                                         </div>
-                                      
                                         <div class="form-group mb-4">
-                                        
-                                            <input type="submit" name="send" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+                                            <label style="color:#000;"  for="exampleFormControlInput2">IZINA RYANYUMA</label>
+                                            <input type="text" name="lastname" class="form-control" id="exampleFormControlInput2" value="<?=$row->adm_lastname?>">
                                         </div>
+                                        <div class="form-group mb-4">
+                                            <label style="color:#000;"  for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
+                                            <input type="text" name="phone" class="form-control" id="exampleFormControlInput2" value="<?=$row->adm_phone?>">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label style="color:#000;" for="exampleFormControlInput2">ICYO ASHINZWE</label>
+                                            <select name="user_id" class="mt-4 mb-4 btn btn-primary">
+                                                <option>UMUTEKANO
+                                                    <option>IMIBEREHO MYIZA
+                                                        <option>ITERAMBERE
+                                                            <option>ISIBO
+                                            </select>
+                                            <input type="submit" name="update" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+                                       <?php } ?> </div>
                                     </form>
                                 </div>
                             </div>
