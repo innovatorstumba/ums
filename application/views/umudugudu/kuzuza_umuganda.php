@@ -59,11 +59,12 @@
                 
 
                 <?php
-                foreach($data as $row)
-									{?>
-                                    <input type="text" value="<?php echo $row->adm_village_code; ?>" name="village"/>
-									<?php
-									}
+                foreach($data->result() as $row)
+                    {
+                        ?>
+                        <input type="text" value="<?php echo $row->adm_village_code; ?>" name="village"/>
+                        <?php
+                    }
 				?>
                 <input type="file" name="amafoto"/>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>

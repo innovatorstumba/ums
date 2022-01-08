@@ -13,7 +13,8 @@ class Umudugudu extends CI_Controller {
 
 		//load Model
 		$this->load->model('fm');
-		$this->load->model('Mod_Umudugudu');
+        $this->load->model('Mod_Umudugudu');
+        $this->load->model('LoginModel');
 		$this->load->library('session');
 	}
 	public function index(){
@@ -173,7 +174,6 @@ class Umudugudu extends CI_Controller {
 				$password = $this->input->post('password');
 				$email = $this->input->post('email');
 				$this->Mod_Umudugudu->registerHeader($fname, $lname, $BOD, $id,$sex,$ubudehe, $isano, $insurance, $phone, $houseNumber, $uname, $password, $email);
-
 				redirect('Umudugudu/index');
 			}
 		}else {
@@ -282,10 +282,10 @@ class Umudugudu extends CI_Controller {
 		redirect(base_url() . 'Login');
 	}
 	}
-	public function kuzuza_umuganda($userId){
+	public function kuzuza_umuganda(){
 		$sessionData=$this->session->userdata('userid');
 	if($sessionData!="") {
-		$result['data'] = $this->Mod_LoginModel->selectAdminByUserId($userId);
+		$result['data'] = $this->LoginModel->selectAdminByUserId($sessionData);
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
 		$this->load->view('umudugudu/kuzuza_umuganda',$result);
