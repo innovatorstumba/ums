@@ -444,7 +444,8 @@ class Family extends CI_Controller {
 	public function umuryango(){
         $sessionData=$this->session->userdata('userid');
         if($sessionData!="") {
-            $results = $this->fm->getFamilyMembers(3);
+            $leader_id = $this->session->userdata('leader_id');
+            $results = $this->fm->getFamilyMembers($leader_id);
             $data['results'] = $results;
 
             $this->load->view('header');
