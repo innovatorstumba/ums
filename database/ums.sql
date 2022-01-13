@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 09:44 AM
+-- Generation Time: Jan 13, 2022 at 11:01 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -56,8 +56,7 @@ CREATE TABLE `ums_admin` (
 
 INSERT INTO `ums_admin` (`adm_id`, `adm_firstname`, `adm_lastname`, `adm_nid`, `adm_phone`, `adm_cell_code`, `adm_village_code`, `adm_user_id`) VALUES
 (1, 'huska', 'kamana', '1234567890', '0780000000', NULL, 1, 12),
-(2, 'Dadoh', 'Bernard', '1234567890', '0780000001', NULL, 1, 16),
-(5, 'Kalisa', 'Eugene', '1188658565856545', '+250785858565', NULL, 1, 19);
+(2, 'Dadoh', 'Bernard', '1234567890', '0780000001', NULL, 1, 16);
 
 -- --------------------------------------------------------
 
@@ -124,7 +123,7 @@ CREATE TABLE `ums_amatangazo` (
   `ama_category` varchar(20) NOT NULL,
   `ama_isibo` int(11) NOT NULL,
   `ama_created_by` int(11) NOT NULL,
-  `ama_created_on` varchar(50) NOT NULL DEFAULT current_timestamp()
+  `ama_created_on` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -176,10 +175,10 @@ CREATE TABLE `ums_announcement` (
 --
 
 INSERT INTO `ums_announcement` (`ann_id`, `ann_leader_id`, `ann_title`, `ann_body`, `ann_pic`, `ann_created_date`) VALUES
-(19, 5, 'Blaise', 'ckcnfec fece', './assets/uploads/announcements/anno_1640714144.jpg', '1640714144'),
-(20, 5, 'kjbkjb', 'hjbhbjhjhbhj bbjhbj', './assets/uploads/announcements/anno_1640714302.jpg', '1640714302'),
-(21, 5, 'jhjhb hbjhb', 'hbjbh hjbj', './assets/uploads/announcements/anno_1640714358.jpg', '1640714358'),
-(22, 5, 'bkkjbkjbkjb', 'bjhbjhb jhbkjh f cgjhg gjhgvh', './assets/uploads/announcements/anno_1640714502.jpg', '1640714502');
+(19, 11, 'Blaise', 'ckcnfec fece', './assets/uploads/announcements/anno_1640714144.jpg', '1640714144'),
+(20, 11, 'kjbkjb', 'hjbhbjhjhbhj bbjhbj', './assets/uploads/announcements/anno_1640714302.jpg', '1640714302'),
+(21, 11, 'jhjhb hbjhb', 'hbjbh hjbj', './assets/uploads/announcements/anno_1640714358.jpg', '1640714358'),
+(22, 11, 'bkkjbkjbkjb', 'bjhbjhb jhbkjh f cgjhg gjhgvh', './assets/uploads/announcements/anno_1640714502.jpg', '1640714502');
 
 -- --------------------------------------------------------
 
@@ -420,9 +419,6 @@ CREATE TABLE `ums_guests` (
 --
 
 INSERT INTO `ums_guests` (`gue_id`, `gue_ldr_id`, `gue_firstname`, `gue_lastname`, `gue_phone`, `gue_nid`, `gue_address`, `gue_registered_date`, `gue_status`, `gue_dismissed_date`) VALUES
-(1, 5, 'Kalisa', 'Eugene', '+250785858565', '1188658565856545', 'Rwamagana, Muyumbu', '1640261969', 'Dismissed', '1640274623'),
-(2, 5, 'Kalisa', 'Eugene', '+250785858565', '1188658565856545', 'Rwamagana, Muyumbu', '1640262130', 'Dismissed', '1640274550'),
-(3, 5, 'Kalisa', 'Eugene', '+250785858565', '1188658565856545', 'Rwamagana, Muyumbu', '1640262237', 'Dismissed', '-'),
 (4, 11, 'Kalisa', 'UMU', '+250785858565', '1188658565856545', 'Rwamagana, Muyumbu', '1641624980', 'Dismissed', '1641625015');
 
 -- --------------------------------------------------------
@@ -966,10 +962,7 @@ CREATE TABLE `ums_users` (
 INSERT INTO `ums_users` (`usr_id`, `usr_username`, `usr_password`, `usr_roles_id`, `usr_isibo`) VALUES
 (12, 'huska', '123', 3, 1),
 (15, 'family', '123', 2, 1),
-(16, 'dadoh', '123', 4, 1),
-(17, '1188658565856545', '123', 3, 1),
-(18, '1188658565856545', '123', 3, 1),
-(19, '1188658565856545', '123', 3, 2);
+(16, 'dadoh', '123', 4, 1);
 
 -- --------------------------------------------------------
 
