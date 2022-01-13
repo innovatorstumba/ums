@@ -248,23 +248,52 @@ class Umudugudu extends CI_Controller {
 	}
 	public function kwandika_umuyobozi(){
 		$sessionData=$this->session->userdata('userid');
-	if($sessionData!="") {
-		$this->load->view('umudugudu/header');
-		$this->load->view('umudugudu/sidebar');
-		$this->load->view('umudugudu/kwandika_umuyobozi');
-		if ($this->input->post('send')){
-			$firstname = $this->input->post('firstname');
-			$lastname = $this->input->post('lastname');
-			$nid = $this->input->post('nid');
-			$phone = $this->input->post('phone');
-			$this->Mod_Umudugudu->insertAdmin($firstname, $lastname, $nid, $phone);
+        if($sessionData!="") {
+            $village_id = $this->session->userdata('umudugudu');
+            $data['amasibo'] = $this->Mod_Umudugudu->selectAmasibo($village_id);
+            $this->load->view('umudugudu/header');
+            $this->load->view('umudugudu/sidebar');
+            $this->load->view('umudugudu/kwandika_umuyobozi', $data);
+            if ($this->input->post('send')){
+                $firstname = $this->input->post('firstname');
+                $lastname = $this->input->post('lastname');
+                $nid = $this->input->post('nid');
+                $phone = $this->input->post('phone');
+                $isibo = $this->input->post('isibo');
+                $this->Mod_Umudugudu->insertAdmin($village_id, $firstname, $lastname, $nid, $phone, $isibo);
 
-			redirect('umudugudu/abagize_komite');
-		}
-	}else {
-		redirect(base_url() . 'Login');
+                redirect('umudugudu/abagize_komite');
+            }
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
-	}
+    public function edit_umuyobozi($id){
+        $sessionData=$this->session->userdata('userid');
+        if($sessionData!="") {
+            $village_id = $this->session->userdata('umudugudu');
+            $result['admin'] = $this->Mod_Umudugudu->viewAdmin($id);
+            $result['amasibo'] = $this->Mod_Umudugudu->selectAmasibo($village_id);
+            $this->load->view('umudugudu/header');
+            $this->load->view('umudugudu/sidebar');
+            $this->load->view('umudugudu/edit_umuyobozi',$result);
+            $this->load->view('umudugudu/footer');
+            if ($this->input->post('update')){
+                $firstname = $this->input->post('firstname');
+                $lastname = $this->input->post('lastname');
+                $nid = $this->input->post('nid');
+                $phone = $this->input->post('phone');
+                $user = $this->input->post('user_id');
+                $isibo = $this->input->post('isibo');
+
+                $this->Mod_Umudugudu->updateAdmin($firstname, $lastname, $nid, $phone, $id, $isibo, $user);
+
+                redirect('umudugudu/abagize_komite');
+            }
+        }else {
+            redirect(base_url() . 'Login');
+        }
+    }
 	public function kongeramo_isibo(){
 		$sessionData=$this->session->userdata('userid');
 	if($sessionData!="") {
@@ -594,32 +623,11 @@ class Umudugudu extends CI_Controller {
 		redirect(base_url() . 'Login');
 	}
 	}
-	public function edit_umuyobozi($id){
-		$sessionData=$this->session->userdata('userid');
-	if($sessionData!="") {
-		$result['admin'] = $this->Mod_Umudugudu->viewAdmin($id);
-		$this->load->view('umudugudu/header');
-		$this->load->view('umudugudu/sidebar');
-		$this->load->view('umudugudu/edit_umuyobozi',$result);
-		$this->load->view('umudugudu/footer');
-		if ($this->input->post('update')){
-			$firstname = $this->input->post('firstname');
-			$lastname = $this->input->post('lastname');
-			$nid = $this->input->post('nid');
-			$phone = $this->input->post('phone');
-			
-			$this->Mod_Umudugudu->updateAdmin($firstname, $lastname, $nid, $phone, $id);
-
-			redirect('umudugudu/abagize_komite');
-		}
-	}else {
-		redirect(base_url() . 'Login');
-	}
-	}
 	public function abagize_komite(){
 		$sessionData=$this->session->userdata('userid');
 	if($sessionData!="") {
-		$result['admin'] = $this->Mod_Umudugudu->selectAdmin();
+        $village_id = $this->session->userdata('umudugudu');
+		$result['admin'] = $this->Mod_Umudugudu->selectAdmin($village_id);
 		$this->load->view('umudugudu/header');
 		$this->load->view('umudugudu/sidebar');
 		$this->load->view('umudugudu/abagize_komite', $result);

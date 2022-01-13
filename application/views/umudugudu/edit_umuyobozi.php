@@ -197,6 +197,7 @@
                                     </div>
                                 </div>
                                 <?php
+                                if (isset($admin)){
                                 foreach($admin as $row){
                                 ?>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
@@ -219,14 +220,36 @@
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">ICYO ASHINZWE</label>
-                                            <select name="user_id" class="mt-4 mb-4 btn btn-primary">
-                                                <option>UMUTEKANO
-                                                    <option>IMIBEREHO MYIZA
-                                                        <option>ITERAMBERE
-                                                            <option>ISIBO
+                                            <input type="hidden" name="user_id" value="<?=$row->adm_user_id;?>">
+                                            <select name="isibo" class="mt-4 mb-4 btn btn-primary" required>
+                                                <option>--Hitamo Isibo--</option>
+                                                <?php
+                                                if (isset($amasibo)) {
+                                                    if (@$amasibo != null){
+                                                        foreach ($amasibo->result() as $rows){
+                                                            if ($rows->isibo_code == $row->usr_isibo){
+                                                                ?>
+                                                                <option selected value="<?=$rows->isibo_code;?>"><?='Isibo - '.$rows->isibo_name;?></option>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <option value="<?=$rows->isibo_code;?>"><?='Isibo - '.$rows->isibo_name;?></option>
+                                                                <?php
+                                                            }
+                                                        }
+                                                    } else{
+                                                        ?>
+                                                        <option disabled>No Data Found</option>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                             </select>
                                             <input type="submit" name="update" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
-                                       <?php } ?> </div>
+                                       <?php }
+                                       }
+                                        ?>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -238,7 +261,7 @@
 </div>
 <div class="test" style="overflow: scroll;height:600px">
                         <div class="widget widget-activity-five" style="overflow: scroll;">
-   <h5 style="padding-top:20px"> ABATURAGE</h>
+   <h5 style="padding-top:20px"> ABATURAGE</h5>
                            <center>
                             <div class="widget-content">
                                 <div id="chart-2" class=""></div>

@@ -1,12 +1,23 @@
-<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
-    <link href="<?=base_url()?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?=base_url()?>assets/assets/css/plugins.css" rel="stylesheet" type="text/css" />
-    <!-- END GLOBAL MANDATORY STYLES -->
+<meta charset="utf-8">
+<!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+<!--  All snippets are MIT license http://bootdey.com/license -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<link rel="icon" type="image/x-icon" href="<?=base_url()?>assets/assets/img/favicon.ico"/>
+<link href="<?=base_url()?>assets/assets/css/loader.css" rel="stylesheet" type="text/css" />
+<script src="<?=base_url()?>assets/assets/js/loader.js"></script>
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
+<link href="<?=base_url()?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="<?=base_url()?>assets/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/plugins/table/datatable/datatables.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/plugins/table/datatable/dt-global_style.css">
 
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="assets/css/forms/switches.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/forms/switches.css">
     <link href="<?=base_url()?>assets/plugins/pricing-table/css/component.css" rel="stylesheet" type="text/css" />
     <div id="content" class="main-content">
             <div class="layout-px-spacing">
@@ -31,7 +42,7 @@
                                                     </ul>
                                                     <input type="hidden" name="title" value="Umutekano">
                                                     <input type="hidden" name="table" value="umutekano">
-                                                    <input type="hidden" name="amount" value="100">
+                                                    <input type="hidden" name="amount" value="2000">
                                                     <input name="pay" class="btn btn-primary submit" type="submit" value="ISHYURA">
                                                 </form>
                                             </div>
@@ -65,7 +76,7 @@
                                                     </ul>
                                                     <input type="hidden" name="title" value="Ejo Heza">
                                                     <input type="hidden" name="table" value="ejoheza">
-                                                    <input type="hidden" name="amount" value="10000">
+                                                    <input type="hidden" name="amount" value="1000">
                                                     <input name="pay" class="btn btn-primary submit" type="submit" value="ISHYURA">
                                                 </form>
                                             </div>
@@ -82,7 +93,7 @@
                                                     </ul>
                                                     <input type="hidden" name="title" value="Igiceri">
                                                     <input type="hidden" name="table" value="igiceri">
-                                                    <input type="hidden" name="amount" value="100">
+                                                    <input type="hidden" name="amount" value="500">
                                                     <input name="pay" class="btn btn-primary submit" type="submit" value="ISHYURA">
                                                 </form>
                                             </div>

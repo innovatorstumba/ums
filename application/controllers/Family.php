@@ -25,7 +25,7 @@ class Family extends CI_Controller {
         if($sessionData!="") {
             $this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('abashyitsi');
+			$this->load->view('akagoroba');
 			$this->load->view('footer');
         }else {
             redirect(base_url() . 'Login');
@@ -230,6 +230,19 @@ class Family extends CI_Controller {
             redirect(base_url() . 'Login');
         }
 	}
+    public function ejoheza(){
+        $sessionData=$this->session->userdata('userid');
+        $leader_id = $this->session->userdata('leader_id');
+        $data['selected'] = $this->fm->getEjohezaByLeaderId($leader_id);
+        if($sessionData!="") {
+            $this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('ejoheza', $data);
+            $this->load->view('footer');
+        }else {
+            redirect(base_url() . 'Login');
+        }
+    }
 	public function imihigo(){
         $sessionData=$this->session->userdata('userid');
         if($sessionData!="") {
@@ -513,13 +526,21 @@ class Family extends CI_Controller {
             redirect(base_url() . 'Login');
         }
 	}
-	public function invoice(){
+	public function invoice($table = '', $transaction = ''){
         $sessionData=$this->session->userdata('userid');
         if($sessionData!="") {
-            $this->load->view('header');
-            $this->load->view('sidebar');
-            $this->load->view('invoice');
-            $this->load->view('footer');
+            $leader_id=$this->session->userdata('leader_id');
+            if ($table != '' && $transaction != '') {
+                $data['table'] = $table;
+                $data['selected'] = $this->fm->getInvoice($table, $transaction);
+                $data['address'] = $this->fm->getAddressByLeaderId($leader_id);
+                $this->load->view('header');
+                $this->load->view('sidebar');
+                $this->load->view('invoice', $data);
+                $this->load->view('footer');
+            } else{
+                redirect(base_url());
+            }
         }else {
             redirect(base_url() . 'Login');
         }

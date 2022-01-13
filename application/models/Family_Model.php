@@ -257,7 +257,7 @@ class Family_Model extends CI_Model
                 $newMonth = ($mon + $month) - 12;
                 $prevMons = '';
                 if ($newMonth > 1){
-                    for ($y = $mon; $y < ($month-$newMonth); $y++){
+                    for ($y = $mon; $y < $mon+($month-$newMonth); $y++){
                         $prevMons .= $month_arr[$y].',';
                     }
                     for ($x = 0; $x < $newMonth; $x++){
@@ -349,7 +349,7 @@ class Family_Model extends CI_Model
                 $newMonth = ($mon + $month) - 12;
                 $prevMons = '';
                 if ($newMonth > 1){
-                    for ($y = $mon; $y < ($month-$newMonth); $y++){
+                    for ($y = $mon; $y < $mon+($month-$newMonth); $y++){
                         $prevMons .= $month_arr[$y].',';
                     }
                     for ($x = 0; $x < $newMonth; $x++){
@@ -441,7 +441,7 @@ class Family_Model extends CI_Model
                 $newMonth = ($mon + $month) - 12;
                 $prevMons = '';
                 if ($newMonth > 1){
-                    for ($y = $mon; $y < ($month-$newMonth); $y++){
+                    for ($y = $mon; $y < $mon+($month-$newMonth); $y++){
                         $prevMons .= $month_arr[$y].',';
                     }
                     for ($x = 0; $x < $newMonth; $x++){
@@ -533,7 +533,7 @@ class Family_Model extends CI_Model
                 $newMonth = ($mon + $month) - 12;
                 $prevMons = '';
                 if ($newMonth > 1){
-                    for ($y = $mon; $y < ($month-$newMonth); $y++){
+                    for ($y = $mon; $y < $mon+($month-$newMonth); $y++){
                         $prevMons .= $month_arr[$y].',';
                     }
                     for ($x = 0; $x < $newMonth; $x++){
@@ -560,6 +560,42 @@ class Family_Model extends CI_Model
                     $this->igiceriSaved($leader_id, $transaction, $year, ($mon+$month), $monthData, $regDate);
                 }
             }
+        }
+    }
+
+    /*Functon to get invoice by transaction id*/
+    function getInvoice($table, $transaction){
+        $fk = ($table == 'isuku') ? 'isuku_transaction_id' :(($table == 'igiceri') ? 'igiceri_transaction_id' : (($table == 'ejoheza') ? 'ejo_transaction_id' : 'umt_transaction_id'));
+        $table_name = 'ums_'.$table;
+        $this->db->select('*');
+        $this->db->from($table_name);
+        $this->db->join('ums_transactions', $fk.' = trs_id');
+        $this->db->where($fk, $transaction);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0){
+            return $query;
+        } else{
+            return null;
+        }
+    }
+
+    /*Function to get Leader Address*/
+    function getAddressByLeaderId($leader_id){
+        $this->db->select('*');
+        $this->db->from('ums_leaders');
+        $this->db->join('ums_users', 'ldr_used_id = usr_id');
+        $this->db->join('ums_isibo', 'usr_isibo = isibo_code');
+        $this->db->join('ums_village', 'isibo_village_code = vlg_code');
+        $this->db->join('ums_cell', 'vlg_cell_code = c_cell_code');
+        $this->db->join('ums_sector', 'c_sector_code = sct_code');
+        $this->db->join('ums_district', 'sct_district_code = d_code');
+        $this->db->join('ums_province', 'd_province_code = province_code');
+        $this->db->where('ldr_leader_id ', $leader_id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0){
+            return $query;
+        } else{
+            return null;
         }
     }
 }

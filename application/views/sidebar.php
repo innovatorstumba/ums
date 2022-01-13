@@ -230,8 +230,9 @@
 						<li>
 							<a href="<?=base_url()?>family/Igiceri"> Igiceri Porogaramu </a>
 						</li>
-
-
+                        <li>
+                            <a href="<?=base_url()?>family/Ejoheza"> EJO HEZA </a>
+                        </li>
 					</ul>
 				</li>
 				<li class="menu">

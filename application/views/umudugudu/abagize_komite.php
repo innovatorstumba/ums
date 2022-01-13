@@ -218,7 +218,8 @@
 							                              <td>1</td>
                                             <td><?=$row->adm_firstname?></td>
                                             <td><?=$row->adm_phone?></td>
-                                            <td><?=$row->adm_user_id?></td>
+
+                                            <td><?=($row->roles_name == 'Isibo')?($row->roles_name.' - '.$row->isibo_name):$row->roles_name;?></td>
                                             <td><a href="<?=base_url()?>umudugudu/edit_umuyobozi/<?=$row->adm_id?>">EDIT</a></td>
                                         </tr>
                                        		<?php

@@ -19,9 +19,13 @@ class Mod_Umudugudu extends CI_Model
 			return false;
 		}
 	}
-	function selectAdmin(){
+	function selectAdmin($village_id){
 		$this->db->select('*');
 		$this->db->from('ums_admin');
+        $this->db->join('ums_users', 'adm_user_id = usr_id');
+        $this->db->join('ums_isibo', 'usr_isibo = isibo_code');
+        $this->db->join('ums_roles', 'usr_roles_id = roles_id');
+        $this->db->where('adm_village_code', $village_id);
 		$query = $this->db->get();
 		$query->num_rows();
 		if ($query->num_rows()>0){
@@ -46,6 +50,7 @@ class Mod_Umudugudu extends CI_Model
 	function viewAdmin($id){
 		$this->db->select('*');
 		$this->db->from('ums_admin');
+        $this->db->join('ums_users', 'adm_user_id = usr_id');
 		$this->db->where('adm_id',$id);
 		$query = $this->db->get();
 		$query->num_rows();
@@ -56,12 +61,13 @@ class Mod_Umudugudu extends CI_Model
 			return false;
 		}
 	}
-	function insertAdmin($firstname, $lastname, $nid, $phone){
+	function insertAdmin($village_id, $firstname, $lastname, $nid, $phone, $isibo){
 		$data1 = array(
 			'usr_id' =>null,
 			'usr_username' => $nid,
 			'usr_password' => 123,
-			'usr_roles_id' => 3
+            'usr_roles_id' => 3,
+			'usr_isibo' => $isibo
 		);
 
 		$this->db->insert('ums_users', $data1);
@@ -73,7 +79,7 @@ class Mod_Umudugudu extends CI_Model
 			'adm_lastname' => $lastname,
 			'adm_nid' => $nid,
 			'adm_phone' => $phone,
-			'adm_village_code'=>1,
+			'adm_village_code'=> intval($village_id),
 			'adm_user_id' =>$last_id
 		);
 
@@ -105,16 +111,19 @@ class Mod_Umudugudu extends CI_Model
 
 		$this->db->insert('ums_umuganda', $data);
 	}
-	function updateAdmin($firstname, $lastname, $nid, $phone, $id){
+	function updateAdmin($firstname, $lastname, $nid, $phone, $id, $isibo, $user){
 		$data = array(
 			'adm_firstname' => $firstname,
 			'adm_lastname' => $lastname,
 			'adm_nid' => $nid,
-			'adm_phone' => $phone
+            'adm_phone' => $phone
 		);
+        $data2 = array('usr_isibo' => $isibo);
 		$this->db->where('adm_id', $id);
+        $this->db->update('ums_admin', $data);
 
-		$this->db->update('ums_admin', $data);
+        $this->db->where('usr_id', $user);
+        $this->db->update('ums_users', $data2);
 		
 		
 	}
@@ -241,5 +250,19 @@ class Mod_Umudugudu extends CI_Model
 			return false;
 		}
 	}
+
+    function selectAmasibo($village_id){
+        $this->db->select('*');
+        $this->db->from('ums_isibo');
+        $this->db->where('isibo_village_code', $village_id);
+        $query = $this->db->get();
+
+        if ($query->num_rows()>0){
+            return $query;
+        }
+        else{
+            return null;
+        }
+    }
 
 }

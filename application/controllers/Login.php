@@ -30,7 +30,7 @@ class Login extends CI_Controller
                     $ldr_data = $this->login->selectLeaderByUserId($row->usr_id);
 
                     $leader_data = $ldr_data->row();
-                    $ldr_session_data = array('userid' => $row->usr_id,'isibo' => $row->usr_isibo, 'leader_id' => $leader_data->ldr_leader_id, 'firstname' => $leader_data->ldr_firstname, 'lastname' => $leader_data->ldr_lastname);
+                    $ldr_session_data = array('userid' => $row->usr_id,'isibo' => $row->usr_isibo, 'leader_id' => $leader_data->ldr_leader_id, 'firstname' => $leader_data->ldr_firstname, 'lastname' => $leader_data->ldr_lastname, 'umudugudu' => $leader_data->ldr_village_code);
                     $this->session->set_userdata($ldr_session_data);
                     redirect(base_url());
                 } else {
@@ -39,7 +39,7 @@ class Login extends CI_Controller
 
                     $admin_data = $adm_data->row();
 
-                    $adm_session_data = array('userid' => $row->usr_id, 'admin_id' => $admin_data->adm_id, 'firstname' => $admin_data->adm_firstname, 'lastname' => $admin_data->adm_lastname, 'isibo' => $row->usr_isibo);
+                    $adm_session_data = array('userid' => $row->usr_id, 'admin_id' => $admin_data->adm_id, 'firstname' => $admin_data->adm_firstname, 'lastname' => $admin_data->adm_lastname, 'umudugudu' => $admin_data->adm_village_code, 'isibo' => $row->usr_isibo);
 
                     $this->session->set_userdata($adm_session_data);
                     redirect(base_url().$row->roles_name);
