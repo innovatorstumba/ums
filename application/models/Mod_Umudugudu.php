@@ -264,5 +264,38 @@ class Mod_Umudugudu extends CI_Model
             return null;
         }
     }
+    /*Function to select payments*/
+    function getIgiceriPayed($village_id, $year, $month){
 
+        $this->db->select('*');
+        $this->db->from('ums_leaders');
+        $this->db->where('ldr_village_code', $village_id);
+        $query = $this->db->get();
+
+        $payed = array();
+        $notPayed = array();
+
+        foreach ($query->result() as $row){
+            $leader_id = $row->ldr_leader_id;
+            $this->db->from('ums_igiceri');
+            $this->db->join('ums_leaders', 'igiceri_leader_id = ldr_leader_id');
+            $this->db->where('igiceri_leader_id', $leader_id);
+            $this->db->where('igiceri_year', $year);
+            $this->db->like('igiceri_months', $month);
+
+            $res = $this->db->get();
+            if ($res->num_rows()>0){
+                $payed = $res->result_array();
+            }
+            else{
+                $this->db->select('*');
+                $this->db->from('ums_leaders');
+                $this->db->where('ldr_leader_id', $leader_id);
+                $res2 = $this->db->get();
+                $notPayed = $res2->result_array();
+
+            }
+        }
+        return array($payed, $notPayed);
+    }
 }

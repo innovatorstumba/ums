@@ -655,7 +655,7 @@ class Family extends CI_Controller {
                     CURLOPT_CUSTOMREQUEST => 'POST',
                     CURLOPT_POSTFIELDS => json_encode($request),
                     CURLOPT_HTTPHEADER => array(
-                        'Authorization: Bearer FLWSECK-083ae3b8d5dfb256278a72490903c75e-X',
+                        'Authorization: Bearer FLWSECK-5dae7c688c6095601109b400679c4e3e-X',
                         'Content-Type: application/json'
                     ),
                 ));

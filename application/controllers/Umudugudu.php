@@ -413,14 +413,30 @@ class Umudugudu extends CI_Controller {
 	}
 	public function igiceri(){
 		$sessionData=$this->session->userdata('userid');
-	if($sessionData!="") {
-		$this->load->view('umudugudu/header');
-		$this->load->view('umudugudu/sidebar');
-		$this->load->view('umudugudu/igiceri');
-		$this->load->view('umudugudu/footer');
-	}else {
-		redirect(base_url() . 'Login');
-	}
+        if($sessionData!="") {
+            $village_id = $this->session->userdata('umudugudu');
+            if ($this->input->post('find')){
+                $year = $this->input->post('year');
+                $month = $this->input->post('month');
+                $selected = $this->Mod_Umudugudu->getIgiceriPayed($village_id, $year, $month);
+                $data['payed'] = $selected[0];
+                $data['notPayed'] = $selected[1];
+                $data['year_payed'] = $year;
+                $data['month_payed'] = $month;
+
+                $this->load->view('umudugudu/header');
+                $this->load->view('umudugudu/sidebar');
+                $this->load->view('umudugudu/igiceri', $data);
+                $this->load->view('umudugudu/footer');
+            } else{
+                $this->load->view('umudugudu/header');
+                $this->load->view('umudugudu/sidebar');
+                $this->load->view('umudugudu/igiceri');
+                $this->load->view('umudugudu/footer');
+            }
+        }else {
+            redirect(base_url() . 'Login');
+        }
 	}
 	public function imihigo(){
 		$sessionData=$this->session->userdata('userid');
