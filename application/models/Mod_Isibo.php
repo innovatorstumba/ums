@@ -49,6 +49,22 @@ class Mod_Isibo extends CI_Model
 		$this->db->insert('ums_members', $data1);
 	}
 
+	function saveIgikorwa($name, $vill, $cont, $desc, $cat, $owner){
+		$data = array(
+			'ibi_id' =>null,
+			'ibi_name' => $name,
+			'ibi_village' => $vill, 
+			'ibi_contact' => $cont,
+			'ibi_desc' => $desc,
+			'ibi_category' => $cat,
+			'ibi_owner' => $owner,
+		);
+
+		$this->db->insert('ums_ibikorwa_doc', $data);
+
+		$this->DBNAME = $this->db->insert_id();
+	}
+
 	function registerMember($fname, $lname, $tel, $nid,$email,$dob, $isano, $sex, $id,$ins){
 
 		$data = array(
@@ -66,6 +82,18 @@ class Mod_Isibo extends CI_Model
 		);
 
 		$this->db->insert('ums_members', $data);
+
+	}
+
+	function saveFile($id, $pic){
+
+		$data = array(
+			'ibi_file_id' =>null,
+			'ibi_file_igikorwa' => $id,
+			'ibi_file_image' => $pic
+		);
+
+		$this->db->insert('ums_ibikorwa_doc_file', $data);
 
 	}
 

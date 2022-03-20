@@ -165,6 +165,66 @@ class Isibo extends CI_Controller {
         }
     }
 
+	public function do_upload_ibi(){
+		$name = $this->input->post('name');
+		$vill=$this->session->userdata('umudugudu');
+		$cont = $this->input->post('contact');
+		$desc = $this->input->post('myTextarea');
+		$cat = $this->input->post('category');
+		$owner = $this->input->post('owner');
+		$this->Mod_Isibo->saveIgikorwa($name, $vill, $cont, $desc, $cat, $owner);
+		$id = $this->Mod_Isibo->DBNAME;
+		$number_of_files_uploaded = count($_FILES['files']['name']);
+		$imagePath = realpath(APPPATH . '../assets/uploads');
+		for ($i = 0; $i < $number_of_files_uploaded; $i++) {
+			$_FILES['userfile']['name'] = $_FILES['files']['name'][$i];
+			$_FILES['userfile']['type'] = $_FILES['files']['type'][$i];
+			$_FILES['userfile']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+			$_FILES['userfile']['error'] = $_FILES['files']['error'][$i];
+			$_FILES['userfile']['size'] = $_FILES['files']['size'][$i];
+
+			$config = array(
+				'file_name' => time().uniqid(),
+				'allowed_types' => 'jpg|jpeg|png|gif',
+				'max_size' => 0,
+				'overwrite' => FALSE,
+				'upload_path'
+				=>$imagePath
+				);
+				$this->load->library('upload', $config);;
+				if ($this->upload->do_upload())
+				{
+				    $datav = $this->upload->data();
+					$pic = "assets/uploads/amatangazo/".$datav['file_name'];
+					$this->Mod_Isibo->saveFile($id, $pic);
+				}
+		}
+		
+		
+		redirect('Isibo/');
+
+        // $config['upload_path']          = './assets/uploads/amatangazo/';
+        // $config['allowed_types']        = 'pdf';
+        // $config['max_size']             = 0;
+     
+        // $this->load->library('upload', $config);
+     
+        // if ( ! $this->upload->do_upload('ufile'))
+        // {
+		// 	$sessionData=$this->session->userdata('userid');
+		// 	$result = $this->Mod_Isibo->selectForAnn($sessionData);
+		// 	$row = $result->row();
+		// 	$isibo = $row->isibo_code;
+		// 	$owner = $sessionData;
+		// 	$title = $this->input->post('title');
+		// 	$body = $this->input->post('myTextarea');
+		// 	$pic = "";
+		// 	$this->Mod_Isibo->itangazo($title, $body, $pic, $isibo, $owner);
+
+		// 	redirect('Isibo/ibyaranzwe');
+        // }
+    }
+
 
 	public function amafoto(){
 		$sessionData=$this->session->userdata('userid');
