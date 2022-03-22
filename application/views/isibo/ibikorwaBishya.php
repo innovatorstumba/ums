@@ -211,7 +211,7 @@
                                 <div class="form-group mb-4">
                                     <select name="category" class="form-control" id="exampleFormControlInput2" required="">
                                         <option value="amashuri" disabled selected>Hitamo Ubwoko Bw'igikorwa</option>
-                                        <option value="amashuri">amashuri</option>
+                                        <option value="amashuri">amashuri</option>  
                                         <option value="amavuriro">amavuriro</option>
                                         <option value="pharmacy">pharmacy</option>
                                         <option value="restaurent">restaurent</option>

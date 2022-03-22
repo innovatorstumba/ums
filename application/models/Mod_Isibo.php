@@ -281,6 +281,56 @@ class Mod_Isibo extends CI_Model
 		}
 	}
 
+	function amashuri($id, $cat)
+	{
+		$this->db->select('*');
+		$this->db->from('ums_ibikorwa_doc');
+		$this->db->join('ums_village', 'ibi_village=village_code');
+		$this->db->where('village_code', $id);
+		$this->db->where('ibi_category', $cat);
+
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	function igikorwa($id)
+	{
+		$this->db->select('*');
+		$this->db->from('ums_ibikorwa_doc');
+		$this->db->join('ums_village', 'ibi_village=village_code');
+		$this->db->where('ibi_id', $id);
+
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+	function igikorwapic($id)
+	{
+		$this->db->select('*');
+		$this->db->from('ums_ibikorwa_doc_file');
+		$this->db->where('ibi_file_igikorwa', $id);
+
+		$query = $this->db->get();
+
+		if ($query->num_rows()>0){
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
 	function amatangazoAll()
 	{
 		$this->db->select('*');

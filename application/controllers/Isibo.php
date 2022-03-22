@@ -175,7 +175,7 @@ class Isibo extends CI_Controller {
 		$this->Mod_Isibo->saveIgikorwa($name, $vill, $cont, $desc, $cat, $owner);
 		$id = $this->Mod_Isibo->DBNAME;
 		$number_of_files_uploaded = count($_FILES['files']['name']);
-		$imagePath = realpath(APPPATH . '../assets/uploads');
+		$imagePath = realpath(APPPATH . '../assets/uploads/ibikorwa/');
 		for ($i = 0; $i < $number_of_files_uploaded; $i++) {
 			$_FILES['userfile']['name'] = $_FILES['files']['name'][$i];
 			$_FILES['userfile']['type'] = $_FILES['files']['type'][$i];
@@ -195,13 +195,13 @@ class Isibo extends CI_Controller {
 				if ($this->upload->do_upload())
 				{
 				    $datav = $this->upload->data();
-					$pic = "assets/uploads/amatangazo/".$datav['file_name'];
+					$pic = 'assets/uploads/ibikorwa/'.$datav['file_name'];
 					$this->Mod_Isibo->saveFile($id, $pic);
 				}
 		}
 		
 		
-		redirect('Isibo/');
+		redirect('Isibo/'.$cat);
 
         // $config['upload_path']          = './assets/uploads/amatangazo/';
         // $config['allowed_types']        = 'pdf';
@@ -486,20 +486,23 @@ class Isibo extends CI_Controller {
 	public function amaduka(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'amaduka');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/amaduka');
+			$this->load->view('isibo/amaduka',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
 		}
 	}
-	public function ibikorwaremezo(){
+	public function ibikorwaremezo($id){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->igikorwa($id);
+			$result['pic'] = $this->Mod_Isibo->igikorwapic($id);
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/ibikorwaremezo');
+			$this->load->view('isibo/ibikorwaremezo',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -530,9 +533,10 @@ class Isibo extends CI_Controller {
 	public function amashuri(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'amashuri');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/amashuri');
+			$this->load->view('isibo/amashuri',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -541,9 +545,10 @@ class Isibo extends CI_Controller {
 	public function amavuriro(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'amavuriro');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/amavuriro');
+			$this->load->view('isibo/amavuriro',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -552,9 +557,10 @@ class Isibo extends CI_Controller {
 	public function pharmacy(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'pharmacy');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/pharmacy');
+			$this->load->view('isibo/pharmacy',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -563,9 +569,10 @@ class Isibo extends CI_Controller {
 	public function restaurent(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'restaurent');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/restaurent');
+			$this->load->view('isibo/restaurent',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -574,9 +581,10 @@ class Isibo extends CI_Controller {
 	public function utubari(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'utubari');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/utubari');
+			$this->load->view('isibo/utubari',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -585,9 +593,10 @@ class Isibo extends CI_Controller {
 	public function inganda(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'inganda');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/inganda');
+			$this->load->view('isibo/inganda', $result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -596,9 +605,10 @@ class Isibo extends CI_Controller {
 	public function amasoko(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'amasoko');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/amasoko');
+			$this->load->view('isibo/amasoko',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -607,9 +617,10 @@ class Isibo extends CI_Controller {
 	public function cooperative(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'cooperative');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/cooperative');
+			$this->load->view('isibo/cooperative',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -618,9 +629,10 @@ class Isibo extends CI_Controller {
 	public function salon_de_coiffure(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'salon');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/salon_de_coiffure');
+			$this->load->view('isibo/salon_de_coiffure',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -629,9 +641,10 @@ class Isibo extends CI_Controller {
 	public function amabanki(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'amabanki');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/amabanki');
+			$this->load->view('isibo/amabanki',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -640,9 +653,10 @@ class Isibo extends CI_Controller {
 	public function insengero(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'amabanki');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/insengero');
+			$this->load->view('isibo/insengero',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
@@ -651,9 +665,10 @@ class Isibo extends CI_Controller {
 	public function hoteli(){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->amashuri($this->session->userdata('umudugudu'),'hoteli');
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
-			$this->load->view('isibo/hoteli');
+			$this->load->view('isibo/hoteli',$result);
 			$this->load->view('isibo/footer');
 		}else {
 			redirect(base_url() . 'Login');
