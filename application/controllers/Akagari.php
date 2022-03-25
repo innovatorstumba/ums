@@ -14,6 +14,8 @@ class Akagari extends CI_Controller {
 
 		//load Model
 		$this->load->model('Mod_Akagari');
+		$this->load->model('Mod_Isibo');
+
 		//load session library
 		$this->load->library('session');
 
@@ -51,9 +53,18 @@ class Akagari extends CI_Controller {
 		$this->load->view('akagari/footer');
 	}
 	public function abaturage(){
-		$this->load->view('akagari/header');
-		$this->load->view('akagari/sidebar');
-		$this->load->view('akagari/abaturage');
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$ldr_data = $this->Mod_Akagari->akagali($this->session->userdata('umudugudu'));
+
+			$akag = $ldr_data->row();
+			$result['data'] = $this->Mod_Akagari->abaturage($akag->c_cell_code );
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/abaturage',$result);
+		}else {
+			redirect(base_url() . 'Login');
+		}
 	}
 	public function citizen(){
 		$this->load->view('akagari/header');
@@ -61,10 +72,26 @@ class Akagari extends CI_Controller {
 		$this->load->view('akagari/citizen');
 	}
 	public function umuganda(){
-		$this->load->view('akagari/header');
-		$this->load->view('akagari/sidebar');
-		$this->load->view('akagari/umuganda');
-		$this->load->view('akagari/footer');
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+
+			$ldr_data = $this->Mod_Akagari->akagali($this->session->userdata('umudugudu'));
+
+			$akag = $ldr_data->row();
+			$result['vill'] = $this->Mod_Akagari->imidugudu($akag->c_cell_code );
+
+			if (!$this->input->post('submitt')) {
+				$result['data'] = $this->Mod_Akagari->umugandaAll($akag->c_cell_code );
+			}else {
+				$result['data'] = $this->Mod_Akagari->umugandaOne($this->input->post('umu'));
+			}
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/umuganda',$result);
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
 	}
 	public function umutekano(){
 		$this->load->view('akagari/header');
@@ -79,10 +106,29 @@ class Akagari extends CI_Controller {
 		$this->load->view('akagari/footer');
 	}
 	public function ayaleta(){
-		$this->load->view('akagari/header');
-		$this->load->view('akagari/sidebar');
-		$this->load->view('akagari/ayaleta');
-		$this->load->view('akagari/footer');
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result['amatangazo'] = $this->Mod_Isibo->amatangazoAll();
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/ayaleta',$result);
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
+	}
+	public function soma($id){
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result['amatangazo'] = $this->Mod_Isibo->amatangazoAll();
+			$result['data'] = $this->Mod_Isibo->amatangazoOne($id);
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/somamatangazo',$result);
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
 	}
 	public function amafoto(){
 		$this->load->view('akagari/header');
@@ -91,16 +137,50 @@ class Akagari extends CI_Controller {
 		$this->load->view('akagari/footer');
 	}
 	public function amatangazo(){
-		$this->load->view('akagari/header');
-		$this->load->view('akagari/sidebar');
-		$this->load->view('akagari/amatangazo');
-		$this->load->view('akagari/footer');
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result['amatangazo'] = $this->Mod_Isibo->amatangazoAll();
+			$result['data'] = $this->Mod_Isibo->selectAmatangazo();
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/amatangazo',$result); 
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
 	}
 	public function ibyaranzwe(){
-		$this->load->view('akagari/header');
-		$this->load->view('akagari/sidebar');
-		$this->load->view('akagari/ibyaranzwe');
-		$this->load->view('akagari/footer');
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result1 = $this->Mod_Isibo->selectForAnn($sessionData);
+			$row = $result1->row();
+			$isibo = $row->isibo_code;
+
+			$result['amatangazo'] = $this->Mod_Isibo->amatangazoAll();
+			$result['data'] = $this->Mod_Isibo->selectIbyaranzwe($isibo);
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/ibyaranzwe',$result);
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
+	}
+	public function igikorwa($name){
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$ldr_data = $this->Mod_Akagari->akagali($this->session->userdata('umudugudu'));
+
+			$akag = $ldr_data->row();
+			$result['data'] = $this->Mod_Akagari->ibikorwa($akag->c_cell_code, $name);
+
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/amashuri',$result);
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
 	}
 	public function ongeramo_umuryango(){
 		$this->load->view('akagari/header');
@@ -108,10 +188,19 @@ class Akagari extends CI_Controller {
 		$this->load->view('akagari/ongeramo_umuryango');
 	}
 	public function imiryango(){
-		$this->load->view('akagari/header');
-		$this->load->view('akagari/sidebar');
-		$this->load->view('akagari/imiryango');
-		$this->load->view('akagari/footer');
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$ldr_data = $this->Mod_Akagari->akagali($this->session->userdata('umudugudu'));
+
+			$akag = $ldr_data->row();
+			$result['data'] = $this->Mod_Akagari->selectF($akag->c_cell_code);
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/imiryango',$result);
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
 	}
 	public function abagabo(){
 		$this->load->view('akagari/header');
@@ -201,11 +290,18 @@ class Akagari extends CI_Controller {
 		$this->load->view('akagari/imihigo');
 		$this->load->view('akagari/footer');
 	}
-	public function kureba_umuryango(){
-		$this->load->view('akagari/header');
-		$this->load->view('akagari/sidebar');
-		$this->load->view('akagari/kureba_umuryango');
-		$this->load->view('akagari/footer');
+	public function kureba_umuryango($userId){
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result['family'] = $this->Mod_Isibo->selectFamily1($userId);
+			$result['data'] = $this->Mod_Isibo->selectFamilyDetails($userId);
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/kureba_umuryango',$result);
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
 	}
 	public function kuzuza_umuganda(){
 		$this->load->view('akagari/header');
@@ -219,10 +315,17 @@ class Akagari extends CI_Controller {
 		$this->load->view('akagari/footer');
 	}
 	public function ibikorwaremezo(){
-		$this->load->view('akagari/header');
-		$this->load->view('akagari/sidebar');
-		$this->load->view('akagari/ibikorwaremezo');
-		$this->load->view('akagari/footer');
+		$sessionData=$this->session->userdata('userid');
+		if($sessionData!="") {
+			$result['data'] = $this->Mod_Isibo->igikorwa($id);
+			$result['pic'] = $this->Mod_Isibo->igikorwapic($id);
+			$this->load->view('akagari/header');
+			$this->load->view('akagari/sidebar');
+			$this->load->view('akagari/ibikorwaremezo',$result);
+			$this->load->view('akagari/footer');
+		}else {
+			redirect(base_url() . 'Login');
+		}
 	}
 	public function guhindura_umwirondoro(){
 		$this->load->view('akagari/header');
@@ -326,4 +429,42 @@ class Akagari extends CI_Controller {
 		$this->load->view('akagari/ongeramo_isibo');
 		$this->load->view('akagari/footer');
 	}
+
+	public function do_upload_ikira(){
+        $config['upload_path']          = './assets/uploads/amatangazo/';
+        $config['allowed_types']        = 'pdf';
+        $config['max_size']             = 0;
+     
+        $this->load->library('upload', $config);
+     
+        if ( ! $this->upload->do_upload('ufile'))
+        {
+			$sessionData=$this->session->userdata('userid');
+			$result = $this->Mod_Isibo->selectForAnn($sessionData);
+			$row = $result->row();
+			$isibo = $row->isibo_code;
+			$owner = $sessionData;
+			$title = $this->input->post('title');
+			$body = $this->input->post('myTextarea');
+			$pic = "";
+			$this->Mod_Isibo->itangazo($title, $body, $pic, $isibo, $owner);
+
+			redirect('akagari/ibyaranzwe');
+        }
+        elseif ($this->upload->do_upload('ufile'))
+        {
+			$sessionData=$this->session->userdata('userid');
+			$result = $this->Mod_Isibo->selectForAnn($sessionData);
+			$row = $result->row();
+			$isibo = $row->isibo_code;
+			$owner = $sessionData;
+            $datav = $this->upload->data();
+			$title = $this->input->post('title');
+			$body = $this->input->post('myTextarea');
+			$pic = "assets/uploads/amatangazo/".$datav['file_name'];
+			$this->Mod_Isibo->itangazo($title, $body, $pic, $isibo, $owner);
+
+			redirect('akagari/ibyaranzwe');
+        }
+    }
 }

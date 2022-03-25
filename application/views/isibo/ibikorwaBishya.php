@@ -220,7 +220,7 @@
                                         <option value="amasoko">amasoko</option>
                                         <option value="amaduka">amaduka</option>
                                         <option value="cooperative">cooperative</option>
-                                        <option value="salon">salon</option>
+                                        <option value="salon_de_coiffure">salon</option>
                                         <option value="amabanki">amabanki</option>
                                         <option value="insengero">insengero</option>
                                         <option value="hoteli">hoteli</option>

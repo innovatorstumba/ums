@@ -258,7 +258,7 @@
                                 <div class="mt-container mx-auto"  style="height: 470px; overflow: auto;">
                                     <div  class="timeline-line">
                                         <?php
-                                        foreach ($amatangazo as $value) {
+                                        foreach ($amatangazo as $value) { 
                                             ?>
                                             <div class="item-timeline timeline-new" >
                                                 <div class="t-dot">

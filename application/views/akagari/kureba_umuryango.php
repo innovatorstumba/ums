@@ -23,29 +23,73 @@
                                                         <div class="inv--head-section inv--detail-section">
                                                         
                                                             <div class="row">
-                                                            
-                                                                <div class="col-sm-6 col-12 mr-auto">
-                                                                    <div class="d-flex">
-                                                                        <img class="company-logo" src="<?=base_url()?>assets/assets/img/dadoh.png" alt="profile">
-                                                                        <h3 class="in-heading align-self-center">HAKIZIMANA Bernard.</h3>
+                                                                <?php
+                                                                $id;
+                                                                $ld;
+                                                                $count = 0;
+                                                                if($data){
+                                                                    foreach($data as $row){
+                                                                        $id = $row->ldr_leader_id;
+                                                                        $ld = $row->ldr_firstname;
+                                                                        $count++;
+                                                                        if($count==1){
+                                                                        ?>
+                                                                
+                                                                    <div class="col-sm-6 col-12 mr-auto">
+                                                                        <div class="d-flex">
+                                                                            <img class="company-logo" src="assets/img/dadoh.png" alt="profile">
+                                                                            <h3 class="in-heading align-self-center"><?=$row->ldr_lastname." ".$row->ldr_firstname?></h3>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-
-                                                                <div class="col-sm-6 text-sm-right">
-                                                                    <p class="inv-list-number"><span class="inv-title"></span> <span class="inv-number"></span></p>
-                                                                </div>
-
-                                                                <div class="col-sm-6 align-self-center mt-3">
-                                                                    <p class="inv-street-addr">Umucurizi</p>
-                                                                    <p class="inv-email-address">info@nozaax.com</p>
-                                                                    <p class="inv-email-address">+25078 456 789</p>
-                                                                </div>
-                                                               
+    
+                                                                    <div class="col-sm-6 text-sm-right">
+                                                                        <p class="inv-list-number"><span class="inv-title"></span> <span class="inv-number"></span></p>
+                                                                    </div>
+    
+                                                                    <div class="col-sm-6 align-self-center mt-3">
+                                                                        <p class="inv-street-addr">Umucurizi</p>
+                                                                        <p class="inv-email-address"><?=$row->ldr_email?></p>
+                                                                        <p class="inv-email-address"><?=$row->ldr_phone?></p>
+                                                                    </div>
+                                                                   <?php
+                                                                    }
+                                                                }
+                                                                }else{
+                                                                    foreach($family as $row){
+                                                                        $id = $row->ldr_leader_id;
+                                                                        $count++;
+                                                                        if($count==1){
+                                                                        ?>
+                                                                
+                                                                    <div class="col-sm-6 col-12 mr-auto">
+                                                                        <div class="d-flex">
+                                                                            <img class="company-logo" src="assets/img/dadoh.png" alt="profile">
+                                                                            <h3 class="in-heading align-self-center"><?=$row->ldr_lastname." ".$row->ldr_firstname?></h3>
+                                                                        </div>
+                                                                    </div>
+    
+                                                                    <div class="col-sm-6 text-sm-right">
+                                                                        <p class="inv-list-number"><span class="inv-title"></span> <span class="inv-number"></span></p>
+                                                                    </div>
+    
+                                                                    <div class="col-sm-6 align-self-center mt-3">
+                                                                        <p class="inv-street-addr">Umucurizi</p>
+                                                                        <p class="inv-email-address"><?=$row->ldr_email?></p>
+                                                                        <p class="inv-email-address"><?=$row->ldr_phone?></p>
+                                                                
+                                                                    </div>
+                                                                   <?php
+                                                                    }
+                                                                }
+                                                                }
+                                                                ?>
                                                             
                                                             </div>
                                                             
                                                         </div>
-                                                       <center> <b3 style="font-size:26px;color:black; font-weight:bold; text-align:center">    ABAGIZE UMURYANGO WA JAFAR</b3></center>
+
+                                                        
+                                                       <center> <b3 style="font-size:26px;color:black; font-weight:bold; text-align:center">    ABAGIZE UMURYANGO WA <?=$ld?></b3></center>
 
                                                         <div class="inv--product-table-section">
                                                             <div class="table-responsive">
@@ -57,93 +101,38 @@
                                         <th>IRANGAMUNTU</th>
                                         <th>NIMERO YA TELEPHONE</th>
                                         <th>ITALIKI Y'AMAVUKO</th>
+                                        <th>UBWISHINGIZI</th>
                                         <th>IGITSINA</th>
                                         <th>ISANO</th>
                                     </tr>
                                 </thead>
                                                                     <tbody>
-                                                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
+                                <?php
+                                $nber = 0;
+                                if($data){
+                                    foreach($data as $row)
+                                  {
+                                      $nber++;
+                                      ?>
+                                    <tr><td><?=$nber?></td>
+                                        <td><?php echo $row->mbr_lastname." ".$row->mbr_firstname; ?></td>
+                                        <td><?php echo $row->mbr_nid; ?></td>
+                                        <td><?php echo $row->mbr_phone; ?></td>
+                                        <td><?php echo $row->mbr_dob; ?></td>
+                                        <td><?php echo $row->ubw_name; ?></td>
+                                        <td><?php echo $row->mbr_gender; ?></td>
+                                        <td><?=$row->mbr_relationship?></td>
                                     </tr>
-
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
+                                  <?php
+                                  }
+                                }else{
+                                    ?>
+                                    <tr>
+                                        <td colspan="7"><center><?="no data"?></center></td>
                                     </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
+                                    <?php
+                                }
+                                ?>
                                                                     </tbody>
                                                                 </table>
                                                             </div>

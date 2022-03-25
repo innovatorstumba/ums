@@ -112,7 +112,7 @@ class Isibo extends CI_Controller {
 		}else {
 			redirect(base_url() . 'Login');
 		}
-	}
+	} 
 	public function soma($id){
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
@@ -254,12 +254,6 @@ class Isibo extends CI_Controller {
 		$sessionData=$this->session->userdata('userid');
 		if($sessionData!="") {
 			$sessionData=$this->session->userdata('userid');
-			$result1 = $this->Mod_Isibo->selectForAnn($sessionData);
-			$row = $result1->row();
-			$isibo = $row->isibo_code;
-
-			$result['amatangazo'] = $this->Mod_Isibo->amatangazoAll();
-			$result['data'] = $this->Mod_Isibo->selectIbyaranzwe($isibo);
 			$this->load->view('isibo/header');
 			$this->load->view('isibo/sidebar');
 			$this->load->view('isibo/ibyaranzwe',$result);

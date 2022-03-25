@@ -156,7 +156,7 @@
                     <a class="btn btn-trans btn-icon add-tooltip" style="color:black; background-color:#fff; box-shadow: none; margin:1px" href="<?=base_url()?>isibo/igiceri" data-original-title="Add Photo" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-wallet" style="font-size:28px"></span> </b></a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="appSection">
 
-                        </div>
+                        </div> 
                     </div>
                 </li>
             </ul>

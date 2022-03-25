@@ -107,9 +107,6 @@
                     <li>
                         <a href="<?=base_url()?>akagari/umuganda"> Kureba Imiganda </a>
                     </li>
-                    <li>
-                        <a href="<?=base_url()?>akagari/kuzuza_umuganda"> Kuzuza Umuganda  </a>
-                    </li>
                                          
                     
 
@@ -175,27 +172,7 @@
 
                 </ul>
             </li>
-        
-            <li class="menu">
-                <a href="#elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                    <i class="fas fa-user-circle" style="font-size:16px;color:blue;"><span style="color:#000; padding-left:20px; font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;">Umwirondoro<span></i>                        
-
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                </a>
-                <ul class="collapse submenu list-unstyled" id="elements" data-parent="#accordionExample">
-                    <li>
-                        <a href="<?=base_url()?>akagari/guhindura_umwirondoro"> Ifoto Ikuranga </a>
-                    </li>
-                    <li>
-                        <a href="<?=base_url()?>akagari/citizen"> Umwirondoro wanjye </a>
-                    </li>
-                  
-                </ul>
-            </li>
+            
             <li class="menu">
                 <a href="<?=base_url()?>akagari/abaturage" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
