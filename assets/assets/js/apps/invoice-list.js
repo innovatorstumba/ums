@@ -33,8 +33,8 @@ var invoiceList = $('#invoice-list').DataTable({
         "sLengthMenu": "Results :  _MENU_",
     },
     "stripeClasses": [],
-    "lengthMenu": [7, 10, 20, 50],
-    "pageLength": 7
+    "lengthMenu": [5, 10, 20, 50],
+    "pageLength": 5
 });
 
 // $("div.toolbar").html('<button class="dt-button dt-delete btn btn-danger btn-sm" tabindex="0" aria-controls="invoice-list"><span>Delete</span></button>');

@@ -1,4 +1,19 @@
 
+
+<script>
+    var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('password2').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+s
+
+</script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -7,7 +22,7 @@
     <!-- Bootstrap core CSS -->
     <link href="<?=base_url()?>assets/asset/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../asset/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="<?=base_url()?>asset/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles -->
     <link href="<?=base_url()?>assets/asset/multistepform/css/style.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,73 +38,75 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div  class="col-md-10 col-md-offset-1" >
-        <form  id="msform">
+        <form action="<?=base_url()?>Isibo/ongeramo_umuryango" method="POST" enctype="multipart/form-data" id="msform">
             <!-- progressbar -->
-            <ul id="progressbar">
-                <li class="active">Personal Details</li>
-                <li>Social Profiles</li>
-                <li>Account Setup</li>
-            </ul>
+        
             <!-- fieldsets -->
             <fieldset>
                 <h2 class="fs-title">uzuza neza ibisabwa</h2>
                 <h3 class="fs-subtitle">Umwirondoro w'uhagarariye umuryango</h3>
-                <input type="text" name="fname" placeholder="IZINA RYAMBER"/>
-                <input type="text" name="lname" placeholder="IZINA RYAKABIRI"/>
-                <input type="date" name="phone" placeholder="ITARIKI Y'AMAVUKO"/>
-                <input type="text" name="address" placeholder="NIMERO Y'IRANGAMUNTU"/>
+                <input type="text" name="fname" placeholder="IZINA RYAMBER" required/>
+                <input type="text" name="lname" placeholder="IZINA RYAKABIRI" required/>
+                <input type="date" name="birthday" placeholder="ITARIKI Y'AMAVUKO" required/>
+                <input type="text" name="id" placeholder="NIMERO Y'IRANGAMUNTU" required/>
                 <input type="button" name="next" class="next action-button" value="KOMEZA"/>
             </fieldset>
             <fieldset>
             <h2 class="fs-title">uzuza neza ibisabwa</h2>
                 <h3 class="fs-subtitle">Umwirondoro w'uhagarariye umuryango</h3>
+                <select name="sex" required>
+                <option style="display:none">Hitamo Igitsina</option>
+                <option value="male">GABO</option>
+                <option value="female">GORE</option>
+                <option value="other">OTHER</option>
                 <select>
-                <option>Hitamo Igitsina</option>
-                <option>GABO</option>
-                <option>GORE</option>
-                <option>OTHER</option>
+                <select name="ubudehe" required>
+                <option style="display:none">HITAMO UBUDEHE</option>
+                <?php
+                foreach($data as $row)
+									{?>
+									<option value="<?php echo $row->cat_cotegory_code; ?>"><?=$row->cat_category_name?></option>
+									<?php
+									}
+				?>
                 <select>
+                <select name="isano" required>
+                <option style="display:none">HITAMO ISANO</option>
+                <option value="parent">UMUBYEZI</option>
+                <option value="child">UMWANA</option>
+                <option value="other">OTHER</option>
                 <select>
-                <option>HITAMO IKICIRO CY'UBUDEHE</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <select>
-                <select>
-                <option>HITAMO ISANO</option>
-                <option>UMUBYEZI</option>
-                <option>UMWANA</option>
-                <option>OTHER</option>
-                <select>
-                <select>
-                <option>HITAMO UBWINSHINGIZI</option>
-                <option>MITUWELI</option>
-                <option>RAMA</option>
-                <option>MMI</option>
-                <option>OTHER</option>
-                <select>
+                <select name="insurance" id="insurance" required>
+                <option style="display:none">HITAMO UBWINSHINGIZI</option>
+                <?php
+                foreach($insurance as $row)
+									{?>
+									<option value="<?=$row->ubw_id?>"><?=$row->ubw_name?></option>
+									<?php
+									}
+				?>
+                </select>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
                 <input type="button" name="next" class="next action-button" value="KOMEZA"/>
             </fieldset>
             <fieldset>
             <h2 class="fs-title">uzuza neza ibisabwa</h2>
                 <h3 class="fs-subtitle">Address z'uhagarariye umuryango</h3>
-                <input type="text" name="umudugudu" placeholder="UBWISHINGIZI"/>
-                <input type="text" name="umurenge" placeholder="NIMERO YA TELEPHONE"/>
-                <input type="text" name="akagari" placeholder="EMAIL"/>
-                <input type="text" name="umudugudu" placeholder="NIMERO YINZU ATUYEMO"/>
+                <input type="text" name="tel" placeholder="NIMERO YA TELEPHONE"required/>
+                <input type="text" name="email" placeholder="EMAIL"/>
+                <input type="text" name="houseNummber" placeholder="NIMERO YINZU ATUYEMO" required/>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
                 <input type="button" name="next" class="next action-button" value="KOMEZA"/>
             </fieldset>
             <fieldset>
                 <h2 class="fs-title">uzuza neza ibisabwat</h2>
                 <h3 class="fs-subtitle">Fungura konte yo kwinjira</h3>
-                <input type="text" name="email" placeholder="IZINA RYO KWINJIRA"/>
-                <input type="password" name="pass" placeholder="IJAMBO RY'IBANGA"/>
-                <input type="password" name="cpass" placeholder="EMEZA IJAMBO RY'IBANGA"/>
+                <input type="text" name="uname" placeholder="IZINA RYO KWINJIRA" required/>
+                <input type="password" name="password" id="password" placeholder="IJAMBO RY'IBANGA" required/>
+                <input type="password" name="comfirmPassword" id="password2" onkeyup='check();' placeholder="EMEZA IJAMBO RY'IBANGA" required/>
+                <span id='message'></span><br>
                 <input type="button" name="previous" class="previous action-button-previous" value="GARUKA"/>
-                <input type="submit" name="submit" class="submit action-button" value="OHEREZA"/>
+                <input type="submit" name="save" value="OHEREZA"/>
             </fieldset>
         </form>
         <!-- link to designify.me code snippets -->

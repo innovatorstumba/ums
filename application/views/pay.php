@@ -1611,17 +1611,54 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 <div id="content" class="main-content">
             <div class="layout-px-spacing">
         <div class="responsive_tabs w3ls_tab">
+            <h1><?=@$title?></h1>
             <div id="horizontalTab" >
                 <ul  class="resp-tabs-list" >
-                <li ><img style="height:40px" src="<?=base_url()?>assets/assets/img/visa.png">
-                   </li>
+                    <li ><img style="height:40px;" src="<?=base_url()?>assets/assets/img/mtn.png">Mobile Money</li>
+                    <li ><img style="height:40px" src="<?=base_url()?>assets/assets/img/visa.png"></li>
                     <li ><img style="height:40px;color:#fff" src="<?=base_url()?>assets/assets/img/bank.png"> ISHYURA NA BANKI</li>
-                    <li ><img style="height:40px;" src="<?=base_url()?>assets/assets/img/mtn.png">
-                   Mobile Money</li>
                 </ul>
                 <div class="resp-tabs-container">
                     <!--tab_one-->
                     <div class="tab1">
+                        <div class="agile_pay">
+                            <!-- <div class=" tab-grid">
+                                <p>Important: You will be redirected to PayPal's website to securely complete your payment.</p>
+                                <a href="#" class="btn btn-primary">Checkout via Paypal</a>
+                            </div> -->
+                            <div class="paypal_agile">
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    <section class="creditly-wrapper payf_wrapper">
+                                        <div class="credit-card-wrapper">
+                                            <div class="first-row form-group">
+                                                <div class="paymntf_card_number_grids">
+                                                    <div class="fpay_card_number_grid_left">
+                                                        <div class="controls">
+                                                            <label style="color:#000" class="control-label">Agiye kwishyurwa</label><br>
+                                                            <label style="color:#000" class="control-label"><b>Amafaranga:</b> <?=@$amount?> RWF/ Ukwezi</label><br>
+                                                            <label style="color:#000" class="control-label"><b>Umubare W'amezi:</b> <?=@$amezi?></label><br>
+                                                            <label style="color:#000" class="control-label"><b>Yose Hamwe:</b> <?=@$total?> RWF</label>
+                                                            <input type="hidden" value="<?=@$total?>" name="amt">
+                                                            <input type="hidden" value="<?=@$amezi?>" name="amezi">
+                                                            <input type="hidden" value="<?=@$table?>" name="table">
+                                                        </div>
+                                                    </div>
+                                                    <div class="clear"> </div>
+                                                </div>
+                                            </div>
+                                            <input name="nber" class="btn btn-primary submit" type="submit" value="ISHYURA">
+                                        </div>
+                                    </section>
+                                </form>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <!-- //tab one -->
+					<!---728x90--->
+
+                    <!-- tab two -->
+                    <div class="tab2">
                         <div class="agile_pay">
                             <form action="#" method="post" class="creditly-card-form shopf-sear-headinfo_form">
                                 <section class="creditly-wrapper payf_wrapper">
@@ -1636,7 +1673,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
                                                     <div class="controls">
                                                         <label style="color:#000"  class="control-label">IMIBARE YA KONTE</label>
                                                         <input class="number credit-card-number form-control" type="text" name="number" inputmode="numeric" autocomplete="cc-number"
-                                                            autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+                                                               autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
                                                     </div>
                                                 </div>
                                                 <div class="fpay_card_number_grid_right">
@@ -1661,11 +1698,10 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 
                         </div>
                     </div>
-                    <!-- //tab one -->
-					<!---728x90--->
+                    <!-- //tab two -->
 
-                    <!-- tab two -->
-                    <div class="tab2">
+                    <!-- tab three -->
+                    <div class="tab3">
                         <div class="agile_pay">
                             <div class="vertical_post">
                                 <form action="#"  method="post">
@@ -1718,58 +1754,12 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
                                     </div>
                                     <h3 style="color:#000"> NIMERO YA BANKI</h3>
                                     <div class="section_room_pay">
-                                    <input class="billing-address-name form-control" type="text" name="name" placeholder="Ex:8574-42344-43234">
+                                        <input class="billing-address-name form-control" type="text" name="name" placeholder="Ex:8574-42344-43234">
 
                                     </div>
                                     <input type="submit" value="ISHYURA">
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                    <!-- //tab two -->
-                    <!-- tab three -->
-                    <div class="tab3">
-                        <div class="agile_pay">
-                            <!-- <div class=" tab-grid">
-                                <p>Important: You will be redirected to PayPal's website to securely complete your payment.</p>
-                                <a href="#" class="btn btn-primary">Checkout via Paypal</a>
-                            </div> -->
-                            <div class="paypal_agile">
-                                <form action="#" method="post" class="creditly-card-form shopf-sear-headinfo_form">
-                                    <section class="creditly-wrapper payf_wrapper">
-                                        <div class="credit-card-wrapper">
-                                            <div class="first-row form-group">
-                                                <!-- <div class="controls">
-                                                    <label class="control-label">Card Holder </label>
-                                                    <input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
-                                                </div> -->
-                                                <div class="paymntf_card_number_grids">
-                                                    <div class="fpay_card_number_grid_left">
-                                                        <div class="controls">
-                                                            <label style="color:#000" class="control-label">TELEPHONE</label>
-                                                            <input class="number credit-card-number form-control" type="text" name="number" inputmode="numeric" autocomplete="cc-number"
-                                                                autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="fpay_card_number_grid_right">
-                                                        <div class="controls">
-                                                            <label class="control-label">CVV</label>
-                                                            <input class="security-code form-control" Â· inputmode="numeric" type="text" name="security-code" placeholder="&#149;&#149;&#149;">
-                                                        </div>
-                                                    </div> -->
-                                                    <div class="clear"> </div>
-                                                </div>
-                                                <!-- <div class="controls">
-                                                    <label class="control-label">Valid Thru</label>
-                                                    <input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
-                                                </div> -->
-                                            </div>
-                                            <input class="btn btn-primary submit" type="submit" value="ISHYURA">
-                                        </div>
-                                    </section>
-                                </form>
-                            </div>
-                            <div class="clearfix"></div>
                         </div>
                     </div>
                     <!-- //tab three -->
@@ -1823,6 +1813,6 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
     </script>
     <!-- //credit-card -->
    
-</body>
+</div>
 <!-- //Body -->
 

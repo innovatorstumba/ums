@@ -197,12 +197,12 @@
                                     </div>
                                 </div>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <form>
+                                    <?php echo form_open_multipart(site_url('akagari/emeza_umuyobozi'));?>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">NIMERO Y'IRANGAMUNTU</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="UHAGARARIYE UMURYANGO">
+                                            <input type="text" class="form-control" id="exampleFormControlInput2" name="id" placeholder="UWATSINZE AMATORA">
                                         </div>
-                                        <div class="form-group mb-4">
+                                        <!-- <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
                                             <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
                                         </div>
@@ -213,15 +213,26 @@
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
                                             <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
-                                        </div>
+                                        </div> -->
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">UMUDUGUDU</label>
-                                            <select class="mt-4 mb-4 btn btn-primary">
-                                                <option>INYAMIBWA
-                                                    <option>INJYENZI 
-                                                        <option>UMWEZI
+                                            <select class="mt-4 mb-4 btn btn-primary" name="village" required>
+                                                <option value="" disabled selected>HITAMO UMUDUGUDU</option>
+                                                <?php
+                                                if (is_array($data)) {
+                                                    foreach ($data as $value) {
+                                                        ?>
+                                                        <option value="<?=$value->village_code?>"><?=$value->village_name?></option>
+                                                        <?php
+                                                    }
+                                                }else {
+                                                    ?>
+                                                    <option value="">no village availabe</option>
+                                                    <?php
+                                                }
+                                                ?>
                                             </select>
-                                            <input type="submit" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+                                            <input type="submit" value="SUZUMA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
                                         </div>
                                     </form>
                                 </div>

@@ -43,6 +43,12 @@
     <link href="<?=base_url()?>assets/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
     <link href="<?=base_url()?>assets/assets/css/components/custom-carousel.css" rel="stylesheet" type="text/css" />
 
+
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="<?=base_url()?>assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>plugins/editors/quill/quill.snow.css">
+    <!--  END CUSTOM STYLE FILE  -->
+
 </head>
 <body>
     <!-- BEGIN LOADER -->
@@ -57,7 +63,7 @@
             
             <ul style="background:#F0F0F0;color:#000" class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo" >
-                    <a href="index.php"  >
+                    <a href=""  >
                         <img style="border-radius:50px"  src="<?=base_url()?>assets/assets/img/dadoh.png" class="navbar-logo" alt="logo">
                     </a>
                 </li>
@@ -76,14 +82,15 @@
                         <a class="dropdown-toggle btn" style="background-color:#CED4F3; color:#000" href="#" role="button" id="appSection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-crosshair"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg><span>Ikaze</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
 
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="appSection">
+						<a href="<?=base_url()?>isibo/ibikorwa"><i class="fas fa-plus" style="font-size:13px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Igikorwa Gishya<span></i>  </a><hr>
 						<a href="<?=base_url()?>isibo/amashuri"><i class="fas fa-graduation-cap" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amashuri<span></i>  </a>
 						<a href="<?=base_url()?>isibo/amavuriro"><i class="fas fa-hospital" style="font-size:16px;color:orange;padding-left:0px"><span style="color:#000; padding-left:10px">Amavuriro<span></i>      </a>
 						<a href="<?=base_url()?>isibo/pharmacy"><i class="fas fa-plus-square" style="font-size:16px;color:green;padding-left:0px"><span style="color:#000; padding-left:10px">Pharmacy<span></i>     </a>
-						<a href="<?=base_url()?>isibo/restaurant"><i class="fas fa-hamburger" style="font-size:16px;color:#E85959;padding-left:0px"><span style="color:#000; padding-left:10px">Restaurent<span></i>    </a>
+						<a href="<?=base_url()?>isibo/restaurent"><i class="fas fa-hamburger" style="font-size:16px;color:#E85959;padding-left:0px"><span style="color:#000; padding-left:10px">Restaurent<span></i>    </a>
 						<a href="<?=base_url()?>isibo/utubari"><i class="fas fa-glass-cheers" style="font-size:16px;color:#F17421;padding-left:0px"><span style="color:#000; padding-left:10px">Utubari<span></i>    </a>
 						<a href="<?=base_url()?>isibo/inganda"><i class="fas fa-industry" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Inganda<span></i>            </a>
 						<a href="<?=base_url()?>isibo/amasoko"><i class="fas fa-store" style="font-size:16px;color:#82C91E;padding-left:0px"><span style="color:#000; padding-left:10px">Amasoko<span></i>            </a>
-						<a href="<?=base_url()?>isibo/abashyitsi/amaduka"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amaduka<span></i>           </a>
+						<a href="<?=base_url()?>isibo/amaduka"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amaduka<span></i>           </a>
 						<a href="<?=base_url()?>isibo/cooperative"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">cooperative<span></i>   </a>
 						<a href="<?=base_url()?>isibo/salon_de_coiffure"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Salon<span></i></a>
 						<a href="<?=base_url()?>isibo/amabanki"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amabanki<span></i>   </a>
@@ -126,7 +133,7 @@
             <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#fff; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">
-                    <a class="btn btn-trans btn-icon  add-tooltip" style="color:black; background-color:#fff; box-shadow: none; margin:1px;" href="<?=base_url()?>isibo/amaduka" data-original-title="Add Photo" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-store-alt" style="font-size:28px"></span> </b></a>
+                    <a class="btn btn-trans btn-icon  add-tooltip" style="color:black; background-color:#fff; box-shadow: none; margin:1px;" href="<?=base_url()?>isibo/amaduka" data-original-title="Reba Amaduka" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-store-alt" style="font-size:28px"></span> </b></a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="appSection">
 
                         </div>
@@ -149,12 +156,12 @@
                     <a class="btn btn-trans btn-icon add-tooltip" style="color:black; background-color:#fff; box-shadow: none; margin:1px" href="<?=base_url()?>isibo/igiceri" data-original-title="Add Photo" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-wallet" style="font-size:28px"></span> </b></a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="appSection">
 
-                        </div>
+                        </div> 
                     </div>
                 </li>
             </ul>
 
-            <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
+            <!-- <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#fff; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">
                     <a class="btn btn-trans btn-icon add-tooltip" style="color:blue; background-color:#fff; box-shadow: none; margin:1px" href="<?=base_url()?>isibo/chat" data-original-title="Add Photo" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-comment-alt" style="font-size:28px; font-weight:bold"></span> </b></a>
@@ -163,7 +170,7 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul> -->
             <!-- <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#F0F0F0; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">
@@ -350,7 +357,7 @@
                             </a>
                         </div>
                         <div class="dropdown-item">
-                            <a href="auth_login.html">
+                            <a href="<?php echo base_url();?>Logout">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> <span>Log Out</span>
                             </a>
                         </div>
@@ -359,3 +366,4 @@
             </ul>
         </header>
     </div>
+

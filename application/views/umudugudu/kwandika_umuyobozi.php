@@ -197,32 +197,44 @@
                                     </div>
                                 </div>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <form>
+                                    <form method="post">
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">NIMERO Y'IRANGAMUNTU</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="UHAGARARIYE UMURYANGO">
+                                            <input type="text" name="nid" class="form-control" id="exampleFormControlInput2" placeholder="UHAGARARIYE UMURYANGO">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
+                                            <input type="text" name="firstname" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IZINA RYANYUMA</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
+                                            <input type="text" name="lastname" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
                                         </div>
                                         <div class="form-group mb-4">
-                                            <label style="color:#000;" for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
+                                            <label style="color:#000;"  for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
+                                            <input type="text" name="phone" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">ICYO ASHINZWE</label>
-                                            <select class="mt-4 mb-4 btn btn-primary">
-                                                <option>UMUTEKANO
-                                                    <option>IMIBEREHO MYIZA
-                                                        <option>ITERAMBERE
-                                                            <option>ISIBO
+                                            <select name="isibo" class="mt-4 mb-4 btn btn-primary" required>
+                                                <option selectd>--Hitamo Isibo--</option>
+                                                <?php
+                                                if (isset($amasibo)) {
+                                                    if (@$amasibo != null){
+                                                        foreach ($amasibo->result() as $row){
+                                                            ?>
+                                                            <option value="<?=$row->isibo_code;?>"><?='Isibo - '.$row->isibo_name;?></option>
+                                                            <?php
+                                                        }
+                                                    } else{
+                                                        ?>
+                                                        <option disabled>No Data Found</option>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                             </select>
-                                            <input type="submit" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+                                            <input type="submit" name="send" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
                                         </div>
                                     </form>
                                 </div>
@@ -235,7 +247,7 @@
 </div>
 <div class="test" style="overflow: scroll;height:600px">
                         <div class="widget widget-activity-five" style="overflow: scroll;">
-   <h5 style="padding-top:20px"> ABATURAGE</h>
+   <h5 style="padding-top:20px"> ABATURAGE</h5>
                            <center>
                             <div class="widget-content">
                                 <div id="chart-2" class=""></div>
@@ -246,163 +258,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <canvas id="myChartt" style="padding-right:15px;" width="350" height="350"></canvas>
 
-<script>
-var ctx = document.getElementById('myChartt').getContext('2d');
-var myChartt = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [18, 19, 20, 15, 16, 10],
-            backgroundColor: [
-                'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
-            ],
-            borderColor: [
-                'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-</script>
-<script src="<?=base_url()?>assets/plugins/apex/apexcharts.min.js"></script>
-    <script src="<?=base_url()?>assets/assets/js/dashboard/dash_1.js"></script>
 
-                    <!-- <div class="test" >
-                        <div class="widget widget-activity-five">
 
-                            <div class="widget-heading">
-                                <h5 class=""> AMATANGAZO</h5>
-
-                                <div class="task-action">
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" id="pendingTask" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="pendingTask" style="will-change: transform;">
-                                            <a class="dropdown-item" href="javascript:void(0);">View All</a>
-                                            <a class="dropdown-item" href="javascript:void(0);">Mark as Read</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="widget-content">
-
-                                <div class="w-shadow-top"></div>
-
-                                <div class="mt-container mx-auto"  style="height: 470px; overflow: auto;">
-                                    <div  class="timeline-line">
-                                        
-                                        <div class="item-timeline timeline-new" >
-                                            <div class="t-dot">
-                                                <div class="t-secondary" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div>
-                                            </div>
-                                            <div class="t-content">
-                                                <div class="t-uppercontent">
-                                                    <h5 style="color:#000; font-weight:bold">Amabwiriza yasohotse yo kwirinda corona virus : <a href="javscript:void(0);"><span>Soma Itangazo</span></a></h5>
-                                                </div>
-                                                <p style="color:#0f0999;font-weight:bold">27 Feb 2020, 12:00PM</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="item-timeline timeline-new">
-                                            <div class="t-dot">
-                                                <div class="t-success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
-                                            </div>
-                                            <div class="t-content">
-                                                <div class="t-uppercontent">
-                                                    <h5 style="color:#000;font-weight:bold">Menya Aho urukingo rwa covid-19 ruri gutangirwa: <a href="javascript:void(0);"><span>Soma Itangazo</span></a></h5>
-                                                </div>
-                                                <p style="color:#0f0999;font-weight:bold">28 Feb 2020, 12:30PM</p>
-                                            </div>
-                                        </div>
-                                         
-                                        <div class="item-timeline timeline-new" >
-                                            <div class="t-dot">
-                                                <div class="t-secondary" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div>
-                                            </div>
-                                            <div class="t-content">
-                                                <div class="t-uppercontent">
-                                                    <h5 style="color:#000;font-weight:bold">Itangazo Aho urukingo rwa covid-19 ruri gutangirwa: <a href="javascript:void(0);"><span>Soma Itangazo</span></a></h5>
-                                                </div>
-                                                <p style="color:#0f0999;font-weight:bold">28 Feb 2020, 12:30PM</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="item-timeline timeline-new">
-                                            <div class="t-dot">
-                                                <div class="t-success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
-                                            </div>
-                                            <div class="t-content">
-                                                <div class="t-uppercontent">
-                                                    <h5 style="color:#000;font-weight:bold"> Aho umuganda usoza ukwezi gutaha uzabera: <a href="javascript:void(0);"><span>Soma Itangazo</span></a></h5>
-                                                </div>
-                                                <p style="color:#0f0999;font-weight:bold">28 Feb 2020, 2:40PM</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="item-timeline timeline-new">
-                                            <div class="t-dot">
-                                                <div class="t-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-                                            </div>
-                                            <div class="t-content">
-                                                <div class="t-uppercontent">
-                                                    <h5 style="color:#000;font-weight:bold">Menya Aho urukingo rwa covid-19 ruri gutangirwa: <a href="javascript:void(0);"><span>Soma Itangazo</span></a></h5>
-                                                </div>
-                                                <p style="color:#0f0999;font-weight:bold">28 Feb 2020, 13:30PM</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="item-timeline timeline-new">
-                                            <div class="t-dot">
-                                                <div class="t-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-                                            </div>
-                                            <div class="t-content">
-                                                <div class="t-uppercontent">
-                                                    <h5>Menya Aho urukingo rwa covid-19 ruri gutangirwa: <a href="javascript:void(0);"><span>Soma Itangazo</span></a></h5>
-                                                </div>
-                                                <p>28 Feb 2020, 11:31PM</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="item-timeline timeline-new">
-                                            <div class="t-dot">
-                                                <div class="t-warning"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg></div>
-                                            </div>
-                                            <div class="t-content">
-                                                <div class="t-uppercontent">
-                                                    <h5>Menya Aho urukingo rwa covid-19 ruri gutangirwa: <a href="javascript:void(0);"><span>Soma Itangazo</span></a></h5>
-                                                </div>
-                                                <p>28 Feb 2020, 6:55PM</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="item-timeline timeline-new">
-                                            <div class="t-dot">
-                                                <div class="t-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg></div>
-                                            </div>
-                                            <div class="t-content">
-                                                <div class="t-uppercontent">
-                                                    <h5>Server rebooted successfully</h5>
-                                                    <span class=""></span>
-                                                </div>
-                                                <p>06 Apr, 2020</p>
-                                            </div>
-                                        </div>                                      
-                                    </div>                                    
-                                </div>
-
-                                <div class="w-shadow-bottom"></div>
-                            </div> --> -->
                         </div>
                     </div>
+                    <script>
+                        var ctx = document.getElementById('myChartt').getContext('2d');
+                        var myChartt = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                datasets: [{
+                                    label: '# of Votes',
+                                    data: [18, 19, 20, 15, 16, 10],
+                                    backgroundColor: [
+                                        'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+                                    ],
+                                    borderColor: [
+                                        'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                    <script src="<?=base_url()?>assets/plugins/apex/apexcharts.min.js"></script>
+                    <script src="<?=base_url()?>assets/assets/js/dashboard/dash_1.js"></script>

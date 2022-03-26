@@ -534,7 +534,7 @@
 </div>
 </div>
 
-                    <div class="test" style="overflow: scroll;height:600px">
+                    <div class="test" style="height:600px">
                         <div class="widget widget-activity-five" style="overflow: scroll;">
    <h5 style="padding-top:20px"> ABATURAGE</h>
                            <center>
@@ -545,7 +545,7 @@
 <hr>
 <h5>ABASHYITSI</h5>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<canvas id="myChartt" style="padding-right:15px;" width="350" height="350"></canvas>
+<canvas id="myChartt" style="padding-right:15px;" width="330" height="330"></canvas>
 
 <script>
 var ctx = document.getElementById('myChartt').getContext('2d');

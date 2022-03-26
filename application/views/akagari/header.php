@@ -76,19 +76,19 @@
                         <a class="dropdown-toggle btn" style="background-color:#CED4F3; color:#000" href="#" role="button" id="appSection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-crosshair"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg><span>Ikaze</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
 
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="appSection">
-						<a href="<?=base_url()?>akagari/amashuri"><i class="fas fa-graduation-cap" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amashuri<span></i>  </a>
-						<a href="<?=base_url()?>akagari/amavuriro"><i class="fas fa-hospital" style="font-size:16px;color:orange;padding-left:0px"><span style="color:#000; padding-left:10px">Amavuriro<span></i>      </a>
-						<a href="<?=base_url()?>akagari/pharmacy"><i class="fas fa-plus-square" style="font-size:16px;color:green;padding-left:0px"><span style="color:#000; padding-left:10px">Pharmacy<span></i>     </a>
-						<a href="<?=base_url()?>akagari/restaurant"><i class="fas fa-hamburger" style="font-size:16px;color:#E85959;padding-left:0px"><span style="color:#000; padding-left:10px">Restaurent<span></i>    </a>
-						<a href="<?=base_url()?>akagari/utubari"><i class="fas fa-glass-cheers" style="font-size:16px;color:#F17421;padding-left:0px"><span style="color:#000; padding-left:10px">Utubari<span></i>    </a>
-						<a href="<?=base_url()?>akagari/inganda"><i class="fas fa-industry" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Inganda<span></i>            </a>
-						<a href="<?=base_url()?>akagari/amasoko"><i class="fas fa-store" style="font-size:16px;color:#82C91E;padding-left:0px"><span style="color:#000; padding-left:10px">Amasoko<span></i>            </a>
-						<a href="<?=base_url()?>akagari/abashyitsi/amaduka"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amaduka<span></i>           </a>
-						<a href="<?=base_url()?>akagari/cooperative"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">cooperative<span></i>   </a>
-						<a href="<?=base_url()?>akagari/salon_de_coiffure"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Salon<span></i></a>
-						<a href="<?=base_url()?>akagari/amabanki"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amabanki<span></i>   </a>
-						<a href="<?=base_url()?>akagari/insengero"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">insengero<span></i>   </a>
-						<a href="<?=base_url()?>akagari/hoteli"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">hoteli<span></i>   </a>
+						<a href="<?=base_url()?>akagari/igikorwa/amashuri"><i class="fas fa-graduation-cap" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amashuri<span></i>  </a>
+						<a href="<?=base_url()?>akagari/igikorwa/amavuriro"><i class="fas fa-hospital" style="font-size:16px;color:orange;padding-left:0px"><span style="color:#000; padding-left:10px">Amavuriro<span></i>      </a>
+						<a href="<?=base_url()?>akagari/igikorwa/pharmacy"><i class="fas fa-plus-square" style="font-size:16px;color:green;padding-left:0px"><span style="color:#000; padding-left:10px">Pharmacy<span></i>     </a>
+						<a href="<?=base_url()?>akagari/igikorwa/restaurent"><i class="fas fa-hamburger" style="font-size:16px;color:#E85959;padding-left:0px"><span style="color:#000; padding-left:10px">Restaurent<span></i>    </a>
+						<a href="<?=base_url()?>akagari/igikorwa/utubari"><i class="fas fa-glass-cheers" style="font-size:16px;color:#F17421;padding-left:0px"><span style="color:#000; padding-left:10px">Utubari<span></i>    </a>
+						<a href="<?=base_url()?>akagari/igikorwa/inganda"><i class="fas fa-industry" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Inganda<span></i>            </a>
+						<a href="<?=base_url()?>akagari/igikorwa/amasoko"><i class="fas fa-store" style="font-size:16px;color:#82C91E;padding-left:0px"><span style="color:#000; padding-left:10px">Amasoko<span></i>            </a>
+						<a href="<?=base_url()?>akagari/igikorwa/amaduka"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amaduka<span></i>           </a>
+						<a href="<?=base_url()?>akagari/igikorwa/cooperative"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">cooperative<span></i>   </a>
+						<a href="<?=base_url()?>akagari/igikorwa/salon_de_coiffure"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Salon<span></i></a>
+						<a href="<?=base_url()?>akagari/igikorwa/amabanki"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">Amabanki<span></i>   </a>
+						<a href="<?=base_url()?>akagari/igikorwa/insengero"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">insengero<span></i>   </a>
+						<a href="<?=base_url()?>akagari/igikorwa/hoteli"><i class="fas fa-store-alt" style="font-size:16px;color:blue;padding-left:0px"><span style="color:#000; padding-left:10px">hoteli<span></i>   </a>
 
 						
                            <!--<a class="dropdown-item" data-value="Mailbox" href="apps_mailbox.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Mailbox</a>
@@ -126,7 +126,7 @@
             <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#fff; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">
-                    <a class="btn btn-trans btn-icon  add-tooltip" style="color:black; background-color:#fff; box-shadow: none; margin:1px;" href="<?=base_url()?>akagari/amaduka" data-original-title="Add Photo" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-store-alt" style="font-size:28px"></span> </b></a>
+                    <a class="btn btn-trans btn-icon  add-tooltip" style="color:black; background-color:#fff; box-shadow: none; margin:1px;" href="<?=base_url()?>akagari/igikorwa/amaduka" data-original-title="Amaduka" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-store-alt" style="font-size:28px"></span> </b></a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="appSection">
 
                         </div>
@@ -154,7 +154,7 @@
                 </li>
             </ul>
 
-            <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
+            <!-- <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#fff; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">
                     <a class="btn btn-trans btn-icon add-tooltip" style="color:blue; background-color:#fff; box-shadow: none; margin:1px" href="<?=base_url()?>akagari/chat" data-original-title="Add Photo" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-comment-alt" style="font-size:28px; font-weight:bold"></span> </b></a>
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul> -->
             <!-- <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#F0F0F0; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">
