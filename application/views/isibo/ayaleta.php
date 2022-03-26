@@ -197,19 +197,19 @@
                                     </div>
                                 </div>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <form>
+                                    <?php echo form_open_multipart(site_url('Isibo/do_upload_ikira'));?>
                                         <div class="form-group mb-4">
-                                            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="ITANGAZO">
+                                            <input type="text" name="title" class="form-control" id="exampleFormControlInput2" required="" placeholder="ITANGAZO">
                                         </div>
  
                                         <div class="form-group mb-4">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                                           <textarea name="myTextarea" id="myTextarea"></textarea>
                                         </div>
                                         <div class="form-group mb-4 mt-3">
-                                            <label style="color:#000;" for="exampleFormControlFile1">IFOTO Y'IKIRANGISHWA</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            <label style="color:#000;" for="exampleFormControlFile1">Ikirangwa(pdf*)</label>
+                                            <input type="file" name="ufile" id="InputFile" accept="application/pdf">
                                         </div>
-                                        <input type="submit" value="Ohereza" name="time" class="mt-4 mb-4 btn btn-primary">
+                                        <button class="btn btn-lg btn-primary btn-block" id="btn-submit" type="submit">Emeza</button>
                                     </form>
                                 </div>
                             </div>
@@ -350,3 +350,10 @@
                             </div>
                         </div>
                     </div>
+                    <script src='<?=base_url()?>assets/tinymce/tinymce.min.js'></script>
+                    <script type="text/javascript">
+                      tinymce.init({
+                          selector: '#myTextarea',
+                          branding: false
+                      });
+                    </script>

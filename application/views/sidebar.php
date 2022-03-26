@@ -139,12 +139,12 @@
 						<li>
 							<a href="<?=base_url()?>family/Umuryango"> Abagize Umuryango </a>
 						</li>
-						<li>
-							<a href="<?=base_url()?>family/Ibarura"> Kuzuza Ibarura  </a>
+						<!--<li>
+							<a href="<?/*=base_url()*/?>family/Ibarura"> Kuzuza Ibarura  </a>
 						</li>
 						<li>
-							<a href="<?=base_url()?>family/Guhiga"> Guhiga </a>
-						</li>
+							<a href="<?/*=base_url()*/?>family/Guhiga"> Guhiga </a>
+						</li>-->
 
 
 					</ul>
@@ -230,8 +230,9 @@
 						<li>
 							<a href="<?=base_url()?>family/Igiceri"> Igiceri Porogaramu </a>
 						</li>
-
-
+                        <li>
+                            <a href="<?=base_url()?>family/Ejoheza"> EJO HEZA </a>
+                        </li>
 					</ul>
 				</li>
 				<li class="menu">

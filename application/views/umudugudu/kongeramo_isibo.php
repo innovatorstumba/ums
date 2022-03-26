@@ -198,19 +198,19 @@
                                     </div>
                                 </div>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <form>
+                                    <form method="post">
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">AMAZINA Y'ISIBO</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="">
+                                            <input type="text" name="isibo_name" class="form-control" id="exampleFormControlInput2" placeholder="">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">CODE Y'ISIBO</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="">
+                                            <input type="text" name="isibo_code" class="form-control" id="exampleFormControlInput2" placeholder="">
                                         </div>
                                       
                                         <div class="form-group mb-4">
                                         
-                                            <input type="submit" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+                                            <input type="submit" name="send" value="OHEREZA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
                                         </div>
                                     </form>
                                 </div>

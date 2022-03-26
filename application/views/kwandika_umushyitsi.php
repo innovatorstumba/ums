@@ -197,32 +197,32 @@
                                     </div>
                                 </div>
                                 <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <form>
+                                    <form action="" method="post">
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">UHAGARARIYE UMURYANGO</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="UHAGARARIYE UMURYANGO">
+                                            <input type="text" class="form-control" id="exampleFormControlInput2" value="<?=$this->session->userdata('firstname').' '.$this->session->userdata('lastname');?>" placeholder="UHAGARARIYE UMURYANGO" readonly>
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
+                                            <input type="text" name="firstname" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">IZINA RYANYUMA</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
+                                            <input type="text" name="lastname" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
+                                            <input type="text" name="phone" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2">AHO ABARIZWA</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Eg: Rwanda, kigali">
+                                            <input type="text" name="address" class="form-control" id="exampleFormControlInput2" placeholder="Eg: Rwanda, kigali">
                                         </div>
                                         <div class="form-group mb-4">
                                             <label style="color:#000;" for="exampleFormControlInput2"> NIMERO Y'IRANGAMUNTU</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="No:">
+                                            <input type="text" name="nid" class="form-control" id="exampleFormControlInput2" placeholder="No:">
                                         </div>
-                                        <input type="submit" value="Ohereza" name="time" class="mt-4 mb-4 btn btn-primary">
+                                        <input type="submit" value="Ohereza" name="register" class="mt-4 mb-4 btn btn-primary">
                                     </form>
                                 </div>
                             </div>

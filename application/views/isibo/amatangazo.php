@@ -187,102 +187,46 @@
             <div class="layout-px-spacing">
                 <div class="row layout-top-spacing">
                 <div class="container">
-<div class="col-md-9" style="padding-right:30px" >
-<div class="social-feed-box">
-
-
-<div class="social-avatar">
-    <a href="" class="pull-left">
-        <img alt="image" src="./assets/img/profile.jpg">
-    </a>
-    <div class="media-body">
-        <a href="#">
-            UMUKURU W'UMUDUGUDU
-        </a>
-        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-    </div>
-</div>
-<div class="social-body">
-<h4>AMABWIRIZA MASHYA YO KWIRINDA CORONA VIRUS</h4>
+                  <div class="col-md-9" style="padding-right:30px" >
+                  <?php
+                  if ($data) {
+                  foreach ($data as $row) {
+                    ?>
+                    <div class="social-feed-box">
+                      <div class="col-md-6" style="padding-right:30px" >
+                        <div class="social-avatar">
+                            <a href="" class="pull-left">
+                                <!-- <img alt="image" src="./assets/img/profile.jpg"> -->
+                            </a>
+                            <div class="media-body">
+                                <a href="#">
+                                <?=$row->ldr_firstname." ".$row->ldr_lastname?>
+                                </a>
+                                <small class="text-muted"><?=$row->ann_created_date?></small>
+                            </div>
+                        </div>
+                        <div class="social-body">
+                            <h4><?=$row->ann_title ?></h4>
   
-<p style="color:#000; font-family:arial; text-align: justify;">
-                Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text. Lorem Ipsum as their
-                default model text and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text.
-            </p>
-
-</div>
-
-
-</div>
-
-<div class="social-feed-box">
-
-       
-<div class="social-avatar">
-    <a href="" class="pull-left">
-        <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-    </a>
-    <div class="media-body">
-        <a href="#">
-            USHINZWE UMUTEKANO
-        </a>
-        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-    </div>
-</div>
-<div class="social-body">
-<h4>UBURYO BWO KWIKINGIZA URUKINGO RWA COVID-19</h4>
-<p style="color:#000; font-family:arial; text-align: justify;">
-                Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text. Lorem Ipsum as their
-                default model text and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text.
-            </p>
-  
-</div>
-
-</div>
-    <div class="social-feed-box">
-
-      
-        <div class="social-avatar">
-            <a href="" class="pull-left">
-            <img alt="image" src="./assets/img/profile4.jpg">            </a>
-            <div class="media-body">
-                <a href="#">
-                    UMUTWARASIBO
-                </a>
-                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-            </div>
-        </div>
-        <div class="social-body" style="color:#000">
-        <h4>ITANGAZO "AHO UMUGANDA UZABERA"</h4>
-                <p style="color:#000; font-family:arial; text-align: justify;">
-                Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text. Lorem Ipsum as their
-                default model text and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                default model text.
-            </p>
-            <img src="./assets/img/new2.jpg" class="img-responsive">
-            
-        </div>
-       
-
-    </div>
-   
-   
-</div>
-</div>
+                            <p style="color:#000; font-family:arial; text-align: justify;">
+                                <?=$row->ann_body?>
+                            </p>
+                        </div>
+                        <div class="social-body">
+                            <img src="<?=$row->ann_pic ?>" style="width: 300px;height: 200px;">
+                        </div>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  }else{
+                    ?>
+                    <center>Ntamatangazo ahari...</center>
+                    <?php
+                  }
+                  ?>  
+                  </div>
+                </div>
 
                     <div class="test" >
                         <div class="widget widget-activity-five">

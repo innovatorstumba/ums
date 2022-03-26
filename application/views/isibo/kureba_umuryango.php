@@ -21,31 +21,154 @@
                                                     <div class="content-section">
     
                                                         <div class="inv--head-section inv--detail-section">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-12 mr-auto">
+                                                                        <div class="d-flex float-right">
+                                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add member</button>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
                                                         
                                                             <div class="row">
-                                                            
-                                                                <div class="col-sm-6 col-12 mr-auto">
-                                                                    <div class="d-flex">
-                                                                        <img class="company-logo" src="assets/img/dadoh.png" alt="profile">
-                                                                        <h3 class="in-heading align-self-center">HAKIZIMANA Bernard.</h3>
+                                                                <?php
+                                                                $id;
+                                                                $ld;
+                                                                $count = 0;
+                                                                if($data){
+                                                                    foreach($data as $row){
+                                                                        $id = $row->ldr_leader_id;
+                                                                        $ld = $row->ldr_firstname;
+                                                                        $count++;
+                                                                        if($count==1){
+                                                                        ?>
+                                                                
+                                                                    <div class="col-sm-6 col-12 mr-auto">
+                                                                        <div class="d-flex">
+                                                                            <img class="company-logo" src="assets/img/dadoh.png" alt="profile">
+                                                                            <h3 class="in-heading align-self-center"><?=$row->ldr_lastname." ".$row->ldr_firstname?></h3>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-
-                                                                <div class="col-sm-6 text-sm-right">
-                                                                    <p class="inv-list-number"><span class="inv-title"></span> <span class="inv-number"></span></p>
-                                                                </div>
-
-                                                                <div class="col-sm-6 align-self-center mt-3">
-                                                                    <p class="inv-street-addr">Umucurizi</p>
-                                                                    <p class="inv-email-address">info@nozaax.com</p>
-                                                                    <p class="inv-email-address">+25078 456 789</p>
-                                                                </div>
-                                                               
+    
+                                                                    <div class="col-sm-6 text-sm-right">
+                                                                        <p class="inv-list-number"><span class="inv-title"></span> <span class="inv-number"></span></p>
+                                                                    </div>
+    
+                                                                    <div class="col-sm-6 align-self-center mt-3">
+                                                                        <p class="inv-street-addr">Umucurizi</p>
+                                                                        <p class="inv-email-address"><?=$row->ldr_email?></p>
+                                                                        <p class="inv-email-address"><?=$row->ldr_phone?></p>
+                                                                    </div>
+                                                                   <?php
+                                                                    }
+                                                                }
+                                                                }else{
+                                                                    foreach($family as $row){
+                                                                        $id = $row->ldr_leader_id;
+                                                                        $count++;
+                                                                        if($count==1){
+                                                                        ?>
+                                                                
+                                                                    <div class="col-sm-6 col-12 mr-auto">
+                                                                        <div class="d-flex">
+                                                                            <img class="company-logo" src="assets/img/dadoh.png" alt="profile">
+                                                                            <h3 class="in-heading align-self-center"><?=$row->ldr_lastname." ".$row->ldr_firstname?></h3>
+                                                                        </div>
+                                                                    </div>
+    
+                                                                    <div class="col-sm-6 text-sm-right">
+                                                                        <p class="inv-list-number"><span class="inv-title"></span> <span class="inv-number"></span></p>
+                                                                    </div>
+    
+                                                                    <div class="col-sm-6 align-self-center mt-3">
+                                                                        <p class="inv-street-addr">Umucurizi</p>
+                                                                        <p class="inv-email-address"><?=$row->ldr_email?></p>
+                                                                        <p class="inv-email-address"><?=$row->ldr_phone?></p>
+                                                                
+                                                                    </div>
+                                                                   <?php
+                                                                    }
+                                                                }
+                                                                }
+                                                                ?>
                                                             
                                                             </div>
                                                             
                                                         </div>
-                                                       <center> <b3 style="font-size:26px;color:black; font-weight:bold; text-align:center">    ABAGIZE UMURYANGO WA JAFAR</b3></center>
+
+                                                        <!-- The Modal -->
+                                                        <div class="modal" id="myModal">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+
+
+                                                                <form method="POST" enctype="multipart/form-data" id="msform">
+                                                                    <!-- Modal body -->
+                                                                    <div class="modal-body" class="was-validated">
+                                                                        <div class="form-group">
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                <input type="text" class="form-control" id="email" placeholder="Izina rya mbere" name="fname">
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                <input type="text" class="form-control" placeholder="Izina ry'idini" name="lname">
+                                                                                </div>
+                                                                            </div>                                                                            
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control" id="uname" placeholder="Telephone" name="tel" required>
+                                                                            <div class="valid-feedback">Valid.</div>
+                                                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control" id="uname" placeholder="Indangamuntu" name="nid" required>
+                                                                            <div class="valid-feedback">Valid.</div>
+                                                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control" id="uname" placeholder="email" name="email" required>
+                                                                            <div class="valid-feedback">Valid.</div>
+                                                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="date" class="form-control" id="uname" placeholder="Itariki y'amavuko" name="dob" required>
+                                                                            <div class="valid-feedback">Valid.</div>
+                                                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <select class="form-control"name="ins" required>
+                                                                            <?php
+                                                                                foreach($insurance as $row){
+                                                                                    ?>
+                                                                                    <option value="<?=$row->ubw_id?>"><?=$row->ubw_name?></option>
+                                                                                    <?php
+                                                                                }
+                                                                                ?>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control" id="uname" placeholder="Isano" name="isano" required>
+                                                                            <div class="valid-feedback">Valid.</div>
+                                                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="email">Igitsina:</label>
+                                                                            <input type="radio" name="sex" value="male"> <b>Gabo</b>
+                                                                            <input type="radio" name="sex" value="female"> <b>Gore</b>
+                                                                        </div>
+                                                                        <input type="hidden"  name="id" value="<?=$id?>">
+                                                                    </div>
+
+                                                                    <!-- Modal footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                        <input type="submit" name="save" class="btn btn-success" value="Bika amakuru">
+                                                                    </div>
+                                                                </form>                                                            
+
+                                                                </div>
+                                                            </div>
+                                                            </div
+                                                       <center> <b3 style="font-size:26px;color:black; font-weight:bold; text-align:center">    ABAGIZE UMURYANGO WA <?=$ld?></b3></center>
 
                                                         <div class="inv--product-table-section">
                                                             <div class="table-responsive">
@@ -57,93 +180,38 @@
                                         <th>IRANGAMUNTU</th>
                                         <th>NIMERO YA TELEPHONE</th>
                                         <th>ITALIKI Y'AMAVUKO</th>
+                                        <th>UBWISHINGIZI</th>
                                         <th>IGITSINA</th>
                                         <th>ISANO</th>
                                     </tr>
                                 </thead>
                                                                     <tbody>
-                                                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
+                                <?php
+                                $nber = 0;
+                                if($data){
+                                    foreach($data as $row)
+                                  {
+                                      $nber++;
+                                      ?>
+                                    <tr><td><?=$nber?></td>
+                                        <td><?php echo $row->mbr_lastname." ".$row->mbr_firstname; ?></td>
+                                        <td><?php echo $row->mbr_nid; ?></td>
+                                        <td><?php echo $row->mbr_phone; ?></td>
+                                        <td><?php echo $row->mbr_dob; ?></td>
+                                        <td><?php echo $row->ubw_name; ?></td>
+                                        <td><?php echo $row->mbr_gender; ?></td>
+                                        <td><?=$row->mbr_relationship?></td>
                                     </tr>
-
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
+                                  <?php
+                                  }
+                                }else{
+                                    ?>
+                                    <tr>
+                                        <td colspan="7"><center><?="no data"?></center></td>
                                     </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
-                                    <tr><td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-
-                                    </tr>
+                                    <?php
+                                }
+                                ?>
                                                                     </tbody>
                                                                 </table>
                                                             </div>
