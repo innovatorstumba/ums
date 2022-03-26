@@ -126,7 +126,7 @@
             <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#fff; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">
-                    <a class="btn btn-trans btn-icon  add-tooltip" style="color:black; background-color:#fff; box-shadow: none; margin:1px;" href="<?=base_url()?>akagari/amaduka" data-original-title="Add Photo" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-store-alt" style="font-size:28px"></span> </b></a>
+                    <a class="btn btn-trans btn-icon  add-tooltip" style="color:black; background-color:#fff; box-shadow: none; margin:1px;" href="<?=base_url()?>akagari/igikorwa/amaduka" data-original-title="Amaduka" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-store-alt" style="font-size:28px"></span> </b></a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="appSection">
 
                         </div>
@@ -154,7 +154,7 @@
                 </li>
             </ul>
 
-            <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
+            <!-- <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#fff; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">
                     <a class="btn btn-trans btn-icon add-tooltip" style="color:blue; background-color:#fff; box-shadow: none; margin:1px" href="<?=base_url()?>akagari/chat" data-original-title="Add Photo" data-toggle="tooltip"><b style="font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;"><span class="fas fa-comment-alt" style="font-size:28px; font-weight:bold"></span> </b></a>
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul> -->
             <!-- <ul class="navbar-item flex-row navbar-dropdown" style="background-color:transparent; color:#000">
                 <li class="nav-item dropdown apps-dropdown more-dropdown md-hidden" style="background-color:#F0F0F0; color:#000">
                     <div class="dropdown  custom-dropdown-icon" style="background-color:transparent; color:#fff">

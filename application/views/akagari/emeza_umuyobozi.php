@@ -189,53 +189,65 @@
 <div class="col-md-9" style="padding-right:30px" >
 <div class="col-lg-12 col-12 layout-spacing">
                             <div class="statbox widget box box-shadow">
-                                <div class="widget-header">                                
-                                    <div class="row">
-                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                            <h4 style="font-family:Sans-serif; text-align:center; text-transform:none; color:#000; font-weight:bold">UZUZA NEZA HANO IBISABWA</h4>
+                                <?php
+                                if (is_array($data)) {
+                                    foreach ($data as $key => $value) {
+                                        ?>
+                                        <div class="widget-header">                                
+                                            <div class="row">
+                                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                                    <h4 style="font-family:Sans-serif; text-align:center; text-transform:none; color:#000; font-weight:bold">UZUZA NEZA HANO IBISABWA</h4>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
-                                    <?php echo form_open_multipart(site_url('akagari/emeza_umuyobozi'));?>
-                                        <div class="form-group mb-4">
-                                            <label style="color:#000;" for="exampleFormControlInput2">NIMERO Y'IRANGAMUNTU</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" name="id" placeholder="UWATSINZE AMATORA">
+                                        <div style="color:#000; font-weight:bold" class="widget-content widget-content-area">
+                                            <?php echo form_open_multipart(site_url('akagari/emeza_umuyobozi_data'));?>
+                                                <div class="form-group mb-4">
+                                                    <label style="color:#000;" for="exampleFormControlInput2">NIMERO Y'IRANGAMUNTU</label>
+                                                    <input type="text" class="form-control" id="exampleFormControlInput2" value="<?=$value->mbr_nid?>" readonly>
+                                                    <input type="hidden" name="nid" value="<?=$value->mbr_nid?>">
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label style="color:#000;" for="exampleFormControlInput2">Amazina</label>
+                                                    <input type="text" class="form-control" id="exampleFormControlInput2" value="<?=$value->mbr_firstname." ".$value->mbr_lastname?>" readonly>
+                                                    <input type="hidden" name="fname" value="<?=$value->mbr_firstname?>">
+                                                    <input type="hidden" name="lname" value="<?=$value->mbr_lastname?>">
+                                                    <input type="hidden" name="isibo" value="<?=$value->usr_isibo?>">
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label style="color:#000;" for="exampleFormControlInput2">umudugudu</label>
+                                                    <input type="text" class="form-control" id="exampleFormControlInput2" value="<?=$value->village_name?>" readonly>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label style="color:#000;" for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
+                                                    <input type="text" class="form-control" id="exampleFormControlInput2" value="<?=$value->mbr_phone?>" readonly>
+                                                    <input type="hidden" name="tel" value="<?=$value->mbr_phone?>">
+                                                    <input type="hidden" name="vill" value="<?=$vill?>">
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label style="color:#000;" for="exampleFormControlInput2">IZINA RYO KWINJIRA</label>
+                                                    <input type="text" name="uname" class="form-control" id="exampleFormControlInput2" placeholder="jean">
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <input type="submit" value="SUZUMA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
+                                                </div>
+                                            </form>
                                         </div>
-                                        <!-- <div class="form-group mb-4">
-                                            <label style="color:#000;" for="exampleFormControlInput2">IZINA RYAMBERE</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYAMBERE">
+                                        <?php
+                                    }
+                                }else {
+                                    ?>
+                                    
+                                    <div class="widget-header">                                
+                                            <div class="row">
+                                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                                    <h4 style="font-family:Sans-serif; text-align:center; text-transform:none; color:red; font-weight:bold">NTAGO IBYANGOBWA BIRIKUBONEKA MURI SYSTEM</h4>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group mb-4">
-                                            <label style="color:#000;" for="exampleFormControlInput2">IZINA RYANYUMA</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="IZINA RYANYUMA">
-                                        </div>
-                                        <div class="form-group mb-4">
-                                            <label style="color:#000;" for="exampleFormControlInput2">NIMERO YA TELEPHONE</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="+2507865643534">
-                                        </div> -->
-                                        <div class="form-group mb-4">
-                                            <label style="color:#000;" for="exampleFormControlInput2">UMUDUGUDU</label>
-                                            <select class="mt-4 mb-4 btn btn-primary" name="village" required>
-                                                <option value="" disabled selected>HITAMO UMUDUGUDU</option>
-                                                <?php
-                                                if (is_array($data)) {
-                                                    foreach ($data as $value) {
-                                                        ?>
-                                                        <option value="<?=$value->village_code?>"><?=$value->village_name?></option>
-                                                        <?php
-                                                    }
-                                                }else {
-                                                    ?>
-                                                    <option value="">no village availabe</option>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </select>
-                                            <input type="submit" value="SUZUMA" class="mt-4 mb-4 btn btn-primary" id="exampleFormControlInput2">
-                                        </div>
-                                    </form>
-                                </div>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
 
